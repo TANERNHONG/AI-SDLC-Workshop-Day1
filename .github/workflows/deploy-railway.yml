@@ -34,19 +34,19 @@ jobs:
 
       - name: Setup Railway Project
         run: |
-          # Login to Railway
-          railway login --browserless
+          echo "🔧 Setting up Railway project..."
 
-          # Check if railway.json exists, if not create it
-          if [ ! -f "railway.json" ]; then
-            echo "Creating railway.json configuration..."
-          fi
+          # Railway CLI automatically authenticates using RAILWAY_TOKEN env var
+          # No login command needed!
 
-          # Initialize project if needed (this will create project if it doesn't exist)
-          railway init --name "${{ github.event.repository.name }}" || echo "Project already exists or linked"
+          # Check current status
+          railway status || echo "No project linked yet"
 
-          # Link to existing project or newly created one
-          railway link || echo "Already linked to project"
+          # Initialize project if needed (creates project if it doesn't exist)
+          railway init --name "${{ github.event.repository.name }}" || echo "Project already exists"
+
+          # Verify connection
+          railway status
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 

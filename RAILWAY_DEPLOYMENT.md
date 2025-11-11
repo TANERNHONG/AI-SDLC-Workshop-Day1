@@ -55,6 +55,7 @@ That's it! The workflow will automatically:
 - 📝 Infrastructure as Code (railway.toml)
 - 🔒 Only one secret needed (RAILWAY_TOKEN)
 - ⚡ Faster onboarding for team members
+- 🔑 Railway CLI authenticates automatically via environment variable (no login needed)
 
 ### 4. Deploy Your App
 
@@ -72,6 +73,8 @@ The GitHub Action will:
 - ✅ Checkout code
 - ✅ Install Node.js and dependencies
 - ✅ Build the application
+- ✅ Authenticate to Railway (using RAILWAY_TOKEN environment variable)
+- ✅ Create project if it doesn't exist
 - ✅ Deploy to Railway
 
 #### Manual Deployment (via Railway CLI)
@@ -133,6 +136,12 @@ The `railway.toml` file specifies:
 
 ## Troubleshooting
 
+### "Cannot login in non-interactive mode" error
+
+This error means the workflow tried to use `railway login` command, which doesn't work in CI/CD.
+
+**Solution:** The Railway CLI automatically authenticates using the `RAILWAY_TOKEN` environment variable. No login command is needed! The latest workflow has been updated to remove the login step.
+
 ### Deployment fails with "RAILWAY_TOKEN not found" or authentication errors
 
 **Solution:**
@@ -144,6 +153,8 @@ The `railway.toml` file specifies:
    - Go to Railway Dashboard → Account Settings → Tokens
    - Create a new token with appropriate permissions
    - Update the GitHub secret with the new token
+
+3. **Important**: When the `RAILWAY_TOKEN` environment variable is set, Railway CLI uses it automatically for authentication. No `railway login` command is required!
 
 ### Deployment succeeds but app doesn't work
 
