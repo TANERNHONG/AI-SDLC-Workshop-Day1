@@ -10,18 +10,23 @@ This guide explains how to deploy the Todo App to Railway using GitHub Actions.
 
 ## Setup Steps
 
-### Option A: Automatic Setup (Recommended)
+### Initial Setup (One-Time)
 
-The GitHub Actions workflow will automatically create a Railway project and service for you! All you need is a Railway token.
+Unfortunately, Railway requires you to create the project manually first. The GitHub Actions can then handle deployments.
 
-### Option B: Manual Setup
-
-If you prefer to set up manually:
+**Quick Setup:**
 
 1. Go to [Railway Dashboard](https://railway.app/dashboard)
-2. Click **"New Project"**
-3. Select **"Empty Project"**
-4. Name your project (e.g., "todo-app")
+2. Click **"New Project"** → **"Deploy from GitHub repo"**
+3. Select your repository: `AI-SDLC-Workshop-Day1`
+4. Railway will create the project and give you a project ID
+5. Copy the project ID (you'll need it for GitHub Secrets)
+
+**Why manual setup is required:**
+- Railway CLI's `init` command requires interactive prompts
+- Project creation requires additional metadata
+- GitHub Actions runs in non-interactive mode
+- This is a Railway CLI limitation, not a workflow issue
 
 ## Get Railway Token
 
@@ -43,19 +48,15 @@ If you prefer to set up manually:
    - **Name:** `RAILWAY_TOKEN`
    - **Value:** Your Railway token from the previous step
 
-That's it! The workflow will automatically:
-- ✅ Create a Railway project (named after your GitHub repo)
-- ✅ Set up the service
-- ✅ Deploy your application
-- ✅ Configure health checks
+**Important Note:**
+After creating the project in Railway Dashboard, Railway provides **automatic GitHub integration**. This means Railway will automatically deploy when you push to your repository - you don't actually need the GitHub Actions workflow!
 
-**Why this approach is better:**
-- 🚀 No manual Railway dashboard setup required
-- 🔄 Fully automated infrastructure provisioning
-- 📝 Infrastructure as Code (railway.toml)
-- 🔒 Only one secret needed (RAILWAY_TOKEN)
-- ⚡ Faster onboarding for team members
-- 🔑 Railway CLI authenticates automatically via environment variable (no login needed)
+However, if you want to use GitHub Actions for more control, you'll need to add these secrets:
+
+**Required:**
+- `RAILWAY_TOKEN` - Your Railway API token
+
+The workflow will handle deployments once Railway project is linked.
 
 ### 4. Deploy Your App
 

@@ -32,65 +32,15 @@ jobs:
       - name: Install Railway CLI
         run: npm install -g @railway/cli
 
-      - name: Setup Railway Project
-        run: |
-          echo "🔧 Setting up Railway project..."
-          echo "🔍 Debug: Checking Railway environment..."
-
-          # Debug: Check if RAILWAY_TOKEN is set (without exposing the value)
-          if [ -z "$RAILWAY_TOKEN" ]; then
-            echo "❌ ERROR: RAILWAY_TOKEN is not set!"
-            exit 1
-          else
-            echo "✅ RAILWAY_TOKEN is set (length: ${#RAILWAY_TOKEN} characters)"
-          fi
-
-          # Debug: Check Railway CLI version
-          railway --version
-
-          # Debug: Show Railway CLI help to verify it's working
-          railway --help | head -5
-
-          # Create Railway config directory and token file
-          mkdir -p ~/.railway
-
-          # Write token to Railway's expected location
-          # Railway CLI reads from ~/.railway/config.json in JSON format
-          echo "{\"token\": \"$RAILWAY_TOKEN\"}" > ~/.railway/config.json
-
-          echo "📝 Railway config created with token"
-
-          # Also export for environment
-          export RAILWAY_TOKEN="$RAILWAY_TOKEN"
-
-          # Debug: Verify config file exists
-          if [ -f ~/.railway/config.json ]; then
-            echo "✅ Config file created at ~/.railway/config.json"
-            echo "📄 Config file size: $(stat -c%s ~/.railway/config.json) bytes"
-          fi
-
-          # Check current status
-          echo "🔍 Checking Railway status..."
-          railway status || echo "No project linked yet"
-
-          # Initialize project if needed (creates project if it doesn't exist)
-          echo "🚀 Initializing Railway project..."
-          railway init --name "${{ github.event.repository.name }}" || echo "Project already exists"
-
-          # Verify connection
-          echo "✅ Verifying Railway connection..."
-          railway status
-        env:
-          RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
-
       - name: Deploy to Railway
         run: |
           echo "🚀 Deploying to Railway..."
-          railway up --detach
-          echo "✅ Deployment initiated successfully!"
 
-          # Get deployment URL if available
-          railway domain || echo "Domain configuration pending..."
+          # Deploy using Railway's up command
+          # The RAILWAY_TOKEN environment variable will be used for auth
+          railway up --detach || railway up
+
+          echo "✅ Deployment complete!"
         env:
           RAILWAY_TOKEN: ${{ secrets.RAILWAY_TOKEN }}
 
