@@ -10,14 +10,20 @@ This guide explains how to deploy the Todo App to Railway using GitHub Actions.
 
 ## Setup Steps
 
-### 1. Create a Railway Project
+### Option A: Automatic Setup (Recommended)
+
+The GitHub Actions workflow will automatically create a Railway project and service for you! All you need is a Railway token.
+
+### Option B: Manual Setup
+
+If you prefer to set up manually:
 
 1. Go to [Railway Dashboard](https://railway.app/dashboard)
 2. Click **"New Project"**
 3. Select **"Empty Project"**
 4. Name your project (e.g., "todo-app")
 
-### 2. Get Railway Token
+## Get Railway Token
 
 1. In Railway Dashboard, click on your profile icon (top right)
 2. Go to **"Account Settings"**
@@ -26,21 +32,29 @@ This guide explains how to deploy the Todo App to Railway using GitHub Actions.
 5. Give it a name (e.g., "GitHub Actions Deploy")
 6. Copy the generated token (you'll need this for GitHub Secrets)
 
-### 3. Configure GitHub Secrets
+### Configure GitHub Secrets
 
 1. Go to your GitHub repository
 2. Navigate to **Settings** → **Secrets and variables** → **Actions**
 3. Click **"New repository secret"**
-4. Add the following secrets:
+4. Add the following secret:
 
    **Required:**
    - **Name:** `RAILWAY_TOKEN`
-   - **Value:** Your Railway token from step 2
+   - **Value:** Your Railway token from the previous step
 
-   - **Name:** `RAILWAY_SERVICE_NAME`
-   - **Value:** Your Railway service name (e.g., `todo-app`)
-     - Find this in Railway Dashboard → Your Project → Service → Settings → Service ID
-     - Or use the service name you created
+That's it! The workflow will automatically:
+- ✅ Create a Railway project (named after your GitHub repo)
+- ✅ Set up the service
+- ✅ Deploy your application
+- ✅ Configure health checks
+
+**Why this approach is better:**
+- 🚀 No manual Railway dashboard setup required
+- 🔄 Fully automated infrastructure provisioning
+- 📝 Infrastructure as Code (railway.toml)
+- 🔒 Only one secret needed (RAILWAY_TOKEN)
+- ⚡ Faster onboarding for team members
 
 ### 4. Deploy Your App
 
@@ -102,41 +116,49 @@ The deployment workflow (`.github/workflows/deploy-railway.yml`) is configured t
 
 - **Trigger on:** Push to `main` or `solution` branches, or manual workflow dispatch
 - **Build:** Install dependencies and build the Next.js app
-- **Deploy:** Use Railway CLI to deploy the application
-- **Environment:** Uses `RAILWAY_TOKEN` from GitHub Secrets
+- **Setup:** Automatically creates Railway project if it doesn't exist
+- **Deploy:** Uses Railway CLI to deploy the application
+- **Environment:** Only requires `RAILWAY_TOKEN` secret
+- **Infrastructure as Code:** Project configuration stored in `railway.toml`
 
 ## Railway Configuration
 
-The `railway.json` file specifies:
+The `railway.toml` file specifies:
 
 - **Builder:** NIXPACKS (automatic detection)
 - **Build Command:** `npm ci && npm run build`
 - **Start Command:** `npm start`
 - **Restart Policy:** ON_FAILURE with max 10 retries
+- **Health Check:** Checks `/api/auth/me` endpoint every 30 seconds
 
 ## Troubleshooting
 
-### Deployment fails with "Project Token not found"
-
-This is the most common error! It means Railway CLI can't identify which project to deploy to.
+### Deployment fails with "RAILWAY_TOKEN not found" or authentication errors
 
 **Solution:**
-1. Make sure you've added **both** required secrets to GitHub:
-   - `RAILWAY_TOKEN` (your Railway API token)
-   - `RAILWAY_SERVICE_NAME` (your service name or ID)
+1. Verify you've added the `RAILWAY_TOKEN` secret to GitHub:
+   - Go to GitHub → Settings → Secrets and variables → Actions
+   - Check that `RAILWAY_TOKEN` exists and has the correct value
 
-2. Verify your Railway service exists:
-   - Go to Railway Dashboard
-   - Check that your project and service are created
-   - Copy the exact service name
+2. Generate a new Railway token if needed:
+   - Go to Railway Dashboard → Account Settings → Tokens
+   - Create a new token with appropriate permissions
+   - Update the GitHub secret with the new token
 
-3. Check the GitHub Actions workflow is using the official Railway action:
-   - The workflow should use `railwayapp/railway-deploy-action@v1`
-   - Not the manual CLI installation
+### Deployment succeeds but app doesn't work
 
-### Deployment fails with "RAILWAY_TOKEN not found"
+**Solution:**
+1. Check Railway logs in the Railway Dashboard → Deployments
+2. Verify environment variables are set (if your app requires any)
+3. Check that the health check endpoint is accessible
+4. Ensure the database connection is configured correctly
 
-**Solution:** Make sure you've added the `RAILWAY_TOKEN` secret to GitHub repository secrets.
+### "Project already exists" warning
+
+This is normal! The workflow checks if a project exists before creating one. If you see this message, it means:
+- ✅ Your project is already set up
+- ✅ The workflow is proceeding with deployment
+- ✅ No action needed
 
 ### Build fails during npm install
 
