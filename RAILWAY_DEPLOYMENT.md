@@ -1,6 +1,12 @@
 # Railway Deployment Guide
 
-This guide explains how to deploy the Todo App to Railway using GitHub Actions.
+⚠️ **IMPORTANT: This guide covers GitHub Actions deployment, which is complex and problematic.**
+
+**👉 For a much simpler approach, see [RAILWAY_SIMPLE_SETUP.md](./RAILWAY_SIMPLE_SETUP.md) - Uses Railway's built-in GitHub integration (recommended!)**
+
+---
+
+This guide explains how to deploy the Todo App to Railway using GitHub Actions (advanced users only).
 
 ## Prerequisites
 
