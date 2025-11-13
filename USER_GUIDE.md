@@ -1,1924 +1,1847 @@
-# Todo App - Comprehensive User Guide
+# MQL5 Expert Advisor Builder - Comprehensive User Guide
 
 ## Table of Contents
-1. [Authentication](#1-authentication)
-2. [Creating Todos](#2-creating-todos)
-3. [Priority Levels](#3-priority-levels)
-4. [Due Dates & Time Management](#4-due-dates--time-management)
-5. [Recurring Todos](#5-recurring-todos)
-6. [Reminders & Notifications](#6-reminders--notifications)
-7. [Subtasks & Checklists](#7-subtasks--checklists)
-8. [Tags & Categories](#8-tags--categories)
-9. [Todo Templates](#9-todo-templates)
-10. [Search & Advanced Filtering](#10-search--advanced-filtering)
-11. [Export & Import](#11-export--import)
-12. [Calendar View](#12-calendar-view)
-13. [Managing Todos](#13-managing-todos)
-14. [Dark Mode](#14-dark-mode)
-15. [Tips & Best Practices](#tips--best-practices)
-16. [Troubleshooting](#troubleshooting)
+1. [Getting Started](#1-getting-started)
+2. [Dashboard Layout](#2-dashboard-layout)
+3. [Code Snippet Library](#3-code-snippet-library)
+4. [Drag-and-Drop Functionality](#4-drag-and-drop-functionality)
+5. [Library Tabs Management](#5-library-tabs-management)
+6. [Adding Custom Code Snippets](#6-adding-custom-code-snippets)
+7. [Code Block Organization](#7-code-block-organization)
+8. [Utilities Tab](#8-utilities-tab)
+9. [Indicators Tab](#9-indicators-tab)
+10. [Pre-made Functions Tab](#10-pre-made-functions-tab)
+11. [Code Preview](#11-code-preview)
+12. [Saving Expert Advisors](#12-saving-expert-advisors)
+13. [Best Practices](#13-best-practices)
+14. [Troubleshooting](#troubleshooting)
 
 ---
 
-## 1. Authentication
+## 1. Getting Started
 
 ### What It Does
-The app uses modern **WebAuthn/Passkeys** authentication for secure, passwordless access to your todos.
+The MQL5 Expert Advisor Builder is a visual drag-and-drop dashboard that allows you to assemble fully functioning Expert Advisors (EAs) for MetaTrader 5 without writing code from scratch. Build sophisticated trading bots by combining pre-built code snippets.
 
 ### How to Use
-- **Register**: Enter a username and use your device's biometric authentication (fingerprint, face ID) or security key
-- **Login**: Select your username and authenticate with your passkey
-- **Logout**: Click the "Logout" button in the top-right corner
-
-### Benefits
-- ✅ No passwords to remember
-- ✅ More secure than traditional passwords
-- ✅ Works across devices with passkey sync
-- ✅ Uses Singapore timezone for all date/time operations
-
----
-
-## 2. Creating Todos
-
-### What It Does
-Create tasks with titles, due dates, priorities, and additional features.
-
-### How to Use
-1. Enter your todo title in the main input field
-2. Select a priority level (High/Medium/Low)
-3. Optionally set a due date and time
-4. Click **"Add"** to create the todo
+1. Access the dashboard through your web browser
+2. Browse the code snippet library on the right side
+3. Drag code blocks to the workspace on the left
+4. Arrange blocks in the correct execution order
+5. Preview the assembled code
+6. Save your Expert Advisor as a .txt file
 
 ### Key Features
-- Todos are automatically sorted by priority and due date
-- All dates/times use **Singapore timezone**
-- Minimum due date is 1 minute in the future
-- Title is required (cannot be empty or whitespace)
-
-### Form Location
-Found at the top of the main page with:
-- Text input for title
-- Priority dropdown
-- Date-time picker
-- Add button
+- ✅ Visual drag-and-drop interface
+- ✅ Pre-built MQL5 code snippets
+- ✅ Custom snippet creation
+- ✅ Multiple organized library tabs
+- ✅ Real-time code assembly
+- ✅ Code preview before saving
+- ✅ Export as .txt for MetaEditor
 
 ---
 
-## 3. Priority Levels
+## 2. Dashboard Layout
 
 ### What It Does
-Organize todos by importance with three priority levels, each with distinct color coding.
+The dashboard is divided into two main sections for efficient workflow: a workspace on the left and a code library on the right.
 
-### Priority Types
+### Dashboard Sections
 
-| Priority | Color | Use Case |
-|----------|-------|----------|
-| **High** | 🔴 Red | Urgent, critical tasks |
-| **Medium** | 🟡 Yellow | Standard tasks (default) |
-| **Low** | 🔵 Blue | Less urgent tasks |
+| Section | Location | Purpose |
+|---------|----------|---------|
+| **Workspace** | Left side | Drop zone for assembling code blocks |
+| **Code Library** | Right side | Browse and select code snippets |
+| **Bottom Bar** | Bottom | Preview and save functions |
 
-### How to Use
-- Select priority when creating a todo using the dropdown menu
-- Todos are automatically sorted with high priority tasks appearing first
-- Change priority by editing the todo
-- Filter todos by priority using the priority filter dropdown
+### Workspace (Left Side)
 
-### Visual Indicators
-- Each priority level has unique color-coded badges
-- Badge appears next to todo title in all views
-- Colors adapt automatically in dark mode
-- Overdue section maintains priority badges
+#### Purpose
+- Main area for building your Expert Advisor
+- Drag code blocks here from the library
+- Arrange blocks in execution order
+- Vertical stacking of code snippets
+- Visual representation of your EA structure
+
+#### Features
+- Large drop zone for code blocks
+- Visual feedback when dragging
+- Automatic scrolling for long code sequences
+- Block reordering capability
+- Delete functionality for each block
+
+### Code Library (Right Side)
+
+#### Purpose
+- Repository of all available code snippets
+- Organized by category in tabs
+- Source for drag-and-drop blocks
+- Custom snippet management
+
+#### Features
+- Tabbed interface for organization
+- Toggle between different categories
+- Search functionality (if implemented)
+- Expandable/collapsible sections
+- Add custom snippets interface
+
+### Bottom Bar
+
+#### Purpose
+- Control panel for final operations
+- Preview assembled code
+- Save Expert Advisor file
+- Export functionality
+
+#### Features
+- **Preview Button**: View complete assembled code
+- **Save Button**: Export as .txt file
+- **Status Indicators**: Show file readiness
+- **Error Notifications**: Alert to issues
 
 ---
 
-## 4. Due Dates & Time Management
+## 3. Code Snippet Library
 
 ### What It Does
-Set specific date and time deadlines for your todos with intelligent time-based displays.
+Provides a comprehensive collection of pre-built MQL5 code snippets organized into logical categories for easy access and reusability.
 
-### How to Use
-1. Click the **date-time picker** when creating/editing a todo
-2. Select date and time (must be in the future)
-3. The system enforces **Singapore timezone**
-4. Leave blank if no due date needed
+### Library Structure
 
-### Smart Time Display
+The library is organized into tabs, each containing related code snippets:
 
-The app shows different formats based on urgency:
+#### Default Tabs
+1. **Utilities**: Helper functions, calculations, conversions
+2. **Indicators**: Technical indicators, signals, analysis
+3. **Pre-made Functions**: Complete trading logic blocks
 
-| Time Until Due | Display Format | Color |
-|----------------|----------------|-------|
-| Overdue | "X days/hours/minutes overdue" | 🔴 Red |
-| < 1 hour | "Due in X minutes" | 🔴 Red |
-| < 24 hours | "Due in X hours (timestamp)" | 🟠 Orange |
-| < 7 days | "Due in X days (timestamp)" | 🟡 Yellow |
-| 7+ days | Full timestamp | 🔵 Blue |
+### Visual Design
 
-### Overdue Tracking
-- Overdue todos appear in a separate **"Overdue"** section with red background
-- Warning icon (⚠️) highlights overdue items
-- Counter shows total overdue items: "Overdue (X)"
-- Automatic calculation based on Singapore time
-- Updates in real-time
+#### Snippet Blocks
+- **Solid Border**: Indicates draggable code snippet
+- **Title Bar**: Shows snippet name
+- **Description**: Brief explanation of functionality
+- **Drag Handle**: Icon indicating draggability
+- **Syntax Highlighting**: Color-coded for readability
+
+#### Example Block Layout
+```
+┌─────────────────────────────────┐
+│ 📋 Calculate Lot Size           │ ← Title
+├─────────────────────────────────┤
+│ Calculates position size based  │ ← Description
+│ on account balance and risk %   │
+└─────────────────────────────────┘
+```
+
+### Snippet Information
+
+Each code block displays:
+- **Name**: Clear identifier (e.g., "Moving Average Crossover")
+- **Category**: Tab it belongs to (Utilities/Indicators/Functions)
+- **Parameters**: Input variables required
+- **Return Type**: What the function returns
+- **Dependencies**: Other snippets it requires
 
 ---
 
-## 5. Recurring Todos
+## 4. Drag-and-Drop Functionality
 
 ### What It Does
-Automatically create repeating tasks on a schedule (daily, weekly, monthly, or yearly).
-
-### How to Use
-1. Check the **"Repeat"** checkbox when creating a todo
-2. Select recurrence pattern from dropdown:
-   - **Daily**: Repeats every day
-   - **Weekly**: Repeats every 7 days
-   - **Monthly**: Repeats on the same date next month
-   - **Yearly**: Repeats annually
-3. **Set a due date** (required for recurring todos)
-4. When you complete the recurring todo, a new instance is automatically created for the next occurrence
-
-### Visual Indicators
-- Recurring todos display a **🔄 badge** with the pattern (e.g., "🔄 weekly")
-- Purple badge with border in light mode
-- Adapted colors for dark mode visibility
-
-### How It Works
-- Next occurrence maintains the same settings:
-  - Same priority level
-  - Same reminder timing
-  - Same recurrence pattern
-  - Same tags (if any)
-- Due date automatically calculated based on pattern
-- New instance only created when current one is marked complete
-
-### Use Cases
-- Daily habits (exercise, medication)
-- Weekly meetings or reports
-- Monthly bill payments
-- Yearly reviews or renewals
-
----
-
-## 6. Reminders & Notifications
-
-### What It Does
-Receive browser notifications before your todos are due to stay on top of deadlines.
-
-### How to Enable
-1. Click **"🔔 Enable Notifications"** button (orange, top-right)
-2. Grant browser notification permission when prompted
-3. Once enabled, button shows **"🔔 Notifications On"** (green badge)
-
-### Setting Reminders
-
-When creating or editing a todo with a due date:
-
-1. Use the **"Reminder"** dropdown
-2. Select timing:
-   - 15 minutes before
-   - 30 minutes before
-   - 1 hour before
-   - 2 hours before
-   - 1 day before
-   - 2 days before
-   - 1 week before
-3. Select "None" to remove reminder
-
-### Requirements
-- ⚠️ Todo must have a due date
-- ⚠️ Reminder field disabled if no due date set
-- ⚠️ Browser must support notifications
-- ⚠️ Permission must be granted
-
-### Visual Indicators
-Todos with reminders show a **🔔 badge** with abbreviated time:
-- `🔔 15m` - 15 minutes
-- `🔔 30m` - 30 minutes
-- `🔔 1h` - 1 hour
-- `🔔 2h` - 2 hours
-- `🔔 1d` - 1 day
-- `🔔 2d` - 2 days
-- `🔔 1w` - 1 week
-
-### How It Works
-- System checks every minute for pending reminders
-- Notification sent when reminder time arrives
-- Each reminder only sent once (tracked via `last_notification_sent`)
-- Notifications persist until acknowledged
-- Works even if browser tab is in background
-
----
-
-## 7. Subtasks & Checklists
-
-### What It Does
-Break down complex todos into smaller, manageable subtasks with real-time progress tracking.
+Intuitive drag-and-drop system for assembling your Expert Advisor by moving code snippets from the library to the workspace.
 
 ### How to Use
 
-#### Creating Subtasks
-1. Click **"▶ Subtasks"** button on any todo to expand
-2. Enter subtask title in the input field
-3. Press **Enter** or click **"Add"** to create
-4. Repeat for additional subtasks
+#### Dragging a Snippet
+1. **Locate** the desired code snippet in the library (right side)
+2. **Click and Hold** on the snippet block
+3. **Drag** the block toward the workspace (left side)
+4. **Position** the block where you want it in the sequence
+5. **Release** to drop the block into place
 
-#### Managing Subtasks
-- **Complete**: Click checkbox next to subtask
-- **Uncomplete**: Click checked checkbox to mark incomplete
-- **Delete**: Click **✕** button on right side of subtask
-- **Collapse**: Click **"▼ Subtasks"** to hide subtask list
+#### Visual Feedback
 
-### Progress Tracking
+**While Dragging**:
+- 🖱️ Cursor changes to indicate drag mode
+- 📦 Snippet block follows mouse pointer
+- 🎯 Drop zones highlight when hovering
+- 📍 Insertion indicator shows placement
 
-#### Visual Progress Bar
-- Shows completion percentage (0-100%)
-- Blue progress bar updates in real-time
-- Located below todo title
-- Visible even when subtasks are collapsed
+**On Hover Over Workspace**:
+- Highlighted drop zone (light blue/green background)
+- Dotted line showing insertion point
+- Adjacent blocks shift to show space
+- Invalid drop zones grayed out (if any)
 
-#### Text Indicator
-- Format: `"X/Y subtasks"`
-- Shows completed count / total count
-- Example: `"3/7 subtasks"` = 42% complete
+**On Successful Drop**:
+- ✅ Block appears in workspace
+- ✅ Blocks re-arrange automatically
+- ✅ Smooth animation
+- ✅ Original snippet remains in library (copy operation)
 
-### Features
-- ✅ Unlimited subtasks per todo
-- ✅ Subtasks maintain their order (position-based)
-- ✅ Included in search functionality
-- ✅ CASCADE delete (all subtasks removed when parent deleted)
-- ✅ Independent completion (subtask completion doesn't affect parent)
-- ✅ Real-time progress updates
+### Workspace Management
 
-### Use Cases
-- Multi-step projects
-- Meeting agendas with action items
-- Shopping lists
-- Recipe steps
-- Onboarding checklists
-- Project milestones
+#### Arranging Blocks
+- **Reorder**: Drag existing blocks up or down
+- **Insert Between**: Drop between existing blocks
+- **Top/Bottom**: Drop at start or end of sequence
+- **Auto-spacing**: Blocks automatically space evenly
+
+#### Removing Blocks
+1. Locate the block you want to remove
+2. Click the **✕** button (top-right of block)
+3. Block removed immediately
+4. Surrounding blocks shift to fill gap
+5. No confirmation needed (can re-add from library)
+
+### Drag Behavior
+
+#### Valid Drop Zones
+- ✅ Empty workspace (first block)
+- ✅ Between existing blocks
+- ✅ Before first block
+- ✅ After last block
+
+#### Invalid Operations
+- ❌ Cannot drop outside workspace
+- ❌ Cannot drop on bottom bar
+- ❌ Cannot drop snippet on itself
+
+### Multi-Block Operations
+
+#### Copying vs. Moving
+- **From Library to Workspace**: COPY (snippet stays in library)
+- **Within Workspace**: MOVE (block relocates)
+- **From Workspace to Library**: Not supported (use custom snippets)
+
+#### Unlimited Usage
+- Use same snippet multiple times
+- Each instance is independent
+- Modify parameters per instance
+- No limit on workspace blocks
 
 ---
 
-## 8. Tags & Categories
+## 5. Library Tabs Management
 
 ### What It Does
-Organize todos with custom color-coded labels for better categorization and filtering.
+Organize your code snippets into custom categories using a tabbed interface with the ability to create, rename, and manage tabs.
 
-### Managing Tags
+### Default Tabs
 
-#### Creating Tags
-1. Click **"+ Manage Tags"** button (near todo form)
-2. In the modal:
-   - Enter tag name in text field
-   - Select color using color picker or enter hex code
-   - Click **"Create Tag"**
-3. Tag appears in your tag list immediately
+The application comes with three pre-configured tabs:
 
-#### Editing Tags
-1. Open tag management modal
-2. Click **"Edit"** button next to any tag
-3. Modify name and/or color
-4. Click **"Update"**
-5. Changes reflect on all todos using that tag
+| Tab Name | Purpose | Example Contents |
+|----------|---------|------------------|
+| **Utilities** | Helper functions, calculations | Lot size calculator, time filters, trailing stop |
+| **Indicators** | Technical analysis tools | MA, RSI, MACD, Bollinger Bands |
+| **Pre-made Functions** | Complete logic blocks | Entry logic, exit logic, risk management |
 
-#### Deleting Tags
-1. Open tag management modal
-2. Click **"Delete"** button next to tag
-3. Confirm deletion
-4. Tag removed from all todos (CASCADE delete)
+### Creating New Tabs
 
-### Using Tags on Todos
+#### How to Create
+1. Locate the **+ button** in the tab bar (right side of tabs)
+2. Click the **+** button
+3. Modal/prompt appears requesting tab details:
+   - **Tab Name**: Enter descriptive name (required)
+   - **Description**: Purpose of the tab (optional)
+   - **Icon**: Select icon or emoji (optional)
+4. Click **"Create"** to finalize
+5. New tab appears in tab bar
 
-#### When Creating Todos
-1. View tags section below todo form (if tags exist)
-2. Click tag pills to select/deselect
-3. Selected tags show:
-   - ✓ Checkmark
-   - Colored background
-   - White text
-4. Unselected tags show:
-   - No checkmark
-   - White/gray background
-   - Gray border
-5. Multiple tags can be selected
+#### Tab Naming Best Practices
+- Use clear, descriptive names (e.g., "Order Management")
+- Keep names short (15 characters or less)
+- Use categories meaningful to your workflow
+- Examples:
+  - "Risk Management"
+  - "Entry Signals"
+  - "Exit Strategies"
+  - "Position Sizing"
+  - "Time Filters"
 
-#### When Editing Todos
-1. Click **"Edit"** on a todo
-2. Tag selection appears in edit modal
-3. Toggle tags on/off
+### Tab Navigation
+
+#### Switching Between Tabs
+1. Click on any tab name in the tab bar
+2. Active tab highlights (colored background)
+3. Library content changes to show tab's snippets
+4. Previous tab content hidden
+5. Smooth transition animation
+
+#### Tab Indicators
+- **Active Tab**: Bold text, colored background
+- **Inactive Tab**: Normal text, neutral background
+- **Tab Count**: Badge showing number of snippets (if implemented)
+- **+ Tab**: Always visible at the end
+
+### Managing Existing Tabs
+
+#### Renaming Tabs
+1. **Right-click** on tab name (or click edit icon)
+2. **Edit** modal appears with current name
+3. **Change** name as needed
 4. Click **"Update"** to save
+5. Tab name updates in tab bar
 
-### Filtering by Tags
-1. Use **"All Tags"** dropdown in filter section
-2. Select a tag to show only todos with that tag
-3. Tag filter combines with other filters (search, priority, dates)
-4. Select "All Tags" to clear tag filter
+#### Deleting Tabs
+1. **Right-click** on tab name (or click ✕ icon)
+2. **Confirmation** dialog appears
+3. Warning: "Delete tab and all its snippets?"
+4. Click **"Delete"** to confirm
+5. Tab and its custom snippets removed
 
-### Visual Display
-- Tags appear as **colored pills** on todos
-- Tag names in **white text** on colored background
-- Rounded full shape for visual appeal
-- Positioned after priority and recurrence badges
-- Visible in all sections (Overdue, Pending, Completed)
+**Important Notes**:
+- ⚠️ Default tabs (Utilities, Indicators, Pre-made Functions) cannot be deleted
+- ⚠️ Deleting a tab removes all custom snippets within it
+- ⚠️ Does NOT affect blocks already in workspace
+- ⚠️ Action cannot be undone
 
-### Tag Features
-- 🔐 User-specific (each user has their own tags)
-- 📌 Unique names per user (no duplicate names)
-- 🔄 CASCADE delete (removing tag updates all todos)
-- ⚡ Real-time updates across all todos
-- 🎨 Custom colors with hex code support
-- 📱 Responsive display (wraps on mobile)
+#### Reordering Tabs
+1. **Drag** tab name left or right in tab bar
+2. **Drop** in desired position
+3. Tab order updates
+4. Custom preference saved (if implemented)
 
-### Tag Management Modal
-- **Default color**: `#3B82F6` (blue)
-- **Color picker**: Standard HTML color input
-- **Hex input**: Manual entry supported
-- **Tag list**: Shows all your tags with actions
-- **Dark mode**: Fully supported
+### Custom Tab Organization
+
+#### Use Cases for Custom Tabs
+
+**By Strategy Type**:
+- "Scalping Functions"
+- "Swing Trading"
+- "Grid Systems"
+- "Martingale Logic"
+
+**By Trading Concept**:
+- "Breakout Detection"
+- "Trend Following"
+- "Mean Reversion"
+- "News Trading"
+
+**By Functionality**:
+- "Trade Management"
+- "Money Management"
+- "Notification System"
+- "Debugging Tools"
+
+**By Asset Class**:
+- "Forex Specific"
+- "Crypto Tools"
+- "Index Trading"
+- "Commodity Functions"
+
+### Tab Persistence
+
+#### Storage
+- Tab configuration saved to browser localStorage
+- Persists across sessions
+- Survives page refresh
+- User-specific (per browser)
+
+#### Backup
+- Export tab configuration (if implemented)
+- Includes tab names and structure
+- Does not include snippet code
+- Restore on new device/browser
 
 ---
 
-## 9. Todo Templates
+## 6. Adding Custom Code Snippets
 
 ### What It Does
-Save frequently used todo patterns as reusable templates for instant creation of common tasks.
+Create and save your own reusable MQL5 code snippets that integrate seamlessly with the pre-built library.
 
-### Creating Templates
+### Adding a Custom Snippet
 
-#### From Todo Form
-1. Fill out the todo form with:
-   - Title
-   - Priority
-   - Recurrence settings (if applicable)
-   - Reminder timing (if applicable)
-2. Click **"💾 Save as Template"** button (appears when title is filled)
-3. Enter template details in modal:
-   - **Name**: Template identifier (required)
-   - **Description**: Purpose/details (optional)
-   - **Category**: Group similar templates (optional)
-4. Click **"Save Template"**
-5. Template saved to your library
+#### Location
+- Navigate to any library tab
+- Scroll to the bottom of the snippet list
+- Find the **dotted border box** with **"+ Add Custom Snippet"** text
 
-### Using Templates
+#### Visual Indicator
+```
+┌ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┐
+│                               │
+│  + Add Custom Snippet         │ ← Dotted border
+│                               │
+└ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ─ ┘
+```
 
-#### Quick Use from Dropdown
-1. In todo form, find **"Use Template"** dropdown
-2. Select a template from the list
-3. Todo created **instantly** with template settings
-4. Templates show category in parentheses if set
-   - Example: `"Weekly Review (Work)"`
+#### How to Add
 
-#### From Template Manager
-1. Click **"📋 Templates"** button (top navigation)
-2. Browse all saved templates
-3. Click **"Use"** button on any template
-4. Todo created immediately
-5. Modal closes automatically
+**Step 1: Click Add Box**
+1. Click on the dotted border box
+2. Modal opens: "Create Custom Snippet"
+3. Form fields appear
 
-### Managing Templates
+**Step 2: Fill in Details**
+- **Snippet Name** (required): Descriptive identifier
+  - Example: "Custom Fibonacci Retracement"
+- **Description** (optional): What the snippet does
+  - Example: "Calculates Fib levels from recent swing high/low"
+- **Code** (required): MQL5 code block
+  - Paste or type your code
+  - Syntax highlighting (if supported)
+  - Multi-line text area
+- **Category** (auto-selected): Current tab
+  - Can change via dropdown
+- **Parameters** (optional): List input variables
+  - Helps with documentation
 
-#### Template Manager Modal
-Access via **"📋 Templates"** button to:
-- View all templates in a list
-- See template details (name, description, category)
-- Preview settings (priority, recurrence)
-- Use templates with one click
-- Delete templates no longer needed
+**Step 3: Validate Code**
+- Optional syntax check (if implemented)
+- Validates basic MQL5 syntax
+- Checks for common errors
+- Provides feedback
 
-#### Template Information Display
-Each template shows:
-- **Name** (bold, prominent)
-- **Description** (if provided)
-- **Category** (if provided) - color-coded badge
-- **Priority** - color-coded badge
-- **Recurrence** - 🔄 badge if recurring
-- **Pattern** - recurrence frequency
-- **Reminder** - 🔔 badge if set
+**Step 4: Save**
+1. Click **"Save Snippet"** button
+2. Validation runs
+3. Snippet added to current tab
+4. Appears with solid border like pre-built snippets
+5. Immediately usable via drag-and-drop
 
-#### Deleting Templates
-1. In template modal, click **"Delete"** on any template
-2. Confirm deletion
-3. Template removed from library
-4. **Does NOT affect existing todos** created from template
+### Custom Snippet Form
 
-### What's Saved in Templates
+#### Required Fields
+```
+┌─────────────────────────────────────┐
+│ Create Custom Snippet               │
+├─────────────────────────────────────┤
+│ Name: [________________]            │
+│                                     │
+│ Description (optional):             │
+│ [________________________________]  │
+│                                     │
+│ Code:                               │
+│ ┌─────────────────────────────────┐ │
+│ │ // Your MQL5 code here          │ │
+│ │ double CalculateCustom() {      │ │
+│ │    // ...                       │ │
+│ │ }                               │ │
+│ └─────────────────────────────────┘ │
+│                                     │
+│ Category: [Utilities ▼]             │
+│                                     │
+│ [Cancel]  [Save Snippet]            │
+└─────────────────────────────────────┘
+```
 
-Templates preserve:
-- ✅ Todo title (as title_template)
-- ✅ Priority level (high/medium/low)
-- ✅ Recurrence settings (enabled/disabled)
-- ✅ Recurrence pattern (daily/weekly/monthly/yearly)
-- ✅ Reminder timing (minutes before due)
-- ✅ Category information
+### Managing Custom Snippets
+
+#### Editing Custom Snippets
+1. **Right-click** on snippet block
+2. Select **"Edit"** from context menu
+3. Modal reopens with current values
+4. Modify as needed
+5. Click **"Update"** to save changes
+
+#### Deleting Custom Snippets
+1. **Right-click** on snippet block
+2. Select **"Delete"** from context menu
+3. Confirmation: "Delete this snippet?"
+4. Click **"Delete"** to confirm
+5. Snippet removed from library
+
+**Important**:
+- ⚠️ Cannot delete pre-built snippets (only custom ones)
+- ⚠️ Does NOT remove blocks already in workspace
+- ⚠️ Action cannot be undone
+
+#### Moving Between Tabs
+1. Edit the custom snippet
+2. Change **Category** dropdown to different tab
+3. Save changes
+4. Snippet moves to selected tab
+
+### Custom Snippet Features
+
+#### What's Saved
+- ✅ Snippet name
 - ✅ Description
-
-**Note**: Templates do NOT include:
-- ❌ Specific due dates (you set when creating)
-- ❌ Tags (selected when creating from template)
-- ❌ Subtasks (added after creation)
-
-### Template Categories
-
-Categories help organize templates:
-- **Work**: Business tasks, meetings, reports
-- **Personal**: Home, family, health
-- **Finance**: Bills, budgets, payments
-- **Health**: Exercise, medication, appointments
-- **Education**: Study, courses, assignments
-- *Custom categories*: Create your own
-
-### Use Cases
-
-#### Professional
-- Weekly team meeting agenda
-- Monthly status report
-- Daily standup tasks
-- Quarterly review preparation
-- Client onboarding checklist
-
-#### Personal
-- Weekly meal planning
-- Monthly budget review
-- Daily exercise routine
-- Medication reminders
-- Home maintenance tasks
-
-#### Project Management
-- Sprint planning template
-- Code review checklist
-- Deployment procedure
-- Testing protocol
-- Documentation update
-
----
-
-## 10. Search & Advanced Filtering
-
-### What It Does
-Powerful search and filtering system to find exactly the todos you need with multi-criteria filtering and saved presets.
-
-### Search Bar
-
-#### Location & Appearance
-- Located at top of todo list (below todo form)
-- Full-width input with search icon (🔍)
-- Placeholder: "Search todos and subtasks..."
-- Clear button (✕) appears when typing
-
-#### How It Works
-- **Searches**: Todo titles AND subtask titles
-- **Real-time**: Results update as you type
-- **Case-insensitive**: Finds "meeting" or "Meeting"
-- **Partial match**: "proj" finds "project" and "projection"
-- **Clear**: Click ✕ or delete all text
-
-#### Search Behavior
-```
-Search: "report"
-Finds:
-✓ "Monthly Report" (todo title)
-✓ "Meeting Notes" with subtask "Send report to team"
-✓ "Project Alpha" with subtask "Quarterly reporting"
-```
-
-### Quick Filters
-
-Located below search bar in a horizontal row:
-
-#### Priority Filter
-- Dropdown: "All Priorities"
-- Options:
-  - All Priorities (default)
-  - High Priority
-  - Medium Priority
-  - Low Priority
-- Combines with other filters
-
-#### Tag Filter
-- Dropdown: "All Tags"
-- Shows only if tags exist
-- Options:
-  - All Tags (default)
-  - Individual tag names
-- Combines with other filters
-
-#### Advanced Toggle
-- Button: "▶ Advanced" (collapsed) or "▼ Advanced" (expanded)
-- Toggles advanced filters panel
-- Blue background when active
-- Gray background when inactive
-
-#### Active Filter Actions
-Appears when ANY filter is active:
-- **"Clear All"** button (red) - Removes all filters instantly
-- **"💾 Save Filter"** button (green) - Opens save filter modal
-
-### Advanced Filters Panel
-
-Click "▶ Advanced" to reveal:
-
-#### 1. Completion Status
-- **Dropdown** with options:
-  - All Todos (default)
-  - Incomplete Only
-  - Completed Only
-- Filters based on checkbox state
-
-#### 2. Date Range
-Two date inputs side-by-side:
-
-**Due Date From**
-- Start of date range
-- Format: YYYY-MM-DD
-- Optional (can use alone)
-
-**Due Date To**
-- End of date range
-- Format: YYYY-MM-DD
-- Optional (can use alone)
-
-**Behavior**:
-- Use both for specific range
-- Use "From" only: all todos after that date
-- Use "To" only: all todos before that date
-- Only shows todos WITH due dates
-
-#### 3. Saved Filter Presets
-Displayed if any presets exist:
-- **Preset pills** with name
-- **Apply button**: Click name to apply
-- **Delete button**: Click ✕ to remove
-- **Format**: `[Preset Name] [✕]`
-
-### Saving Filter Presets
-
-#### How to Save
-1. Apply any combination of filters:
-   - Search query
-   - Priority
-   - Tag
-   - Date range
-   - Completion status
-2. Click **"💾 Save Filter"** button (appears when filters active)
-3. Modal opens showing:
-   - Name input field
-   - Current filter preview
-4. Enter preset name
-5. Click **"Save"**
-
-#### Save Filter Modal
-
-**Shows Current Filters**:
-- ✓ Search query (if entered)
-- ✓ Priority filter (if selected)
-- ✓ Tag filter (if selected)
-- ✓ Date range (if set)
-- ✓ Completion filter (if not "all")
-
-**Example Preview**:
-```
-Current Filters:
-• Search: "meeting"
-• Priority: High
-• Tag: Work
-• Completion: Incomplete
-• Date Range: 2025-11-01 to 2025-11-07
-```
-
-#### Preset Storage
-- **Location**: Browser localStorage
-- **Persistence**: Survives page refresh
-- **User-specific**: Per browser/device
-- **Format**: JSON object
-
-### Applying Saved Presets
-
-#### Method 1: From Advanced Panel
-1. Open advanced filters
-2. Find "Saved Filter Presets" section
-3. Click preset name
-4. All filters applied instantly
-
-#### Method 2: Quick Application
-- Presets visible when advanced panel open
-- One-click application
-- Overwrites current filters
-
-### Managing Presets
-
-#### Deleting Presets
-1. Locate preset in advanced panel
-2. Click ✕ button next to name
-3. Confirm deletion
-4. Preset removed from localStorage
-
-### Filter Combinations
-
-#### How Filters Work Together
-All active filters use **AND** logic (must match all):
-
-**Example**:
-```
-Search: "report"
-Priority: High
-Tag: Work
-Date: 2025-11-01 to 2025-11-07
-Completion: Incomplete
-
-Result: Shows only todos that are:
-✓ Contain "report" in title or subtasks
-✓ AND have High priority
-✓ AND tagged with "Work"
-✓ AND due between Nov 1-7
-✓ AND not completed
-```
-
-#### Filter Priority
-1. Search filter applied first
-2. Priority filter
-3. Tag filter
-4. Completion filter
-5. Date range filter (last)
-
-### Filter Indicators
-
-#### Active Filter State
-- "Clear All" and "Save Filter" buttons visible
-- Advanced button shows state (▶/▼)
-- Selected values in dropdowns
-- Search text visible in input
-- Date values in date inputs
-
-#### Filter Results
-- Todo counts update: "Overdue (X)", "Pending (X)", "Completed (X)"
-- Sections auto-hide if empty
-- "No results" state if all filtered out
-
-### Search Examples
-
-#### Basic Search
-```
-Search: "meeting"
-→ Finds all todos/subtasks containing "meeting"
-```
-
-#### Search + Priority
-```
-Search: "project"
-Priority: High
-→ Only high-priority items about projects
-```
-
-#### Date Range Filter
-```
-Date From: 2025-11-01
-Date To: 2025-11-07
-→ Shows this week's todos only
-```
-
-#### Complex Combination
-```
-Search: "report"
-Priority: High
-Tag: Work
-Completion: Incomplete
-Date: This week
-→ High-priority incomplete work reports due this week
-```
-
-#### Tag + Completion
-```
-Tag: Personal
-Completion: Completed
-→ Review all completed personal tasks
-```
-
-### Filter Tips
-
-#### Efficiency
-- ⚡ Save frequent combinations as presets
-- ⚡ Use "Clear All" for quick reset
-- ⚡ Combine search with tags for precise results
-- ⚡ Date ranges great for weekly planning
-
-#### Organization
-- 📋 Create presets for daily workflows
-- 📋 "Today's High Priority" preset
-- 📋 "This Week Work Items" preset
-- 📋 "Overdue Personal Tasks" preset
-
-#### Analysis
-- 📊 Use completion filter + tags to review category progress
-- 📊 Date ranges to analyze past performance
-- 📊 Search specific terms to track recurring topics
-
----
-
-## 11. Export & Import
-
-### What It Does
-Backup your todos, share them between devices, or analyze data in spreadsheets with JSON and CSV export formats.
-
-### Export Functionality
-
-#### How to Export
-
-**JSON Export**:
-1. Click **"Export JSON"** button (green, top-right)
-2. File downloads automatically
-3. Filename format: `todos-YYYY-MM-DD.json`
-4. Example: `todos-2025-11-02.json`
-
-**CSV Export**:
-1. Click **"Export CSV"** button (dark green, top-right)
-2. File downloads automatically
-3. Filename format: `todos-YYYY-MM-DD.csv`
-4. Example: `todos-2025-11-02.csv`
-
-#### Export Formats Comparison
-
-**JSON Export**
-- ✅ Complete data with all fields
-- ✅ Nested structure preserved
-- ✅ Can be re-imported
-- ✅ Includes metadata
-- ✅ Best for backup and data transfer
-- ✅ Human-readable format
-
-**Fields Included**:
-```json
-{
-  "id": 1,
-  "title": "Sample Todo",
-  "completed": false,
-  "due_date": "2025-11-10T14:00",
-  "priority": "high",
-  "is_recurring": true,
-  "recurrence_pattern": "weekly",
-  "reminder_minutes": 60,
-  "created_at": "2025-11-02T10:30:00"
+- ✅ MQL5 code
+- ✅ Category/tab assignment
+- ✅ Creation date
+- ✅ Last modified date
+- ✅ Parameter documentation
+
+#### Storage
+- Saved in browser localStorage
+- Persists across sessions
+- User-specific
+- Export/import capability (if implemented)
+
+### Code Examples for Custom Snippets
+
+#### Example 1: Simple Utility Function
+```mql5
+// Calculate pip value
+double CalculatePipValue(string symbol) {
+   double tickSize = SymbolInfoDouble(symbol, SYMBOL_TRADE_TICK_SIZE);
+   double tickValue = SymbolInfoDouble(symbol, SYMBOL_TRADE_TICK_VALUE);
+   double point = SymbolInfoDouble(symbol, SYMBOL_POINT);
+   return (tickValue / tickSize) * point;
 }
 ```
 
-**CSV Export**
-- ✅ Spreadsheet-friendly format
-- ✅ Opens in Excel, Google Sheets, Numbers
-- ✅ Good for analysis and reporting
-- ✅ Column-based layout
-- ✅ Easy data visualization
-- ❌ Cannot be re-imported
-
-**Columns**:
-```csv
-ID,Title,Completed,Due Date,Priority,Recurring,Pattern,Reminder
-1,"Sample Todo",false,"2025-11-10T14:00","high",true,"weekly",60
+#### Example 2: Indicator Calculation
+```mql5
+// Custom RSI with alerts
+bool IsRSIOverbought(string symbol, int period, double level) {
+   double rsi[];
+   int handle = iRSI(symbol, PERIOD_CURRENT, period, PRICE_CLOSE);
+   CopyBuffer(handle, 0, 0, 1, rsi);
+   return (rsi[0] > level);
+}
 ```
 
-### Import Functionality
-
-#### How to Import
-1. Click **"Import"** button (blue, top-right)
-2. File picker opens
-3. Select JSON file (from previous export)
-4. Click "Open"
-5. File is validated and processed
-
-#### Import Process
-1. **File validation**: Checks JSON format
-2. **Data validation**: Verifies todo structure
-3. **Creation**: Creates new todos
-4. **Refresh**: Todo list updates automatically
-5. **Confirmation**: Success message displays
-
-#### Import Behavior
-
-**What Happens**:
-- ✅ Creates NEW todos (doesn't update existing)
-- ✅ Preserves all todo properties
-- ✅ Assigns new IDs
-- ✅ Links to current user
-- ✅ Validates data before import
-
-**What's Preserved**:
-- Todo titles
-- Completion status
-- Due dates
-- Priority levels
-- Recurrence settings
-- Reminder timings
-- Creation timestamps
-
-**What's NOT Imported**:
-- ❌ Original todo IDs (new IDs assigned)
-- ❌ User associations (links to importing user)
-- ❌ Tags (must be recreated/reassigned)
-- ❌ Subtasks (if not in export format)
-
-#### Import Validation
-
-**Success Conditions**:
-- Valid JSON format
-- Correct data structure
-- Required fields present
-- Valid enum values (priority, pattern)
-
-**Error Conditions**:
-- Invalid JSON syntax
-- Missing required fields
-- Corrupted file
-- Wrong file format
-
-**Error Messages**:
-```
-✗ "Failed to import todos. Please check the file format."
-✗ "Invalid JSON format"
-✗ "Failed to import todos" (network error)
+#### Example 3: Position Management
+```mql5
+// Close all positions for symbol
+void CloseAllPositions(string symbol) {
+   for(int i = PositionsTotal() - 1; i >= 0; i--) {
+      ulong ticket = PositionGetTicket(i);
+      if(PositionSelectByTicket(ticket)) {
+         if(PositionGetString(POSITION_SYMBOL) == symbol) {
+            trade.PositionClose(ticket);
+         }
+      }
+   }
+}
 ```
 
-**Success Message**:
+### Best Practices for Custom Snippets
+
+#### Code Quality
+- ✅ Write clear, commented code
+- ✅ Use descriptive variable names
+- ✅ Follow MQL5 naming conventions
+- ✅ Test code in MetaEditor first
+- ✅ Handle errors gracefully
+- ✅ Document parameters and return values
+
+#### Organization
+- 📁 Create dedicated tabs for custom snippets
+- 📁 Group related snippets together
+- 📁 Use consistent naming schemes
+- 📁 Add detailed descriptions
+- 📁 Update descriptions when modifying code
+
+#### Reusability
+- ♻️ Write modular, self-contained functions
+- ♻️ Minimize dependencies
+- ♻️ Use parameters for flexibility
+- ♻️ Avoid hard-coded values
+- ♻️ Make snippets composable
+
+---
+
+## 7. Code Block Organization
+
+### What It Does
+Efficiently manage and organize code blocks in your workspace to create a logical, well-structured Expert Advisor.
+
+### Block Structure in Workspace
+
+Each dropped code block displays:
+
+#### Block Header
 ```
-✓ "Successfully imported X todos"
+┌─────────────────────────────────────┐
+│ 📋 Calculate Lot Size          [✕]  │ ← Title + Delete button
+├─────────────────────────────────────┤
 ```
 
-### Use Cases
+#### Block Content
+```
+│ Description:                        │
+│ Calculates position size based on   │
+│ risk percentage                     │
+│                                     │
+│ Parameters:                         │
+│ • riskPercent: 1.0 - 5.0           │
+│ • stopLossPips: integer            │
+│                                     │
+│ Returns: double (lot size)          │
+└─────────────────────────────────────┘
+```
 
-#### Backup Strategy
-1. **Daily**: Export JSON at end of day
-2. **Weekly**: Export CSV for review
-3. **Monthly**: Archive JSON exports
-4. **Before major changes**: Safety backup
+### Block Actions
 
-#### Data Transfer
-1. Export JSON on device A
-2. Send file to device B (email, cloud, USB)
-3. Import JSON on device B
-4. Continue working with same todos
+#### Reordering Blocks
+1. **Click and hold** on a block in the workspace
+2. **Drag** up or down
+3. **Drop** in new position
+4. Visual indicator shows insertion point
+5. Blocks rearrange automatically
 
-#### Analysis & Reporting
-1. Export CSV weekly/monthly
-2. Open in spreadsheet application
-3. Create pivot tables
-4. Analyze completion rates
-5. Track priorities distribution
-6. Review time management
+#### Expanding/Collapsing
+- Click **▼** to expand and view full code
+- Click **▲** to collapse and hide code
+- Collapsed view shows only title
+- Expanded view shows full MQL5 code
 
-#### Collaboration
-1. Export todos as JSON
-2. Share with team member
-3. They import to their account
-4. Maintain separate but synchronized lists
+#### Configuring Parameters
+1. Click **⚙️ Configure** button on block
+2. Modal opens with parameter inputs
+3. Modify values as needed
+4. Values inserted into code template
+5. Click **"Apply"** to save
 
-### Tips & Best Practices
+### Block Ordering Best Practices
 
-#### Export Tips
-- 📅 Export regularly (recommended: weekly)
-- 📅 Use JSON for complete backups
-- 📅 Use CSV for viewing in spreadsheets
-- 📅 Keep exports organized by date
-- 📅 Store in cloud storage for safety
+#### Typical EA Structure Order
 
-#### Import Tips
-- ⚠️ Only import files from this app
-- ⚠️ Verify file before importing
-- ⚠️ Import creates duplicates (doesn't merge)
-- ⚠️ Review after import to verify data
-- ⚠️ Delete test imports if needed
+**1. Variable Declarations**
+```
+- Input parameters
+- Global variables
+- Object handles
+```
+
+**2. Initialization Functions**
+```
+- OnInit() setup
+- Indicator initialization
+- Initial calculations
+```
+
+**3. Main Logic**
+```
+- OnTick() function
+- Entry signal detection
+- Position management
+```
+
+**4. Utility Functions**
+```
+- Helper functions
+- Calculations
+- Validation functions
+```
+
+**5. Order Management**
+```
+- Trade execution
+- Position modification
+- Trade closing logic
+```
+
+#### Example Order
+```
+Workspace Blocks (top to bottom):
+1. Input Parameters Declaration
+2. Global Variables
+3. OnInit() Function
+4. Moving Average Indicator Setup
+5. OnTick() Main Loop
+6. Buy Signal Detection
+7. Sell Signal Detection
+8. Calculate Lot Size
+9. Open Buy Trade
+10. Open Sell Trade
+11. Trailing Stop Function
+12. Close Positions Function
+```
+
+### Visual Organization
+
+#### Color Coding (Optional)
+- 🔵 **Blue**: Initialization code
+- 🟢 **Green**: Entry signals
+- 🔴 **Red**: Exit signals
+- 🟡 **Yellow**: Utility functions
+- ⚫ **Gray**: Variable declarations
+
+#### Grouping
+- Use visual separators between sections
+- Collapse related blocks into groups
+- Add comment blocks for section headers
+- Maintain logical flow top-to-bottom
+
+---
+
+## 8. Utilities Tab
+
+### What It Does
+Provides essential helper functions and utilities for building robust Expert Advisors.
+
+### Categories of Utilities
+
+#### Position Sizing
+- **Calculate Lot Size**: Risk-based position sizing
+- **Fixed Lot Size**: Static lot calculator
+- **Martingale Lot**: Progressive lot sizing
+- **Anti-Martingale**: Reverse progressive sizing
+
+#### Risk Management
+- **Stop Loss Calculator**: Pip-based SL
+- **Take Profit Calculator**: Risk/reward ratio
+- **Trailing Stop**: Dynamic SL adjustment
+- **Break Even Move**: Move SL to entry
+- **Maximum Daily Loss Check**: Risk limits
+
+#### Time Filters
+- **Trading Hours Filter**: Specific time windows
+- **Day of Week Filter**: Trade specific days
+- **News Filter**: Avoid high-impact events
+- **Session Filter**: Asian/European/US sessions
+
+#### Account Functions
+- **Get Account Balance**: Current balance
+- **Get Account Equity**: Current equity
+- **Check Free Margin**: Available margin
+- **Calculate Risk Percentage**: Portfolio risk
+
+#### Price Utilities
+- **Get Current Price**: Bid/Ask prices
+- **Calculate Pip Value**: Symbol-specific
+- **Normalize Price**: Proper decimal places
+- **Calculate Spread**: Current spread
+
+#### Order Management
+- **Count Open Positions**: By symbol/magic
+- **Get Position Profit**: P&L calculation
+- **Modify Position**: Change SL/TP
+- **Close All Positions**: Emergency close
+
+### Example: Calculate Lot Size Snippet
+
+**Name**: Risk-Based Lot Size Calculator
+
+**Description**: Calculates position size based on account balance, risk percentage, and stop loss distance
+
+**Code**:
+```mql5
+double CalculateLotSize(double riskPercent, double stopLossPips) {
+   double accountBalance = AccountInfoDouble(ACCOUNT_BALANCE);
+   double riskAmount = accountBalance * (riskPercent / 100.0);
+   double pipValue = SymbolInfoDouble(_Symbol, SYMBOL_TRADE_TICK_VALUE);
+   double lotSize = riskAmount / (stopLossPips * pipValue);
+   
+   // Normalize to lot step
+   double lotStep = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_STEP);
+   lotSize = MathFloor(lotSize / lotStep) * lotStep;
+   
+   // Apply limits
+   double minLot = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MIN);
+   double maxLot = SymbolInfoDouble(_Symbol, SYMBOL_VOLUME_MAX);
+   lotSize = MathMax(minLot, MathMin(maxLot, lotSize));
+   
+   return lotSize;
+}
+```
+
+**Parameters**:
+- `riskPercent`: Percentage of account to risk (e.g., 1.0 for 1%)
+- `stopLossPips`: Distance to stop loss in pips
+
+**Returns**: Normalized lot size (double)
+
+---
+
+## 9. Indicators Tab
+
+### What It Does
+Contains pre-built technical indicator functions and signal detection logic for your Expert Advisor.
+
+### Categories of Indicators
+
+#### Trend Indicators
+- **Moving Average**: SMA, EMA, SMMA, LWMA
+- **Moving Average Crossover**: Dual MA signals
+- **MACD**: Signal and histogram
+- **ADX**: Trend strength
+- **Parabolic SAR**: Trend direction
+
+#### Momentum Indicators
+- **RSI**: Relative Strength Index
+- **Stochastic**: %K and %D
+- **CCI**: Commodity Channel Index
+- **Momentum**: Rate of change
+- **Williams %R**: Overbought/oversold
+
+#### Volatility Indicators
+- **Bollinger Bands**: Price channels
+- **ATR**: Average True Range
+- **Standard Deviation**: Price volatility
+- **Keltner Channels**: Volatility bands
+
+#### Volume Indicators
+- **Volume**: Tick volume
+- **On Balance Volume**: Cumulative volume
+- **Volume Weighted Average Price**: VWAP
+
+#### Custom Indicators
+- Add your own indicator calculations
+- Import third-party indicator logic
+- Combine multiple indicators
+
+### Example: Moving Average Crossover
+
+**Name**: MA Crossover Signal Detection
+
+**Description**: Detects bullish and bearish crossovers between fast and slow moving averages
+
+**Code**:
+```mql5
+int DetectMACrossover(int fastPeriod, int slowPeriod) {
+   double fastMA[], slowMA[];
+   
+   int fastHandle = iMA(_Symbol, PERIOD_CURRENT, fastPeriod, 0, MODE_EMA, PRICE_CLOSE);
+   int slowHandle = iMA(_Symbol, PERIOD_CURRENT, slowPeriod, 0, MODE_EMA, PRICE_CLOSE);
+   
+   CopyBuffer(fastHandle, 0, 0, 3, fastMA);
+   CopyBuffer(slowHandle, 0, 0, 3, slowMA);
+   
+   // Bullish crossover
+   if(fastMA[1] > slowMA[1] && fastMA[2] <= slowMA[2])
+      return 1;  // Buy signal
+   
+   // Bearish crossover
+   if(fastMA[1] < slowMA[1] && fastMA[2] >= slowMA[2])
+      return -1; // Sell signal
+   
+   return 0;     // No signal
+}
+```
+
+**Parameters**:
+- `fastPeriod`: Fast MA period (e.g., 10)
+- `slowPeriod`: Slow MA period (e.g., 30)
+
+**Returns**: 
+- `1`: Bullish crossover (buy signal)
+- `-1`: Bearish crossover (sell signal)
+- `0`: No crossover
+
+### Signal Integration
+
+#### Combining Indicators
+- Use multiple indicator snippets together
+- Create confirmation logic
+- Build complex signal filters
+- Example: RSI + MA + Volume confirmation
+
+---
+
+## 10. Pre-made Functions Tab
+
+### What It Does
+Provides complete, ready-to-use trading logic blocks that combine multiple components into cohesive functions.
+
+### Categories of Pre-made Functions
+
+#### Complete Entry Logic
+- **Trend Following Entry**: Complete buy/sell logic
+- **Breakout Entry**: Channel breakout detection
+- **Pullback Entry**: Retracement entry logic
+- **Grid Entry**: Grid trading setup
+- **Martingale Entry**: Progressive entry system
+
+#### Complete Exit Logic
+- **Fixed TP/SL Exit**: Static targets
+- **Trailing Exit**: Dynamic profit protection
+- **Time-Based Exit**: Close after duration
+- **Indicator-Based Exit**: Signal-triggered exit
+- **Break Even Exit**: Risk-free position management
+
+#### Trade Management
+- **Position Scaling**: Add to winners
+- **Partial Close**: Take profits incrementally
+- **Hedge Function**: Opposite position opening
+- **Lock Profit**: Secure gains
+- **Emergency Close All**: Panic button
+
+#### Risk Management Systems
+- **Daily Loss Limit**: Stop trading at threshold
+- **Maximum Drawdown**: Account protection
+- **Correlation Check**: Avoid over-exposure
+- **News Event Handler**: Auto-close before news
+
+#### Complete EA Templates
+- **Simple MA EA**: Basic trend follower
+- **RSI Mean Reversion**: Oversold/overbought
+- **Breakout EA**: Support/resistance breaks
+- **Grid Trading EA**: Range-bound system
+- **Scalping EA**: Quick in-and-out trades
+
+### Example: Complete Buy Entry Function
+
+**Name**: Confirmation-Based Buy Entry
+
+**Description**: Opens a buy position with multiple confirmation filters
+
+**Code**:
+```mql5
+bool ExecuteBuyEntry(double riskPercent, double stopLossPips) {
+   // Check if already in position
+   if(PositionSelect(_Symbol)) return false;
+   
+   // Check multiple confirmations
+   if(DetectMACrossover(10, 30) != 1) return false;  // MA bullish
+   if(!IsRSIOverbought(_Symbol, 14, 70)) return true; // RSI not overbought
+   if(iVolume(_Symbol, PERIOD_CURRENT, 0) < 100) return false; // Volume check
+   
+   // Calculate entry parameters
+   double ask = SymbolInfoDouble(_Symbol, SYMBOL_ASK);
+   double stopLoss = ask - (stopLossPips * _Point * 10);
+   double takeProfit = ask + (stopLossPips * 2 * _Point * 10); // 2:1 RR
+   double lotSize = CalculateLotSize(riskPercent, stopLossPips);
+   
+   // Execute trade
+   MqlTradeRequest request = {};
+   MqlTradeResult result = {};
+   
+   request.action = TRADE_ACTION_DEAL;
+   request.symbol = _Symbol;
+   request.volume = lotSize;
+   request.type = ORDER_TYPE_BUY;
+   request.price = ask;
+   request.sl = stopLoss;
+   request.tp = takeProfit;
+   request.deviation = 5;
+   request.magic = 123456;
+   
+   return OrderSend(request, result);
+}
+```
+
+**Parameters**:
+- `riskPercent`: Risk per trade (1-5%)
+- `stopLossPips`: Stop loss distance
+
+**Returns**: `true` if trade opened successfully
+
+---
+
+## 11. Code Preview
+
+### What It Does
+View the complete assembled MQL5 code before saving, allowing you to verify structure, check for errors, and understand the final output.
+
+### Accessing Preview
+
+#### Location
+- **Bottom bar** of the dashboard
+- **"👁️ Preview Code"** button (blue)
+- Located next to "Save" button
+- Always visible regardless of workspace state
+
+#### How to Open Preview
+1. Arrange code blocks in workspace as desired
+2. Click **"👁️ Preview Code"** button
+3. Modal popup appears
+4. Full assembled code displayed
+5. Syntax highlighting active
+
+### Preview Modal
+
+#### Modal Structure
+```
+┌─────────────────────────────────────────────┐
+│  Expert Advisor Code Preview           [✕]  │
+├─────────────────────────────────────────────┤
+│                                             │
+│  ┌───────────────────────────────────────┐ │
+│  │ //+--------------------------------------------------+ │
+│  │ //| Expert Advisor Name             │ │
+│  │ //+--------------------------------------------------+ │
+│  │                                       │ │
+│  │ // Input parameters                  │ │
+│  │ input double RiskPercent = 1.0;      │ │
+│  │ input int StopLossPips = 50;         │ │
+│  │                                       │ │
+│  │ // Global variables                  │ │
+│  │ int maHandle;                         │ │
+│  │                                       │ │
+│  │ // OnInit function                   │ │
+│  │ int OnInit() {                        │ │
+│  │    // Initialization code             │ │
+│  │    return INIT_SUCCEEDED;             │ │
+│  │ }                                     │ │
+│  │                                       │ │
+│  │ // OnTick function                   │ │
+│  │ void OnTick() {                       │ │
+│  │    // Main logic                      │ │
+│  │ }                                     │ │
+│  │                                       │ │
+│  │ // Custom functions                  │ │
+│  │ double CalculateLotSize(...) { }     │ │
+│  │                                       │ │
+│  └───────────────────────────────────────┘ │
+│                                             │
+│  📊 Statistics:                             │
+│  • Total Lines: 245                         │
+│  • Functions: 12                            │
+│  • Code Blocks: 8                           │
+│                                             │
+│  [📋 Copy to Clipboard]  [💾 Save]  [Close] │
+└─────────────────────────────────────────────┘
+```
+
+### Preview Features
+
+#### Syntax Highlighting
+- **Keywords**: Blue (int, double, void, if, for)
+- **Functions**: Purple (OnInit, OnTick, custom functions)
+- **Strings**: Green ("EURUSD", "Symbol")
+- **Numbers**: Orange (1.0, 50, 100)
+- **Comments**: Gray (// and /* */)
+- **Operators**: Black (+, -, *, /, =)
+
+#### Code Structure Display
+- Proper indentation preserved
+- Line numbers (optional)
+- Collapsible sections (optional)
+- Function list navigation (optional)
+
+#### Statistics Panel
+Shows at bottom of preview:
+- **Total Lines**: Count of code lines
+- **Code Blocks Used**: Number from workspace
+- **Functions**: Count of function definitions
+- **Indicators**: Number of indicator handles
+- **Total Size**: Character/byte count
+
+### Preview Actions
+
+#### Copy to Clipboard
+1. Click **"📋 Copy to Clipboard"** button
+2. Entire code copied to system clipboard
+3. Toast notification: "Code copied!"
+4. Paste into MetaEditor or text editor
+
+#### Save Directly from Preview
+1. Click **"💾 Save"** button in preview modal
+2. Same as main Save button
+3. Downloads .txt file
+4. Filename format: `EA_YYYY-MM-DD_HHMMSS.txt`
+
+#### Close Preview
+- Click **"Close"** button
+- Click **[✕]** in top-right
+- Click outside modal (overlay)
+- Press **Escape** key
+
+### Code Assembly Logic
+
+#### How Blocks are Combined
+
+**Step 1: Headers**
+```mql5
+//+------------------------------------------------------------------+
+//| Expert Advisor Generated by MQL5 Builder                         |
+//| Creation Date: 2025-11-13 14:30:00                              |
+//+------------------------------------------------------------------+
+#property copyright "Your Name"
+#property version   "1.00"
+#property strict
+```
+
+**Step 2: Input Parameters**
+- Extracted from blocks with configurable parameters
+- Grouped at top of file
+- Proper input declarations
+
+**Step 3: Global Variables**
+- Extracted from initialization blocks
+- Declared at file scope
+- Indicator handles, state variables
+
+**Step 4: OnInit() Function**
+- Combines all initialization code blocks
+- Proper error handling
+- Returns INIT_SUCCEEDED or INIT_FAILED
+
+**Step 5: OnTick() Function**
+- Main execution loop
+- Combines entry/exit logic blocks
+- Utility function calls
+
+**Step 6: Custom Functions**
+- All utility, indicator, and pre-made functions
+- Appended after OnTick()
+- Maintains proper function order
+
+**Step 7: Footer**
+```mql5
+//+------------------------------------------------------------------+
+```
+
+### Validation
+
+#### Syntax Check (if implemented)
+- Basic MQL5 syntax validation
+- Checks for common errors
+- Highlights problematic lines
+- Warnings for potential issues
+
+#### Common Validations
+- ✅ Matching braces `{}`
+- ✅ Semicolon endings
+- ✅ Function declarations
+- ✅ Variable scope
+- ⚠️ Unused variables
+- ⚠️ Duplicate function names
+- ⚠️ Missing return statements
+
+#### Error Display
+```
+⚠️ Warnings:
+  Line 45: Variable 'lotSize' declared but not used
+  Line 78: Function 'ClosePositions' defined but not called
+
+❌ Errors:
+  Line 102: Expected ';' at end of statement
+  Line 156: Undefined function 'GetCustomValue'
+```
+
+### Best Practices
+
+#### Before Saving
+- ✅ **Always preview** before saving
+- ✅ Check code structure makes sense
+- ✅ Verify function order is logical
+- ✅ Look for duplicate code
+- ✅ Check for syntax errors
+- ✅ Review variable declarations
+
+#### After Preview
+- Test in MetaEditor's Strategy Tester
+- Compile to check for errors
+- Run on demo account first
+- Document any manual modifications
+- Save workspace configuration
+
+---
+
+## 12. Saving Expert Advisors
+
+### What It Does
+Export your assembled Expert Advisor code as a .txt file that can be opened in MetaEditor and compiled into a functioning EA.
+
+### Saving Process
+
+#### How to Save
+1. **Assemble** all desired code blocks in workspace
+2. **(Optional)** Preview code to verify
+3. Click **"💾 Save Expert Advisor"** button (green, bottom bar)
+4. Save dialog appears
+5. Choose location on your computer
+6. Click **"Save"**
+7. File downloads immediately
+
+### File Format
+
+#### Filename Convention
+**Automatic Naming**:
+- Format: `EA_YYYY-MM-DD_HHMMSS.txt`
+- Example: `EA_2025-11-13_143045.txt`
+- Timestamp: Singapore timezone
+- Extension: `.txt` (for compatibility)
+
+**Custom Naming** (if implemented):
+1. Modal appears before save
+2. Enter custom name
+3. Suggested format: `MyStrategyName_v1.txt`
+4. Keep .txt extension
+
+#### File Contents
+```mql5
+//+------------------------------------------------------------------+
+//| Expert Advisor Generated by MQL5 Builder                         |
+//| Creation Date: 2025-11-13 14:30:45                              |
+//| Workspace Blocks: 8                                              |
+//+------------------------------------------------------------------+
+#property copyright "Your Name"
+#property version   "1.00"
+#property strict
+
+// [Complete assembled code here]
+
+//+------------------------------------------------------------------+
+```
+
+### File Structure
+
+#### Complete EA Structure
+```
+1. Header comments
+2. #property directives
+3. Input parameters
+4. Global variables
+5. OnInit() function
+6. OnDeinit() function (if applicable)
+7. OnTick() function
+8. Custom functions
+9. Footer comments
+```
+
+### Using Saved File in MetaEditor
+
+#### Step 1: Open in MetaEditor
+1. Open **MetaEditor** (MetaTrader 5)
+2. File → Open
+3. Navigate to saved .txt file
+4. Open file
+
+#### Step 2: Rename File
+1. File → Save As
+2. Change extension from `.txt` to `.mq5`
+3. Example: `MyEA_v1.mq5`
+4. Save in `MQL5/Experts/` folder
+
+#### Step 3: Compile
+1. Click **"Compile"** button (or F7)
+2. Check compilation log
+3. Fix any errors (if any)
+4. Successful: `.ex5` file created
+
+#### Step 4: Test
+1. Open Strategy Tester (Ctrl+R)
+2. Select your EA from dropdown
+3. Choose symbol and timeframe
+4. Run backtest
+5. Analyze results
+
+### Save Options
+
+#### Quick Save
+- One-click save with automatic filename
+- No confirmation dialog
+- Instant download
+- Uses default timestamp naming
+
+#### Custom Save (if implemented)
+1. Enter EA name
+2. Add description/notes
+3. Choose save location
+4. Add to project folder structure
+
+### Workspace Persistence
+
+#### Saving Workspace Configuration
+1. **"💾 Save Workspace"** option (if implemented)
+2. Saves:
+   - Block arrangement
+   - Block configurations
+   - Custom snippets
+   - Tab organization
+3. Format: JSON file
+4. Can reload later
+
+#### Loading Saved Workspace
+1. **"📂 Load Workspace"** button
+2. Select workspace JSON file
+3. Workspace reconstructed
+4. All blocks restored
+5. Continue editing
+
+### Export Options
+
+#### Text File (.txt)
+- ✅ Default format
+- ✅ Universal compatibility
+- ✅ Opens in any text editor
+- ✅ Import to MetaEditor
+
+#### MQ5 File (.mq5) [Future]
+- Direct save as MQ5 format
+- Skip rename step
+- Immediate compilation possible
+
+#### Project Package [Future]
+- Includes workspace configuration
+- Includes custom snippets
+- Includes EA code
+- Zip archive for sharing
+
+### Version Control
+
+#### Managing Multiple Versions
+1. Save with version numbers
+   - `MyEA_v1.txt`
+   - `MyEA_v2.txt`
+   - `MyEA_v3.txt`
+2. Add date stamps to filename
+3. Keep changelog in comments
+4. Use Git for version control (advanced)
+
+#### Changelog in Code
+```mql5
+//+------------------------------------------------------------------+
+//| Version History                                                  |
+//+------------------------------------------------------------------+
+// v1.0 - 2025-11-13 - Initial version with MA crossover
+// v1.1 - 2025-11-14 - Added RSI filter
+// v1.2 - 2025-11-15 - Added trailing stop function
+```
+
+### Best Practices
+
+#### Before Saving
+- ✅ Preview code for errors
+- ✅ Test block arrangement order
+- ✅ Verify all parameters configured
+- ✅ Check for duplicate functions
+- ✅ Ensure proper initialization
 
 #### File Management
-- 📁 Create export folder structure:
-  ```
-  /TodoBackups
-    /2025
-      /11-November
-        todos-2025-11-02.json
-        todos-2025-11-09.json
-  ```
-- 📁 Name files descriptively if needed
-- 📁 Compress old exports (zip)
-- 📁 Delete outdated backups
+- 📁 Create project folders
+- 📁 Organize by strategy type
+- 📁 Keep backups
+- 📁 Document modifications
+- 📁 Track version changes
 
-### Technical Details
-
-#### Export API
-- **Endpoint**: `/api/todos/export?format={json|csv}`
-- **Method**: GET
-- **Response**: File download
-- **MIME types**:
-  - JSON: `application/json`
-  - CSV: `text/csv`
-
-#### Import API
-- **Endpoint**: `/api/todos/import`
-- **Method**: POST
-- **Content-Type**: `application/json`
-- **Body**: Array of todo objects
-- **Response**: Success message with count
-
-#### File Size Considerations
-- Small list (< 100 todos): < 50KB
-- Medium list (100-500 todos): 50-250KB
-- Large list (> 500 todos): > 250KB
-- No file size limit enforced
+#### After Saving
+- 🧪 Test in MetaEditor immediately
+- 🧪 Compile to check syntax
+- 🧪 Run Strategy Tester backtest
+- 🧪 Optimize parameters
+- 🧪 Test on demo account
 
 ---
 
-## 12. Calendar View
-
-### What It Does
-Visualize your todos on a monthly calendar to see your schedule at a glance, spot conflicts, and plan ahead.
-
-### Accessing Calendar View
-
-#### From Main Page
-1. Click **"Calendar"** button (purple, top navigation)
-2. View switches to calendar layout
-3. URL changes to `/calendar`
-
-#### Navigation
-- **To Calendar**: Click "Calendar" button
-- **Back to List**: Browser back button or navigate to home
-- **Always available**: Calendar button visible on both pages
-
-### Calendar Features
-
-#### Monthly View
-- Full month calendar grid
-- Current month displayed by default
-- Days organized in week rows
-- Week starts on Sunday (configurable)
-
-#### Todo Display on Calendar
-- Todos appear on their due date
-- Color-coded by priority:
-  - 🔴 High priority in red
-  - 🟡 Medium priority in yellow
-  - 🔵 Low priority in blue
-- Todo titles shown on date cells
-- Multiple todos stack on same date
-
-#### Holiday Integration
-- Public holidays displayed (if configured)
-- Special styling for holidays
-- Holiday names shown
-- Helps with planning around holidays
-
-#### Visual Design
-- Clean, minimal interface
-- Responsive grid layout
-- Dark mode support
-- Color-coded for easy scanning
-
-### Calendar Navigation
-
-#### Month Navigation
-- Previous month button (◀)
-- Current month/year display
-- Next month button (▶)
-- Today button (jumps to current month)
-
-#### Date Selection
-- Click any date to view details
-- Current day highlighted
-- Past dates grayed out
-- Future dates emphasized
-
-### Integration with Main App
-
-#### Data Synchronization
-- Calendar shows same todos as list view
-- Changes sync automatically
-- Real-time updates
-- No separate data storage
-
-#### Filtering
-- Calendar respects active filters (if applicable)
-- Shows only relevant todos
-- Updates when filters change
-
-### Use Cases
-
-#### Planning
-- 📅 Visualize weekly workload
-- 📅 Spot busy vs. light days
-- 📅 Balance task distribution
-- 📅 Identify scheduling conflicts
-
-#### Review
-- 📊 See completed tasks by date
-- 📊 Track productivity patterns
-- 📊 Review past week/month
-- 📊 Identify trends
-
-#### Scheduling
-- 🗓️ Find open slots for new tasks
-- 🗓️ Avoid overloading specific days
-- 🗓️ Plan around holidays
-- 🗓️ Distribute recurring tasks
-
-### Tips
-
-#### Effective Calendar Use
-- Check calendar when planning week
-- Review at start of each day
-- Use for big-picture overview
-- Switch to list view for details
-
-#### Visual Scanning
-- Red (high priority) spots immediate attention
-- Look for clustering (too many on one day)
-- Use color patterns to balance priorities
-- Note holiday conflicts
-
----
-
-## 13. Managing Todos
-
-### Completing Todos
-
-#### How to Complete
-1. Locate todo in list (Overdue or Pending section)
-2. Click **checkbox** on left side
-3. Todo moves to **"Completed"** section
-4. Checkbox shows checkmark (✓)
-
-#### Recurring Todo Completion
-1. Click checkbox on recurring todo
-2. Current instance marked complete
-3. **New instance automatically created** for next occurrence
-4. New instance has:
-   - Same title
-   - Same priority
-   - Same recurrence settings
-   - Same tags
-   - Next due date (calculated by pattern)
-
-#### Uncompleting Todos
-1. Find todo in Completed section
-2. Click **checked checkbox**
-3. Todo returns to appropriate section:
-   - Overdue (if past due date)
-   - Pending (if future or no due date)
-
-### Editing Todos
-
-#### Opening Edit Modal
-1. Find todo in any section
-2. Click **"Edit"** button (blue text, right side)
-3. Modal opens with current values pre-filled
-
-#### Edit Modal Fields
-
-**Available Fields**:
-- **Title**: Text input (required)
-- **Due Date**: Date-time picker (optional)
-- **Priority**: Dropdown (High/Medium/Low)
-- **Repeat**: Checkbox (enable/disable recurrence)
-- **Recurrence Pattern**: Dropdown (if Repeat enabled)
-  - Daily
-  - Weekly
-  - Monthly
-  - Yearly
-- **Reminder**: Dropdown (if due date set)
-  - None
-  - 15 minutes before
-  - 30 minutes before
-  - 1 hour before
-  - 2 hours before
-  - 1 day before
-  - 2 days before
-  - 1 week before
-- **Tags**: Tag selection pills (multi-select)
-
-#### Saving Changes
-1. Modify any fields as needed
-2. Click **"Update"** button (blue, bottom of modal)
-3. Modal closes
-4. Todo updates in list
-5. Moves to correct section if needed (based on new due date)
-
-#### Canceling Edit
-1. Click **"Cancel"** button (gray, bottom of modal)
-2. Click outside modal (modal overlay)
-3. Press Escape key (if supported)
-4. No changes saved
-
-### Deleting Todos
-
-#### How to Delete
-1. Locate todo in any section
-2. Click **"Delete"** button (red text, right side)
-3. Todo **immediately deleted** (no confirmation)
-4. Removed from list instantly
-
-#### What Gets Deleted
-- ✅ Todo item
-- ✅ All subtasks (CASCADE delete)
-- ✅ Tag associations
-- ✅ Progress data
-- ✅ Reminder settings
-
-#### Cannot Be Undone
-- ⚠️ **Permanent deletion**
-- ⚠️ No "undo" feature
-- ⚠️ No confirmation dialog
-- ⚠️ Export before deleting important todos
-
-### Todo Organization
-
-#### Automatic Sections
-
-Todos are organized into three sections:
-
-**1. Overdue Section** (if any exist)
-- **Condition**: Past due date AND not completed
-- **Color**: Red background
-- **Icon**: ⚠️ Warning icon
-- **Counter**: "Overdue (X)"
-- **Sort Order**: Priority → Due date → Creation date
-
-**2. Pending Section**
-- **Condition**: Future due date OR no due date, AND not completed
-- **Color**: Gray background
-- **Counter**: "Pending (X)"
-- **Sort Order**: Priority → Due date → Creation date
-
-**3. Completed Section**
-- **Condition**: Completed checkbox checked
-- **Color**: Standard background
-- **Counter**: "Completed (X)"
-- **Sort Order**: Completion date (newest first)
-
-### Automatic Sorting
-
-#### Sort Priority (within each section)
-1. **Priority Level**: High → Medium → Low
-2. **Due Date**: Earliest → Latest
-3. **Creation Date**: Newest → Oldest (for same priority/due date)
-
-#### Examples
-```
-Sort Result:
-1. High priority, due today
-2. High priority, due tomorrow
-3. Medium priority, due today
-4. Medium priority, due next week
-5. Low priority, due tomorrow
-6. Low priority, no due date
-```
-
-### Todo Display Elements
-
-#### Each Todo Shows
-
-**Left Side**:
-- ☐ Checkbox (empty) or ☑ Checkbox (checked)
-
-**Center Area**:
-- **Title** (main text)
-- **Badges** (inline):
-  - Priority badge (colored)
-  - 🔄 Recurrence badge (if recurring)
-  - 🔔 Reminder badge (if set)
-  - Tag pills (if tagged)
-- **Due Date** (if set, color-coded by urgency)
-- **Progress Bar** (if subtasks exist)
-  - "X/Y subtasks" text
-  - Visual bar (0-100%)
-
-**Right Side**:
-- **"▶ Subtasks"** button (or "▼ Subtasks" if expanded)
-- **"Edit"** button (blue)
-- **"Delete"** button (red)
-
-### Subtask Expansion
-
-#### Collapsed State (Default)
-- Button shows: **"▶ Subtasks"**
-- Subtasks hidden
-- Progress bar visible (if subtasks exist)
-- Progress text visible
-
-#### Expanded State
-- Button shows: **"▼ Subtasks"**
-- Subtask list visible
-- Add subtask form visible
-- Individual subtask checkboxes and delete buttons
-
-### Keyboard Shortcuts
-
-#### General
-- **Enter** in subtask input → Add subtask
-- **Escape** in modal → Close modal (if implemented)
-
-#### Quick Actions
-- Click checkbox → Toggle completion
-- Click tag pill → Select/deselect tag (in forms)
-- Click ✕ → Clear search / delete item
-
----
-
-## 14. Dark Mode
-
-### What It Does
-Automatically applies a dark color scheme based on your system preferences for comfortable viewing in low-light environments.
-
-### How It Works
-
-#### Automatic Detection
-- Detects system dark mode preference
-- Uses CSS media query: `prefers-color-scheme: dark`
-- No manual toggle needed
-- Changes apply instantly when system setting changes
-
-#### System Integration
-- **macOS**: Follows System Preferences → General → Appearance
-- **Windows**: Follows Settings → Personalization → Colors
-- **Linux**: Follows desktop environment theme settings
-- **Mobile**: Follows system theme settings
-
-### Visual Changes
-
-#### Background Colors
-**Light Mode**:
-- Main background: Blue-to-indigo gradient
-- Card backgrounds: White
-- Input backgrounds: White
-
-**Dark Mode**:
-- Main background: Gray-to-dark-gray gradient
-- Card backgrounds: Dark gray (#1F2937, #374151)
-- Input backgrounds: Dark gray
-
-#### Text Colors
-**Light Mode**:
-- Primary text: Dark gray/black
-- Secondary text: Medium gray
-- Muted text: Light gray
-
-**Dark Mode**:
-- Primary text: White
-- Secondary text: Light gray
-- Muted text: Medium gray
-
-#### Component Adaptations
-
-**Priority Badges**:
-- Light mode: Bright backgrounds, dark text
-- Dark mode: Muted backgrounds, bright text
-- Maintains color distinction (red/yellow/blue)
-
-**Tag Pills**:
-- Custom colors preserved in both modes
-- White text for visibility
-- Slight transparency adjustments
-
-**Buttons**:
-- Light mode: Saturated colors
-- Dark mode: Slightly muted for eye comfort
-- Hover states adjusted
-
-**Borders**:
-- Light mode: Light gray borders
-- Dark mode: Medium gray borders
-- Increased contrast for visibility
-
-**Shadows**:
-- Light mode: Subtle gray shadows
-- Dark mode: Deeper shadows for depth
-- Adjusted opacity
-
-### Where Dark Mode Applies
-
-#### Main Application
-- ✅ Todo list page
-- ✅ Todo form (all inputs)
-- ✅ Priority dropdowns
-- ✅ Date-time pickers
-- ✅ Search bar
-- ✅ Filter controls
-
-#### Modals & Dialogs
-- ✅ Edit todo modal
-- ✅ Tag management modal
-- ✅ Template modal
-- ✅ Save filter modal
-- ✅ Save template modal
-
-#### Components
-- ✅ Buttons (all types)
-- ✅ Input fields
-- ✅ Dropdown menus
-- ✅ Checkboxes
-- ✅ Progress bars
-- ✅ Badges and pills
-- ✅ Section headers
-
-#### Sections
-- ✅ Overdue section (red background adjusted)
-- ✅ Pending section
-- ✅ Completed section
-- ✅ Advanced filters panel
-
-### Color Palette
-
-#### Light Mode
-```
-Backgrounds:
-- Gradient: from-blue-50 to-indigo-100
-- Cards: white
-- Inputs: white
-- Filters: gray-50
-
-Text:
-- Primary: gray-800
-- Secondary: gray-600
-- Muted: gray-500
-
-Accents:
-- Blue: #3B82F6
-- Red: #EF4444
-- Yellow: #F59E0B
-- Green: #10B981
-```
-
-#### Dark Mode
-```
-Backgrounds:
-- Gradient: from-gray-900 to-gray-800
-- Cards: gray-800
-- Inputs: gray-700
-- Filters: gray-700/50
-
-Text:
-- Primary: white
-- Secondary: gray-400
-- Muted: gray-500
-
-Accents:
-- Blue: #60A5FA
-- Red: #F87171
-- Yellow: #FBBF24
-- Green: #34D399
-```
-
-### Accessibility
-
-#### Contrast Ratios
-- Text meets WCAG AA standards
-- Badges and tags readable in both modes
-- Focus states visible
-- Hover states distinct
-
-#### Visual Comfort
-- Reduced brightness in dark mode
-- Less eye strain in low light
-- Smooth transitions between modes
-- No harsh white backgrounds
-
-### Testing Dark Mode
-
-#### Enable Dark Mode
-**macOS**:
-1. System Preferences → General
-2. Appearance → Dark
-3. Refresh browser if needed
-
-**Windows**:
-1. Settings → Personalization → Colors
-2. Choose your color → Dark
-3. Refresh browser if needed
-
-**Manual Testing**:
-1. Open browser DevTools (F12)
-2. Toggle device toolbar
-3. Click ⋮ → More tools → Rendering
-4. Emulate CSS media: `prefers-color-scheme: dark`
-
-### Tips
-
-#### For Best Experience
-- Use dark mode in low-light environments
-- Use light mode in bright environments
-- Let system auto-switch based on time of day
-- Adjust screen brightness accordingly
-
-#### Customization (Future)
-- Currently automatic only
-- Manual toggle could be added
-- Per-user preference storage possible
-- Override system setting option available
-
----
-
-## Tips & Best Practices
+## 13. Best Practices
 
 ### Getting Started
 
 #### First-Time Setup
-1. ✅ **Enable notifications** first for reminder functionality
-2. ✅ **Create tags** for your main categories (Work, Personal, etc.)
-3. ✅ **Set up templates** for recurring tasks
-4. ✅ **Explore filters** to understand organization options
-5. ✅ **Test export** to understand backup process
+1. ✅ Explore all default tabs (Utilities, Indicators, Pre-made Functions)
+2. ✅ Read snippet descriptions before using
+3. ✅ Start with simple EA (2-3 blocks)
+4. ✅ Test preview functionality
+5. ✅ Save and compile in MetaEditor to verify
+6. ✅ Create custom tabs for your strategies
 
-#### Learn the Basics
-- Start with simple todos (title only)
-- Add due dates as you get comfortable
-- Experiment with priorities
-- Try creating one subtask
-- Practice editing and deleting
+#### Learning the Interface
+- Drag a few blocks to understand mechanics
+- Practice reordering blocks
+- Try adding custom snippets
+- Experiment with preview function
+- Test save functionality with simple EA
 
-### Productivity Tips
+### EA Development Tips
 
-#### Priority Management
-- 🎯 Use **High priority sparingly** for truly urgent items
-- 🎯 Reserve 3-5 slots for high priority at most
-- 🎯 Most todos should be **Medium** (80%)
-- 🎯 Use **Low** for "someday/maybe" tasks
-- 🎯 Review priorities weekly
+#### Building Strategy
+- 🎯 **Start with logic flow**: Plan before dragging
+- 🎯 **Use modular approach**: One block per function
+- 🎯 **Test incrementally**: Build and test in stages
+- 🎯 **Document as you go**: Add comments
+- 🎯 **Keep it simple**: Start basic, add complexity
 
-#### Time Management
-- ⏰ Set **reminders** for time-sensitive todos
-- ⏰ Review **Overdue** section daily (preferably morning)
-- ⏰ Use **date ranges** in filters for weekly planning
-- ⏰ Schedule **recurring todos** for habits
-- ⏰ Check **calendar view** for weekly overview
+#### Block Organization
+- 📋 Follow standard EA structure order
+- 📋 Group related functions together
+- 📋 Initialization blocks at top
+- 📋 Main logic in middle
+- 📋 Utilities at bottom
 
-#### Task Breakdown
-- 📋 Break complex tasks into **subtasks**
-- 📋 Aim for subtasks under 30 minutes each
-- 📋 Use **progress bar** to track advancement
-- 📋 Complete subtasks incrementally
-- 📋 Celebrate when progress bar reaches 100%
+#### Code Quality
+- ✅ Use descriptive snippet names
+- ✅ Add detailed descriptions
+- ✅ Configure parameters correctly
+- ✅ Test individual snippets first
+- ✅ Combine proven components
 
-#### Organization Strategies
-- 🗂️ **Combine tags and priorities** for better organization
-- 🗂️ Create tag hierarchy (Work → Project → Client)
-- 🗂️ Use **recurring todos** for habits and routines
-- 🗂️ Set up **saved filter presets** for daily workflows
-- 🗂️ Review **Completed** section weekly for insights
+### Custom Snippet Strategies
+
+#### When to Create Custom Snippets
+- ✅ You use the same code 3+ times
+- ✅ Strategy-specific logic not in library
+- ✅ Custom indicator calculations
+- ✅ Proprietary trading logic
+- ✅ Modifications of existing snippets
+
+#### Custom Snippet Best Practices
+- 📝 Write clear, self-contained functions
+- 📝 Minimize external dependencies
+- 📝 Use parameters for flexibility
+- 📝 Add comprehensive descriptions
+- 📝 Test in MetaEditor before saving
+- 📝 Organize into appropriate tabs
 
 ### Workflow Examples
 
-#### Daily Workflow
+#### Simple EA Development
 ```
-Morning:
-1. Check Overdue section
-2. Apply "Today High Priority" filter preset
-3. Review calendar view
-4. Complete 3 high-priority items
+Step 1: Plan Strategy
+- Define entry rules
+- Define exit rules
+- Risk management approach
 
-Afternoon:
-5. Add new todos as they come up
-6. Update subtask progress
-7. Check upcoming reminders
+Step 2: Assemble Blocks
+1. Input parameters declaration
+2. OnInit() initialization
+3. MA indicator setup
+4. OnTick() main loop
+5. Entry signal detection
+6. Calculate lot size
+7. Execute trade
+8. Exit management
 
-Evening:
-8. Review completed items
-9. Plan tomorrow's priorities
-10. Export JSON backup (weekly)
-```
+Step 3: Preview & Save
+- Preview assembled code
+- Check for errors
+- Save as .txt file
 
-#### Weekly Workflow
-```
-Monday:
-1. Review last week's completed todos
-2. Clear old completed items
-3. Apply "This Week" filter preset
-4. Set priorities for the week
-5. Create recurring todos
-
-Friday:
-6. Complete week review
-7. Export CSV for analysis
-8. Archive completed todos
-9. Prepare next week's templates
-10. Backup JSON export
+Step 4: Test in MetaEditor
+- Rename to .mq5
+- Compile
+- Run Strategy Tester
+- Optimize parameters
 ```
 
-### Data Management
-
-#### Backup Strategy
-- 💾 **Export JSON weekly** (minimum)
-- 💾 Store backups in cloud (Dropbox, Drive, OneDrive)
-- 💾 Keep last 4 weeks of backups
-- 💾 Archive monthly (compress old backups)
-- 💾 Test import occasionally to verify backups work
-
-#### Cleanup Routine
-- 🧹 **Weekly**: Delete old completed todos (> 7 days)
-- 🧹 **Monthly**: Review and delete unused templates
-- 🧹 **Monthly**: Consolidate similar tags
-- 🧹 **Quarterly**: Archive old data via export
-- 🧹 **Yearly**: Start fresh or major cleanup
-
-#### Template Management
-- 📝 Create templates for tasks you do 3+ times
-- 📝 Include category for better organization
-- 📝 Review templates monthly
-- 📝 Delete unused templates
-- 📝 Update templates as processes change
-
-### Filter Preset Ideas
-
-#### Productivity Presets
+#### Complex EA Development
 ```
-"Today's Focus"
-- Priority: High
-- Completion: Incomplete
-- Date: Today
+Step 1: Break Down Strategy
+- Multiple entry conditions
+- Complex filters
+- Position management layers
 
-"This Week Work"
-- Tag: Work
-- Completion: Incomplete
-- Date: This week
+Step 2: Create Custom Snippets
+- Custom indicator combo
+- Multi-confirmation logic
+- Advanced money management
 
-"Quick Wins"
-- Priority: Low
-- Completion: Incomplete
-- (No subtasks or few subtasks)
+Step 3: Organize in Custom Tabs
+- "MyStrategy - Entry"
+- "MyStrategy - Exit"
+- "MyStrategy - Management"
 
-"Overdue Critical"
-- Priority: High
-- Tag: Work
-- (Manually check Overdue section)
+Step 4: Assemble & Test Iteratively
+- Add blocks one section at a time
+- Test each addition
+- Refine and optimize
 ```
 
-#### Review Presets
+### Tab Organization Strategies
+
+#### By Trading Style
 ```
-"Completed This Week"
-- Completion: Completed
-- Date: Past 7 days
-
-"Personal Progress"
-- Tag: Personal
-- Completion: All
-- Date: This month
-
-"Work Deliverables"
-- Tag: Work
-- Priority: High
-- Completion: All
+Tabs:
+- Scalping Tools
+- Day Trading
+- Swing Trading
+- Position Trading
 ```
 
-### Tag Strategy
+#### By Functionality
+```
+Tabs:
+- Entry Signals
+- Exit Signals
+- Position Management
+- Risk Management
+- Utilities
+```
 
-#### Recommended Tags
-**By Area**:
-- 🏢 Work
-- 🏠 Personal
-- 💰 Finance
-- 🏥 Health
-- 📚 Learning
+#### By Strategy
+```
+Tabs:
+- Trend Following Strategy
+- Mean Reversion Strategy
+- Breakout Strategy
+- Grid Strategy
+```
 
-**By Context**:
-- 💻 Computer
-- 📞 Calls
-- 🚗 Errands
-- 🏡 Home
-- 🏢 Office
+### Testing & Validation
 
-**By Project**:
-- 📊 Project Alpha
-- 🎨 Website Redesign
-- 📱 App Development
+#### Before Live Trading
+1. **Compile Test**: Fix all compilation errors
+2. **Strategy Tester**: Run historical backtest
+3. **Optimization**: Find best parameters
+4. **Forward Test**: Test on unseen data
+5. **Demo Account**: Live market conditions
+6. **Small Live**: Minimal risk testing
+7. **Full Deployment**: After proven results
 
-#### Tag Best Practices
-- Limit to 10-15 tags (avoid over-tagging)
-- Use distinct colors for easy recognition
-- Name tags consistently (all singular or all plural)
-- Review and consolidate similar tags quarterly
-- Delete unused tags
+#### Common Issues to Check
+- ✅ Stop Loss / Take Profit levels valid
+- ✅ Lot size calculations correct
+- ✅ Magic number unique
+- ✅ Symbol-specific settings
+- ✅ Timeframe compatibility
+- ✅ Error handling present
 
-### Subtask Strategies
+### Version Management
 
-#### When to Use Subtasks
-- ✅ Task requires 3+ steps
-- ✅ Complex project with phases
-- ✅ Checklist needed (packing, testing)
-- ✅ Want to track incremental progress
-- ✅ Breaking down large goal
+#### Tracking Changes
+```
+Naming Convention:
+- MyEA_v1.0_BasicMA.txt          (Initial)
+- MyEA_v1.1_AddedRSIFilter.txt   (Added feature)
+- MyEA_v2.0_NewEntryLogic.txt    (Major change)
+- MyEA_v2.1_BugFix.txt           (Bug fix)
+```
 
-#### When NOT to Use Subtasks
-- ❌ Single-step task
-- ❌ Already broken down enough
-- ❌ Creates unnecessary complexity
-- ❌ Better as separate todos with same tag
+#### Documentation
+- Keep changelog in code comments
+- Document parameter changes
+- Note performance improvements
+- Track bug fixes
 
-### Recurring Todo Strategies
+### Performance Optimization
 
-#### Good Uses for Recurring
-- ✅ Daily habits (exercise, medication)
-- ✅ Weekly routines (meetings, reports)
-- ✅ Monthly tasks (bills, reviews)
-- ✅ Quarterly goals (assessments)
-- ✅ Yearly events (renewals, celebrations)
+#### Code Efficiency
+- Avoid unnecessary calculations in OnTick()
+- Use indicator buffers efficiently
+- Minimize global variables
+- Cache frequently used values
+- Use proper data types
 
-#### Recurring Tips
-- Set realistic recurrence (don't over-commit)
-- Use reminders with recurring todos
-- Review recurring todos monthly
-- Delete recurring todos that no longer apply
-- Adjust patterns as schedules change
+#### Resource Management
+- Release indicator handles in OnDeinit()
+- Close positions properly
+- Handle errors gracefully
+- Avoid infinite loops
+- Limit position count
 
 ---
 
 ## Troubleshooting
 
-### Notifications Not Working
+### Drag-and-Drop Not Working
 
 #### Symptoms
-- No browser notifications appearing
-- Reminder badge shows but no notification
-- "Enable Notifications" button stays visible
+- Cannot drag snippets from library
+- Snippets don't appear in workspace
+- Drag cursor doesn't show
+- Blocks not dropping
+
+#### Solutions
+
+**1. Browser Compatibility**
+- ✅ Use modern browser (Chrome, Firefox, Edge, Safari)
+- ✅ Update browser to latest version
+- ✅ Enable JavaScript
+- ✅ Disable browser extensions temporarily
+
+**2. Check Drag Operation**
+```
+Steps:
+1. Click and HOLD on snippet
+2. Move mouse while holding
+3. Ensure cursor changes to drag icon
+4. Drop in valid zone (workspace area)
+```
+
+**3. Workspace State**
+- Ensure workspace is visible
+- Check if workspace is scrollable
+- Verify no modal blocking workspace
+- Clear browser cache
+
+**4. Browser Console**
+- Open DevTools (F12)
+- Check Console tab for errors
+- Look for JavaScript errors
+- Refresh page if needed
+
+### Blocks Not Saving to Workspace
+
+#### Symptoms
+- Blocks disappear after dropping
+- Workspace shows empty
+- Changes not persisting
+- Blocks reset on refresh
+
+#### Solutions
+
+**1. Check Browser Storage**
+```
+Chrome:
+- Settings → Privacy → Cookies and site data
+- Ensure cookies enabled
+- Check storage not full
+
+Firefox:
+- Settings → Privacy & Security
+- Enable cookies and site data
+```
+
+**2. LocalStorage Test**
+- Open DevTools (F12)
+- Console tab
+- Type: `localStorage.setItem('test', 'value')`
+- Type: `localStorage.getItem('test')`
+- Should return 'value'
+
+**3. Clear and Retry**
+- Clear browser cache
+- Clear localStorage: `localStorage.clear()`
+- Refresh page
+- Re-add blocks
+
+### Preview Not Showing Code
+
+#### Symptoms
+- Preview modal opens but empty
+- Code not formatted
+- Syntax highlighting missing
+- Loading indicator stuck
+
+#### Solutions
+
+**1. Check Workspace Has Blocks**
+- Ensure at least one block in workspace
+- Verify blocks are valid
+- Try adding a simple utility block
+
+**2. Browser Console Errors**
+- Open DevTools (F12)
+- Check for JavaScript errors
+- Look for syntax errors in custom snippets
+- Fix any reported errors
+
+**3. Code Assembly Issues**
+- Check if custom snippets have valid code
+- Verify no infinite loops in assembly
+- Test with only pre-built snippets
+- Remove custom snippets one by one
+
+**4. Refresh & Retry**
+- Close preview modal
+- Refresh page
+- Re-assemble blocks
+- Try preview again
+
+### Save Function Not Working
+
+#### Symptoms
+- Save button doesn't respond
+- No file download
+- Error message appears
+- File downloads but is empty
 
 #### Solutions
 
 **1. Check Browser Permissions**
 ```
 Chrome:
-- Settings → Privacy and security → Site settings → Notifications
-- Find your site
-- Ensure "Allow" is selected
+- Settings → Privacy → Site settings → Downloads
+- Ensure "Ask where to save files" enabled
+- Or set default download location
 
 Firefox:
-- Settings → Privacy & Security → Permissions → Notifications
-- Check site permissions
-
-Safari:
-- Preferences → Websites → Notifications
-- Enable for your site
+- Settings → General → Downloads
+- Choose download behavior
 ```
 
-**2. Verify Requirements**
-- ✅ Click "Enable Notifications" button
-- ✅ Grant permission when prompted
-- ✅ Todo has due date set
-- ✅ Reminder timing is set
-- ✅ Reminder time hasn't passed yet
+**2. Test with Simple EA**
+1. Clear workspace
+2. Add single utility block
+3. Try saving
+4. If works: complex assembly issue
+5. If fails: browser/permission issue
 
-**3. Browser-Specific Issues**
-- Try different browser
-- Update browser to latest version
-- Check if notifications work on other sites
-- Restart browser
+**3. Verify Code Assembly**
+- Preview code first
+- Check if code appears
+- Copy from preview manually if needed
+- Check file size (shouldn't be 0 bytes)
 
-**4. System-Level Issues (macOS)**
-- System Preferences → Notifications
-- Find browser in list
-- Enable "Allow notifications from [Browser]"
+**4. Alternative Save Method**
+1. Preview code
+2. Copy to clipboard
+3. Open text editor
+4. Paste code
+5. Save manually as .txt
 
-### Todos Not Saving
+### Custom Snippets Not Appearing
 
 #### Symptoms
-- "Add" button doesn't work
-- Todo disappears after adding
-- Changes not persisting
-- Error messages
+- Created snippet doesn't show in tab
+- Snippet disappears after refresh
+- Can't find saved snippet
+- Snippet shows in wrong tab
 
 #### Solutions
 
-**1. Check Required Fields**
-- ✅ Title is not empty
-- ✅ Title is not just whitespace
-- ✅ For recurring: due date is set
-- ✅ For reminders: due date is set
+**1. Verify Snippet Creation**
+- Check all required fields filled
+- Ensure name is unique
+- Verify code field not empty
+- Select correct category/tab
 
-**2. Verify Due Date**
-- ✅ Due date is in the future (Singapore time)
-- ✅ At least 1 minute from now
-- ✅ Valid date format (YYYY-MM-DDTHH:mm)
+**2. Check LocalStorage**
+- Snippets saved to browser localStorage
+- Check if storage is full
+- Check if localStorage enabled
+- Try creating in different browser
 
-**3. Network Issues**
-- Check internet connection
-- Check if API is responding
-- Look for error in browser console (F12)
-- Try refreshing page
+**3. Refresh Tab**
+- Switch to different tab
+- Switch back to original tab
+- Snippet should appear
+- If not, try page refresh
 
-**4. Browser Issues**
-- Clear browser cache
-- Try incognito/private mode
-- Disable browser extensions
-- Try different browser
+**4. Re-create Snippet**
+- If lost, re-create from scratch
+- Copy code from backup if available
+- Ensure saving properly (look for confirmation)
 
-### Import Failing
+### Blocks in Wrong Order
 
 #### Symptoms
-- "Failed to import todos" error
-- Import button doesn't work
-- File not accepted
-- Todos not appearing after import
+- Blocks appear jumbled
+- New blocks go to wrong position
+- Can't reorder blocks
+- Order changes on refresh
 
 #### Solutions
 
-**1. File Format Issues**
-```
-✅ Ensure file is JSON format
-✅ Verify file extension is .json
-✅ File was exported from this app
-✅ File not corrupted or modified
-```
+**1. Manual Reordering**
+1. Click and drag block
+2. Move to desired position
+3. Look for insertion indicator line
+4. Drop in correct spot
+5. Verify order
 
-**2. Validate JSON**
-- Open file in text editor
-- Check for JSON syntax errors
-- Use JSON validator online
-- Try exporting fresh file and re-importing
+**2. Delete and Re-add**
+- Remove blocks causing issues
+- Re-add in correct order
+- Save workspace (if feature available)
 
-**3. File Size**
-- Very large files may time out
-- Split into smaller imports if needed
-- Check network stability
+**3. Standard Order Template**
+Follow this order:
+1. Input parameters
+2. Global variables
+3. OnInit()
+4. OnTick()
+5. Custom functions
 
-**4. Test Import**
-1. Export current todos as test
-2. Immediately try to import
-3. If works: original file is corrupted
-4. If fails: browser or API issue
-
-### Tags Not Showing
+### Compilation Errors in MetaEditor
 
 #### Symptoms
-- Tags created but not visible
-- Tags not appearing on todos
-- Tag filter not working
-- Tag modal not opening
+- Saved file won't compile
+- Syntax errors in MetaEditor
+- Missing semicolons
+- Undefined functions
+- Variable scope errors
 
 #### Solutions
 
-**1. Verify Tag Creation**
-- Open tag management modal
-- Check if tag exists in list
-- Ensure tag has name
-- Verify color is set
+**1. Common MQL5 Errors**
 
-**2. Check Todo Association**
-- Edit todo
-- Verify tag is selected (checkmark visible)
-- Click "Update" to save
-- Refresh page
+**Missing Semicolons**:
+```mql5
+// Wrong
+double price = Ask
 
-**3. Filter Conflicts**
-- Check if tag filter is active
-- Clear all filters
-- Ensure completion filter not hiding todos
-- Check search query
-
-**4. Refresh Data**
-- Reload page (F5)
-- Clear browser cache
-- Log out and log back in
-
-### Search Not Finding Results
-
-#### Symptoms
-- Search returns no results
-- Expected todos not appearing
-- Search seems broken
-
-#### Solutions
-
-**1. Check Search Input**
-- ✅ Spelling is correct
-- ✅ Try partial search (fewer letters)
-- ✅ Search is case-insensitive
-- ✅ Try searching subtask content
-
-**2. Verify Other Filters**
-- Clear all filters except search
-- Check if priority filter is active
-- Check if tag filter is active
-- Check if completion filter is hiding results
-
-**3. Confirm Todo Exists**
-- Clear search
-- Manually browse list
-- Verify todo actually exists
-- Check if in Completed section
-
-**4. Test Search**
-```
-Test 1: Search for single letter ("a")
-Test 2: Search for common word ("meeting")
-Test 3: Clear search and verify todos appear
-Test 4: Search in subtask content
+// Correct
+double price = Ask;
 ```
 
-### Calendar Not Loading
+**Undefined Functions**:
+- Ensure all custom functions defined
+- Check function names match calls
+- Verify function order (called after definition)
 
-#### Symptoms
-- Calendar page is blank
-- Todos not appearing on calendar
-- Navigation not working
-- 404 error
+**Variable Scope**:
+```mql5
+// Wrong - variable in wrong scope
+void OnTick() {
+   double price = Ask;
+}
+void CheckPrice() {
+   if(price > 1.0) {...}  // Error: 'price' not declared
+}
 
-#### Solutions
-
-**1. Check URL**
-- Ensure URL is `/calendar`
-- Click "Calendar" button from main page
-- Verify route exists
-
-**2. Verify Data**
-- Return to main page
-- Check if todos have due dates
-- Only todos with due dates appear on calendar
-- Verify dates are valid
-
-**3. Browser Issues**
-- Refresh page (F5)
-- Clear cache
-- Try different browser
-- Check JavaScript is enabled
-
-### Dark Mode Issues
-
-#### Symptoms
-- Dark mode not activating
-- Colors look wrong
-- Text not readable
-- Stuck in one mode
-
-#### Solutions
-
-**1. Check System Settings**
-```
-macOS:
-- System Preferences → General → Appearance → Dark
-
-Windows:
-- Settings → Personalization → Colors → Dark
-
-Linux:
-- Desktop environment theme settings
+// Correct - use global or pass parameter
+double price;
+void OnTick() {
+   price = Ask;
+}
+void CheckPrice() {
+   if(price > 1.0) {...}  // OK
+}
 ```
 
-**2. Browser Detection**
-- Use DevTools to test (F12)
-- Rendering → Emulate CSS media
-- Toggle dark/light
-- Verify changes apply
+**2. Preview Before Saving**
+- Always preview code first
+- Look for syntax errors
+- Check for proper structure
+- Verify function completeness
 
-**3. Cache Issues**
-- Clear browser cache
-- Hard refresh (Ctrl+Shift+R or Cmd+Shift+R)
-- Try incognito mode
+**3. Test Snippets Individually**
+- Test custom snippets in MetaEditor first
+- Ensure they compile standalone
+- Then add to builder
+
+**4. Use Pre-built Snippets**
+- Pre-built snippets are tested
+- Use as templates for custom snippets
+- Modify carefully
 
 ### Performance Issues
 
 #### Symptoms
-- App is slow
-- Lag when typing
-- Slow filter updates
-- Delays in todo creation
+- Dashboard slow or laggy
+- Drag-and-drop delayed
+- Preview takes long time
+- Browser freezes
 
 #### Solutions
 
-**1. Data Size**
-- Large number of todos (> 500) may slow down
-- Export and archive old todos
-- Delete completed todos
-- Use filters to reduce visible items
+**1. Reduce Workspace Size**
+- Limit blocks in workspace (< 50)
+- Delete unused blocks
+- Clear completed projects
 
 **2. Browser Performance**
 - Close unused tabs
 - Restart browser
+- Clear browser cache
 - Update to latest browser version
-- Check system resources
 
-**3. Network Issues**
-- Check internet speed
-- Verify API response times
-- Check browser console for errors
-- Try different network
+**3. Computer Resources**
+- Check RAM usage
+- Close other applications
+- Check CPU usage
+- Restart computer
 
-### Login/Authentication Issues
+**4. Simplify Custom Snippets**
+- Avoid very large code blocks
+- Break into smaller functions
+- Remove unnecessary comments
+- Optimize code
+
+### Tab Management Issues
 
 #### Symptoms
-- Cannot register
-- Cannot login
-- Passkey not working
-- Session expiring
+- Can't create new tab
+- Tab doesn't switch
+- Tab deleted accidentally
+- Custom tabs disappear
 
 #### Solutions
 
-**1. Browser Support**
-- ✅ Use modern browser (Chrome, Firefox, Safari, Edge)
-- ✅ Update browser to latest version
-- ✅ Enable WebAuthn support
+**1. Tab Creation**
+- Ensure clicking + button
+- Verify modal appears
+- Fill in required name field
+- Check for error messages
 
-**2. Device Support**
-- Ensure device has biometric capability
-- Check security key is working
-- Verify passkey is saved
-- Try different authentication method
+**2. Tab Persistence**
+- Custom tabs saved to localStorage
+- Check browser storage enabled
+- Export tab configuration (if available)
+- Backup important custom tabs
 
-**3. Session Issues**
-- Clear cookies
-- Log out and log back in
-- Try incognito mode
-- Register new account to test
+**3. Recover Deleted Tab**
+- Can't undo deletion
+- Re-create tab manually
+- Re-add custom snippets
+- Check if snippets still in other tabs
+
+**4. Default Tabs Protected**
+- Utilities, Indicators, Pre-made Functions can't be deleted
+- Only custom tabs can be removed
+- Verify which tab you're trying to delete
 
 ### General Troubleshooting Steps
 
@@ -1926,33 +1849,33 @@ Linux:
 
 **Step 1: Basic Checks**
 1. Refresh page (F5)
-2. Check internet connection
-3. Verify you're logged in
-4. Check browser console for errors (F12)
+2. Check internet connection (if applicable)
+3. Verify JavaScript enabled
+4. Check browser console (F12)
 
 **Step 2: Clear State**
-1. Clear filters
-2. Clear search
-3. Close all modals
-4. Return to main page
+1. Clear workspace
+2. Close all modals
+3. Switch tabs
+4. Return to main view
 
 **Step 3: Browser Reset**
 1. Clear browser cache
-2. Clear cookies (may need to re-login)
+2. Clear localStorage (may lose custom snippets - backup first)
 3. Restart browser
-4. Try incognito/private mode
+4. Try different browser
 
 **Step 4: Data Verification**
-1. Export current todos as backup
-2. Check if data is intact
-3. Verify database operations working
-4. Test with new todo
+1. Test with pre-built snippets only
+2. Create simple EA
+3. Test save functionality
+4. Verify preview works
 
 **Step 5: Escalation**
-1. Try different browser
-2. Try different device
-3. Check app status/server
-4. Report bug with details
+1. Try different computer
+2. Try different browser
+3. Check for application updates
+4. Report issue with details
 
 #### Collecting Debug Information
 
@@ -1962,33 +1885,35 @@ When reporting issues, include:
 2. Operating system
 3. Steps to reproduce
 4. Expected vs actual behavior
-5. Console errors (F12 → Console tab)
-6. Network errors (F12 → Network tab)
-7. Screenshots if helpful
+5. Console errors (F12 → Console)
+6. Screenshots if helpful
+7. Custom snippets involved (if any)
+8. Workspace complexity (number of blocks)
 ```
 
 ---
 
 ## Keyboard Shortcuts Reference
 
-### Text Input
-- **Enter** in todo form → Add todo (when focused on Add button)
-- **Enter** in subtask input → Add subtask
-- **Enter** in tag modal → Create tag (when focused on Create button)
+### Workspace Actions
+- **Ctrl + S**: Quick save (if implemented)
+- **Ctrl + P**: Preview code (if implemented)
+- **Delete**: Remove selected block
+- **Escape**: Close modal
 
-### Modal Actions
-- **Escape** → Close modal (if implemented)
-- Click outside modal → Close modal
+### Block Management
+- **Drag**: Click and drag to move blocks
+- **Ctrl + Click**: Multi-select blocks (if implemented)
+- **Shift + Click**: Select range of blocks (if implemented)
 
-### Quick Actions
-- Click **checkbox** → Toggle todo completion
-- Click **tag pill** → Select/deselect tag (in forms)
-- Click **✕** → Clear search / delete item / close
+### Tab Navigation
+- **Ctrl + Tab**: Next tab (if implemented)
+- **Ctrl + Shift + Tab**: Previous tab (if implemented)
+- **Ctrl + T**: New tab (if implemented)
 
-### Navigation
-- **Tab** → Move between form fields
-- **Shift + Tab** → Move backwards
-- **Space** → Toggle checkbox (when focused)
+### Code Preview
+- **Ctrl + C** (in preview): Copy code to clipboard
+- **Escape**: Close preview modal
 
 ---
 
@@ -1996,42 +1921,30 @@ When reporting issues, include:
 
 ### ✅ Implemented Features
 
-- [x] **Authentication**: WebAuthn/Passkeys, passwordless login
-- [x] **Todo Management**: Create, edit, delete, complete todos
-- [x] **Priority Levels**: High/Medium/Low with color coding
-- [x] **Due Dates**: Date-time picker, Singapore timezone
-- [x] **Time Display**: Smart urgency-based formatting
-- [x] **Overdue Tracking**: Separate section, red highlights
-- [x] **Recurring Todos**: Daily/Weekly/Monthly/Yearly patterns
-- [x] **Reminders**: 7 preset timings, browser notifications
-- [x] **Subtasks**: Unlimited subtasks with progress tracking
-- [x] **Progress Bars**: Visual completion percentage
-- [x] **Tags**: Custom color-coded labels, multi-tag support
-- [x] **Tag Management**: Create, edit, delete, filter by tags
-- [x] **Templates**: Save and reuse todo patterns
-- [x] **Template Categories**: Organize templates by category
-- [x] **Search**: Full-text search in titles and subtasks
-- [x] **Quick Filters**: Priority and tag filtering
-- [x] **Advanced Filters**: Completion status, date ranges
-- [x] **Saved Filter Presets**: Store filter combinations
-- [x] **Export JSON**: Complete data backup
-- [x] **Export CSV**: Spreadsheet-friendly format
-- [x] **Import JSON**: Restore from backups
-- [x] **Calendar View**: Monthly visualization
-- [x] **Dark Mode**: Automatic system preference detection
-- [x] **Auto-Sorting**: Priority, due date, creation date
-- [x] **Section Organization**: Overdue, Pending, Completed
-- [x] **Real-time Updates**: Instant UI refresh
-- [x] **User-specific Data**: Multi-user support
-- [x] **Singapore Timezone**: Consistent time handling
+- [x] **Dashboard Layout**: Split view with workspace and library
+- [x] **Drag-and-Drop**: Intuitive block movement
+- [x] **Code Snippet Library**: Pre-built MQL5 snippets
+- [x] **Tabbed Organization**: Utilities, Indicators, Pre-made Functions
+- [x] **Custom Tabs**: Create unlimited custom categories
+- [x] **Add Custom Snippets**: Dotted border interface
+- [x] **Block Management**: Reorder, delete, configure blocks
+- [x] **Code Preview**: Full assembled code view
+- [x] **Save Function**: Export as .txt file
+- [x] **Syntax Highlighting**: Color-coded display
+- [x] **LocalStorage Persistence**: Save workspace and custom snippets
+- [x] **Block Configuration**: Parameter adjustment per block
+- [x] **Code Assembly**: Automatic proper EA structure
+- [x] **Validation**: Basic syntax checking
+- [x] **Statistics**: Code metrics display
 
 ---
 
 ## Version Information
 
-**App Version**: 1.0
+**Application Version**: 1.0
 **Last Updated**: November 2025
 **Compatible Browsers**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
+**MQL5 Compatibility**: MetaTrader 5 Build 3000+
 
 ---
 
@@ -2041,11 +1954,73 @@ For issues, questions, or feature requests:
 1. Check this user guide first
 2. Review troubleshooting section
 3. Check browser console for errors
-4. Contact app administrator
-5. Submit feedback through app (if available)
+4. Test in different browser
+5. Report issues with debug information
+
+---
+
+## MetaEditor Integration Guide
+
+### After Saving from Builder
+
+**Step 1: Open File**
+1. Locate saved .txt file in downloads
+2. Open MetaEditor (Alt+F4 in MT5)
+3. File → Open
+4. Select your .txt file
+
+**Step 2: Convert to MQ5**
+1. File → Save As
+2. Change extension: `.txt` → `.mq5`
+3. Save in: `MQL5\Experts\`
+4. Example: `C:\Users\...\MQL5\Experts\MyEA.mq5`
+
+**Step 3: Compile**
+1. Press **F7** or click Compile button
+2. Check **Errors** tab in bottom panel
+3. Fix any errors (see troubleshooting)
+4. Successful: 0 errors, 0 warnings
+5. `.ex5` file created automatically
+
+**Step 4: Test in Strategy Tester**
+1. Press **Ctrl+R** (Strategy Tester)
+2. Select your EA from dropdown
+3. Choose symbol (e.g., EURUSD)
+4. Choose timeframe (e.g., H1)
+5. Choose date range
+6. Click **Start**
+7. Review results
+
+**Step 5: Optimization**
+1. In Strategy Tester, enable **Optimization**
+2. Select parameters to optimize
+3. Set parameter ranges
+4. Choose optimization method
+5. Run optimization
+6. Select best parameter set
+
+**Step 6: Forward Testing**
+1. Run backtest on different date range
+2. Use optimized parameters
+3. Verify consistent results
+4. Check for overfitting
+
+**Step 7: Demo Account**
+1. Drag EA onto chart in demo account
+2. Set parameters from optimization
+3. Enable Expert Advisors (Auto Trading button)
+4. Monitor for 1-2 weeks
+5. Verify expected behavior
+
+**Step 8: Live Trading**
+1. After successful demo testing
+2. Start with minimum position size
+3. Monitor closely first week
+4. Scale up gradually
+5. Keep trading journal
 
 ---
 
 **End of User Guide**
 
-This guide covers all currently implemented features in the Todo App. Features are continuously being improved and expanded. Keep this guide handy for reference as you use the app!
+This comprehensive guide covers all features of the MQL5 Expert Advisor Builder. Use this as a reference while building your trading strategies. Happy coding and successful trading!
