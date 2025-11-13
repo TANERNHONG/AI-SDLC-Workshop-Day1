@@ -3,18 +3,22 @@
 ## Table of Contents
 1. [Getting Started](#1-getting-started)
 2. [Dashboard Layout](#2-dashboard-layout)
+   - [Sidebar Navigation](#sidebar-navigation)
+   - [Dashboard Sections](#dashboard-sections)
 3. [Code Snippet Library](#3-code-snippet-library)
-4. [Drag-and-Drop Functionality](#4-drag-and-drop-functionality)
-5. [Library Tabs Management](#5-library-tabs-management)
-6. [Adding Custom Code Snippets](#6-adding-custom-code-snippets)
-7. [Code Block Organization](#7-code-block-organization)
-8. [Utilities Tab](#8-utilities-tab)
-9. [Indicators Tab](#9-indicators-tab)
-10. [Pre-made Functions Tab](#10-pre-made-functions-tab)
-11. [Code Preview](#11-code-preview)
-12. [Saving Expert Advisors](#12-saving-expert-advisors)
-13. [Best Practices](#13-best-practices)
-14. [Troubleshooting](#troubleshooting)
+4. [Event Handler Tab](#4-event-handler-tab)
+5. [Drag-and-Drop Functionality](#5-drag-and-drop-functionality)
+6. [Library Tabs Management](#6-library-tabs-management)
+7. [Adding Custom Code Snippets](#7-adding-custom-code-snippets)
+8. [Code Block Organization](#8-code-block-organization)
+9. [Utilities Tab](#9-utilities-tab)
+10. [Indicators Tab](#10-indicators-tab)
+11. [Pre-made Functions Tab](#11-pre-made-functions-tab)
+12. [Documentations Tab](#12-documentations-tab)
+13. [Code Preview](#13-code-preview)
+14. [Saving Expert Advisors](#14-saving-expert-advisors)
+15. [Best Practices](#15-best-practices)
+16. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -24,42 +28,184 @@
 The MQL5 Expert Advisor Builder is a visual drag-and-drop dashboard that allows you to assemble fully functioning Expert Advisors (EAs) for MetaTrader 5 without writing code from scratch. Build sophisticated trading bots by combining pre-built code snippets.
 
 ### How to Use
-1. Access the dashboard through your web browser
-2. Browse the code snippet library on the right side
-3. Drag code blocks to the workspace on the left
-4. Arrange blocks in the correct execution order
-5. Preview the assembled code
-6. Save your Expert Advisor as a .txt file
+1. Access the dashboard through your web browser (localhost:3000)
+2. The sidebar on the far left provides navigation (currently showing Dashboard)
+3. Browse the code snippet library on the right side
+4. Drag code blocks to the workspace in the center
+5. Arrange blocks in the correct execution order
+6. Preview the assembled code
+7. Save your Expert Advisor as a .txt file
 
 ### Key Features
+- ✅ Expandable sidebar navigation for multi-page architecture
 - ✅ Visual drag-and-drop interface
 - ✅ Pre-built MQL5 code snippets
+- ✅ Toggleable MQL5 event handlers
 - ✅ Custom snippet creation
 - ✅ Multiple organized library tabs
 - ✅ Real-time code assembly
 - ✅ Code preview before saving
 - ✅ Export as .txt for MetaEditor
+- ✅ Future-ready for additional pages and features
 
 ---
 
 ## 2. Dashboard Layout
 
 ### What It Does
-The dashboard is divided into two main sections for efficient workflow: a workspace on the left and a code library on the right.
+The dashboard features an expandable left sidebar for navigation, plus two main work sections: a workspace in the center and a code library on the right.
+
+### Sidebar Navigation
+
+The **left-side navigation sidebar** enables multi-page navigation and future feature expansion:
+
+**Collapsed State (Default):**
+- 64px wide vertical bar on the far left
+- Shows icon-only navigation buttons
+- Minimizes screen space for maximum workspace
+- Click the hamburger menu icon (☰) to expand
+
+**Expanded State:**
+- 240px wide sidebar panel
+- Shows full navigation menu with icons and labels
+- Displays current page indicator
+- Click hamburger icon again to collapse
+
+**Navigation Pages:**
+1. **🏠 Dashboard** - Main EA builder interface (active)
+2. **⚙️ Settings** - Application preferences (future)
+3. **📋 Templates** - Saved EA templates (future)
+4. **📚 Documentation** - Help and guides (future)
+5. **📦 Export History** - Previously exported EAs (future)
+
+**Keyboard Shortcut:**
+- `Ctrl/Cmd + B` - Toggle sidebar collapse/expand
+
+**Benefits:**
+- **Future-Ready**: Designed for adding new pages and features
+- **Space Efficient**: Collapsed mode maximizes workspace area
+- **Quick Navigation**: Easy switching between app sections
+- **State Persistence**: Sidebar state saved in localStorage
 
 ### Dashboard Sections
 
 | Section | Location | Purpose |
-|---------|----------|---------|
-| **Workspace** | Left side | Drop zone for assembling code blocks |
-| **Code Library** | Right side | Browse and select code snippets |
-| **Bottom Bar** | Bottom | Preview and save functions |
+|---------|----------|---------|  
+| **Sidebar** | Far left (collapsible) | Navigate between pages, access settings and future features |
+| **Workspace** | Center-left | Drop zone for assembling code blocks |
+| **Code Library** | Right side | Browse and select code snippets (includes Event Handler tab) |
+| **Bottom Bar** | Bottom | Preview and save functions |### Code Library (Right Side)
+
+#### Purpose
+- Repository of all available code snippets
+- Organized by category in tabs (including Event Handlers)
+- Source for drag-and-drop blocks
+- Control which MQL5 event handler functions are included
+- Custom snippet management
+
+#### Features
+- **Required Handlers** (Always included):
+  - ✅ OnInit - Initialization function (always active)
+  - ✅ OnDeinit - Deinitialization function (always active)
+
+- **Optional Handlers** (Toggle on/off):
+  - ☐ OnStart - Program start handler
+  - ☐ OnTick - New tick event handler (most common for EAs)
+  - ☐ OnCalculate - Calculate event handler (for custom indicators)
+  - ☐ OnTimer - Timer event handler
+  - ☐ OnTrade - Trade event handler
+  - ☐ OnTradeTransaction - Trade transaction handler
+  - ☐ OnBookEvent - Depth of market event handler
+  - ☐ OnChartEvent - Chart event handler
+  - ☐ OnTester - Tester event handler
+  - ☐ OnTesterInit - Tester initialization handler
+  - ☐ OnTesterDeinit - Tester deinitialization handler
+  - ☐ OnTesterPass - Tester pass handler
+
+## 4. Event Handler Tab
+
+### What It Does
+The Event Handler tab is located in the Code Library on the right side of the dashboard, alongside Utilities, Indicators, Pre-made Functions, and Documentations tabs. It allows you to control which MQL5 event handler functions are included in your Expert Advisor.
+
+### How to Use
+1. **Click the Event Handler tab** in the library (right side of dashboard)
+2. **Review required handlers** (grayed out, always included)
+3. **Click toggle switch** next to optional handlers to enable/disable
+4. **Enabled handlers** show checkmark and green indicator
+5. **Code assembly** automatically includes enabled handlers in proper order
+
+#### Event Handler Details
+
+**OnStart**
+- Called at program start (before OnInit)
+- Rare usage, mainly for scripts
+- Use case: One-time setup before initialization
+
+**OnTick** (Most Common)
+- Called on every new price tick
+- Primary handler for Expert Advisors
+- Use case: Check signals, manage trades on each tick
+
+**OnCalculate**
+- Called when custom indicator needs recalculation
+- Used in indicators, not typical EAs
+- Use case: Calculate custom indicator values
+
+**OnTimer**
+- Called at specified time intervals
+- Requires EventSetTimer() in OnInit
+- Use case: Periodic checks, time-based actions
+
+**OnTrade**
+- Called when trade event occurs on account
+- Use case: Track order execution, position changes
+
+**OnTradeTransaction**
+- Called on trade transaction events
+- More detailed than OnTrade
+- Use case: Advanced trade tracking, transaction logging
+
+**OnBookEvent**
+- Called on Depth of Market changes
+- Requires MarketBookAdd() in OnInit
+- Use case: Level 2 data analysis, DOM trading
+
+**OnChartEvent**
+- Called on chart events (clicks, key presses, custom events)
+- Use case: Interactive EAs, GUI controls, user input
+
+**OnTester**
+- Called during strategy tester optimization
+- Use case: Custom optimization criteria
+
+**OnTesterInit/OnTesterDeinit**
+- Called at start/end of testing
+- Use case: Initialize/cleanup test resources
+
+**OnTesterPass**
+- Called after optimization pass
+- Use case: Process optimization results
+
+### Best Practices
+
+✅ **For Standard Trading EAs**: Enable OnTick only
+✅ **For Time-Based EAs**: Enable OnTick + OnTimer
+✅ **For Event-Driven EAs**: Enable OnTick + OnTrade or OnTradeTransaction
+✅ **For Interactive EAs**: Enable OnTick + OnChartEvent
+✅ **For Strategy Tester**: Enable OnTester when optimizing
+
+⚠️ **Avoid**: Enabling handlers you don't use (adds unnecessary code)
+⚠️ **Remember**: OnInit and OnDeinit are always included
+
+---
+
+## 3. Code Snippet Library
 
 ### Workspace (Left Side)
 
 #### Purpose
 - Main area for building your Expert Advisor
-- Drag code blocks here from the library
+- Drag code blocks here from the library on the right
 - Arrange blocks in execution order
 - Vertical stacking of code snippets
 - Visual representation of your EA structure
@@ -102,7 +248,7 @@ The dashboard is divided into two main sections for efficient workflow: a worksp
 
 ---
 
-## 3. Code Snippet Library
+## 5. Drag-and-Drop Functionality
 
 ### What It Does
 Provides a comprehensive collection of pre-built MQL5 code snippets organized into logical categories for easy access and reusability.
@@ -332,6 +478,14 @@ The application comes with three pre-configured tabs:
 - "Index Trading"
 - "Commodity Functions"
 
+**By Documentation Purpose**:
+- "Strategy Explanations"
+- "Parameter Guides"
+- "Setup Instructions"
+- "Troubleshooting Notes"
+- "Changelog & Updates"
+- "Trading Journal"
+
 ### Tab Persistence
 
 #### Storage
@@ -541,7 +695,87 @@ void CloseAllPositions(string symbol) {
 ## 7. Code Block Organization
 
 ### What It Does
-Efficiently manage and organize code blocks in your workspace to create a logical, well-structured Expert Advisor.
+Efficiently manage and organize code blocks in your workspace to create a logical, well-structured Expert Advisor. When code snippets are added, the system automatically creates associated global variable blocks that can be independently positioned.
+
+### Automatic Global Variable Generation
+
+#### What It Does
+When you drag certain code snippets to the workspace, the system automatically creates mini code snippet blocks for associated global variables. These appear as separate, repositionable blocks that manage variable declarations.
+
+#### How It Works
+
+**Example: Adding an ATR Indicator**
+
+1. **Drag "Average True Range" snippet** from Indicators tab to workspace
+2. **System automatically creates two blocks**:
+   - 📊 **Global Variable Block** (mini snippet): `int g_indicator_atr_period = 14;`
+   - 📋 **Main Code Block**: ATR indicator initialization and usage
+3. **Both blocks appear in workspace** as independent, draggable items
+4. **Global variable block** automatically positioned near top (variable declaration section)
+5. **Main code block** positioned where you dropped it
+
+#### Visual Representation
+
+```
+Workspace After Dragging ATR Indicator:
+
+┌─────────────────────────────────────┐
+│ 🔹 Global: ATR Period          [✕] │ ← Mini global variable block
+├─────────────────────────────────────┤
+│ int g_indicator_atr_period = 14;   │
+└─────────────────────────────────────┘
+        ↓ (can be repositioned)
+
+┌─────────────────────────────────────┐
+│ 📊 Average True Range          [✕] │ ← Main code block
+├─────────────────────────────────────┤
+│ Initialize and calculate ATR        │
+│ Uses: g_indicator_atr_period       │
+└─────────────────────────────────────┘
+```
+
+#### Snippets That Generate Global Variables
+
+**Indicators (Automatically create globals)**:
+- 📊 **Moving Average** → `int g_ma_period = 20;` + `int g_ma_shift = 0;`
+- 📊 **RSI** → `int g_rsi_period = 14;` + `double g_rsi_overbought = 70.0;` + `double g_rsi_oversold = 30.0;`
+- 📊 **MACD** → `int g_macd_fast = 12;` + `int g_macd_slow = 26;` + `int g_macd_signal = 9;`
+- 📊 **Bollinger Bands** → `int g_bb_period = 20;` + `double g_bb_deviation = 2.0;`
+- 📊 **ATR** → `int g_indicator_atr_period = 14;`
+- 📊 **Stochastic** → `int g_stoch_k = 5;` + `int g_stoch_d = 3;` + `int g_stoch_slowing = 3;`
+
+**Utilities (May create globals)**:
+- 🔧 **Trailing Stop** → `double g_trailing_stop_pips = 20.0;` + `bool g_trailing_enabled = true;`
+- 🔧 **Risk Management** → `double g_risk_percent = 1.0;` + `double g_max_daily_loss = 5.0;`
+- 🔧 **Time Filter** → `int g_trade_start_hour = 8;` + `int g_trade_end_hour = 18;`
+
+**Trading Logic (May create globals)**:
+- 💼 **Position Sizing** → `double g_lot_size = 0.01;` + `bool g_use_dynamic_lots = true;`
+- 💼 **Trade Management** → `int g_max_positions = 3;` + `double g_max_spread = 3.0;`
+
+#### Global Variable Block Features
+
+**Mini Block Appearance**:
+- 🔹 Smaller height than main blocks (compact design)
+- 🔹 Special icon indicating global variable
+- 🔹 Lighter background color (visual distinction)
+- 🔹 Shows variable name with **editable input field** for default value
+- 💡 **Input field always visible** - click to edit, type new value
+- 📝 Real-time validation as you type (shows min/max constraints)
+- 🔹 Includes delete button [✕]
+- ✨ Hover shows edit cursor to indicate editability
+
+**Independence**:
+- ✅ Can be repositioned separately from main block
+- ✅ Can be deleted independently (with confirmation)
+- ✅ Main block references the global variable
+- ✅ Deleting global block shows warning if used by other blocks
+
+**Automatic Positioning**:
+- 📍 Global variable blocks auto-sort to top of workspace
+- 📍 Appear before OnInit and OnDeinit sections
+- 📍 Group together with other global variables
+- 📍 Can be manually reordered within global section
 
 ### Block Structure in Workspace
 
@@ -590,32 +824,283 @@ Each dropped code block displays:
 4. Values inserted into code template
 5. Click **"Apply"** to save
 
+#### Managing Global Variable Blocks
+
+**Editing Global Variables (Primary Feature)**
+
+Global variable blocks are designed for **easy manual editing** of default values:
+
+1. **Visual Design**: Each block shows an **input field** for the value
+2. **Click to Edit**: Click directly on the value field to edit
+3. **Type New Value**: Input field accepts keyboard input immediately
+4. **Live Validation**: 
+   - Green border = valid value
+   - Red border = invalid (out of range)
+   - Tooltip shows allowed range (e.g., "1-100")
+5. **Auto-Save**: Press Enter, Tab, or click outside to save
+6. **Undo**: Press Escape to cancel and revert to previous value
+7. **Visual Feedback**: Changed values show in **bold** or with ✓ indicator
+
+**Example: Editing ATR Period**
+```
+Default View:
+┌─────────────────────────────────────┐
+│ 🔹 int g_indicator_atr_period = [14▼] │ ← Input field visible
+└─────────────────────────────────────┘
+
+While Editing:
+┌─────────────────────────────────────┐
+│ 🔹 int g_indicator_atr_period = [20]│ ← Active input with cursor
+│    Range: 1-100 | Step: 1          │ ← Validation hint
+└─────────────────────────────────────┘
+
+After Saving:
+┌─────────────────────────────────────┐
+│ 🔹 int g_indicator_atr_period = 20 ✓│ ← Bold + checkmark
+└─────────────────────────────────────┘
+```
+
+**Input Field Features**:
+- ⌨️ **Number Spinner**: Up/down arrows for numeric values
+- 🎚️ **Slider Option**: Toggle to show slider for range-based values
+- 🔢 **Step Increment**: Arrow keys increment by defined step (e.g., 5 for RSI levels)
+- 📋 **Copy Value**: Right-click to copy current value
+- ↩️ **Reset to Default**: Button to restore original default value
+
+**Deleting Global Variable Blocks**
+1. **Click [✕]** button on global variable block
+2. **Warning appears** if variable is used by other blocks:
+   ```
+   ⚠️ Warning: This global variable is used by:
+   - Average True Range (Indicators)
+   - Volatility Stop Loss (Utilities)
+   
+   Deleting it may cause compilation errors.
+   Continue? [Cancel] [Delete Anyway]
+   ```
+3. **If unused**: Block deleted immediately
+4. **If used**: Choose to delete anyway or cancel
+
+**Repositioning Global Variables**
+- **Drag** global variable blocks up/down within workspace
+- **Snap to global section**: Blocks auto-group with other globals
+- **Visual guide**: Dotted line separates globals from functions
+- **Auto-sort option**: Toggle to keep globals alphabetically sorted
+
+**Linking Indicators**
+- Global variable blocks show **🔗 Used by** indicator
+- Clicking **🔗** icon highlights related main blocks
+- Hover shows dependency tree
+- Color-coded connections in workspace
+
+### Input Field Styling and User Experience
+
+#### Visual Design of Editable Fields
+
+Global variable blocks prioritize **ease of editing** with clear visual cues:
+
+**Default State (Unfocused)**:
+```css
+┌─────────────────────────────────────┐
+│ 🔹 int g_ma_period = [  20  ] [✕] │
+│                       ↑              │
+│                  Input field         │
+│                  (light gray bg)     │
+└─────────────────────────────────────┘
+```
+- Light gray background in input area
+- Subtle border indicating clickable
+- Hover shows darker border + cursor change
+
+**Focused State (Active Editing)**:
+```css
+┌─────────────────────────────────────┐
+│ 🔹 int g_ma_period = [  50  ] [✕] │
+│                       ↑              │
+│                  Blue border         │
+│                  Text selected       │
+│   [Reset] Range: 1-500              │
+└─────────────────────────────────────┘
+```
+- Blue border indicating active focus
+- Text auto-selected for quick replacement
+- Helper text appears below (range, step)
+- Reset button visible
+
+**Invalid State (Validation Error)**:
+```css
+┌─────────────────────────────────────┐
+│ 🔹 int g_ma_period = [ -10  ] [✕] │
+│                       ↑              │
+│                  Red border          │
+│   ⚠️ Must be between 1 and 500      │
+└─────────────────────────────────────┘
+```
+- Red border for invalid input
+- Error message with specific constraint
+- Value not saved until valid
+
+**Modified State (Changed from Default)**:
+```css
+┌─────────────────────────────────────┐
+│ 🔹 int g_ma_period = [  50  ] ✓[✕]│
+│                       ↑              │
+│                  Bold text           │
+│                  Green checkmark     │
+└─────────────────────────────────────┘
+```
+- Bold text for modified values
+- Green checkmark indicates saved change
+- Different background (light green tint)
+
+#### Input Types by Variable Type
+
+**Integer Values** (e.g., periods, counts):
+- Standard number input
+- Up/down spinner buttons
+- Step increment (typically 1)
+- Min/max constraints shown
+- Example: `g_ma_period` → `[  20  ]` with ⬆️⬇️
+
+**Decimal Values** (e.g., percentages, ratios):
+- Number input with decimal support
+- Step increment (e.g., 0.1, 0.5)
+- Optional slider toggle
+- Example: `g_risk_percent` → `[  1.5  ]` with precision controls
+
+**Boolean Values** (e.g., enabled/disabled):
+- Toggle switch instead of input field
+- ON/OFF states clearly labeled
+- Example: `g_trailing_enabled` → `[ON] / [OFF]` toggle
+
+**String Values** (e.g., comments, symbols):
+- Text input field
+- Character limit shown
+- Example: `g_comment` → `[My EA v1.0]` with "12/50 chars"
+
+#### Keyboard Shortcuts for Editing
+
+| Key | Action |
+|-----|--------|
+| **Click** | Focus input field, select all text |
+| **Tab** | Save and move to next global variable |
+| **Shift+Tab** | Save and move to previous global variable |
+| **Enter** | Save and unfocus (stay on same block) |
+| **Escape** | Cancel edit, revert to previous value |
+| **↑ / ↓** | Increment/decrement by step value |
+| **Ctrl+Z** | Undo last change |
+| **Ctrl+R** | Reset to original default value |
+| **Ctrl+C** | Copy current value to clipboard |
+
+#### Bulk Editing Features
+
+**Select Multiple Globals**:
+1. Ctrl+Click on multiple global variable blocks
+2. Selected blocks highlight in blue
+3. Edit panel appears: "Editing 3 variables"
+4. Bulk actions available:
+   - Reset all to defaults
+   - Apply percentage change (+10%, -20%)
+   - Set all to same value
+   - Copy/paste values between blocks
+
+**Quick Presets**:
+- "Conservative" preset (lower risk values)
+- "Aggressive" preset (higher risk values)
+- "Fast" preset (shorter indicator periods)
+- "Slow" preset (longer indicator periods)
+- Custom presets saveable by user
+
+### Global Variable Section Management
+
+#### Auto-Grouping
+The workspace automatically maintains a **Global Variables section** at the top:
+
+```
+Workspace Structure:
+
+┌─────────────────────────────────────┐
+│     GLOBAL VARIABLES SECTION        │ ← Auto-grouped area
+├─────────────────────────────────────┤
+│ 🔹 g_indicator_atr_period = 14;    │
+│ 🔹 g_ma_period = 20;               │
+│ 🔹 g_rsi_period = 14;              │
+│ 🔹 g_risk_percent = 1.0;           │
+└─────────────────────────────────────┘
+        ═══════════════════════════ ← Separator
+┌─────────────────────────────────────┐
+│     EVENT HANDLERS & FUNCTIONS      │
+├─────────────────────────────────────┤
+│ ✅ OnInit                          │
+│ ✅ OnDeinit                        │
+│ 📊 OnTick                          │
+└─────────────────────────────────────┘
+        ───────────────────────────
+┌─────────────────────────────────────┐
+│     MAIN CODE BLOCKS               │
+├─────────────────────────────────────┤
+│ 📊 Average True Range              │
+│ 📈 Moving Average Crossover        │
+│ 💼 Calculate Lot Size              │
+└─────────────────────────────────────┘
+```
+
+#### Section Controls
+- **Collapse/Expand Global Section**: Click section header to toggle
+- **Sort Globals**: Button to alphabetically sort all global variables
+- **Add Manual Global**: + button to add custom global variable
+- **Bulk Edit**: Select multiple globals to edit simultaneously
+
+#### Visual Cues
+- 🔹 **Light blue background** for global variable section
+- 📍 **Position indicator** showing "Globals" label
+- ══ **Thick separator line** between sections
+- 🔢 **Count badge** showing number of global variables
+
 ### Block Ordering Best Practices
 
 #### Typical EA Structure Order
 
-**1. Variable Declarations**
+**1. Global Variable Declarations** (Auto-grouped at top)
 ```
-- Input parameters
-- Global variables
-- Object handles
+- 🔹 Indicator parameters (g_ma_period, g_rsi_period, g_atr_period)
+- 🔹 Trading parameters (g_lot_size, g_risk_percent, g_max_positions)
+- 🔹 Risk management (g_trailing_stop_pips, g_max_daily_loss)
+- 🔹 Time filters (g_trade_start_hour, g_trade_end_hour)
+- 🔹 Indicator handles (g_ma_handle, g_rsi_handle, g_atr_handle)
 ```
 
-**2. Initialization Functions**
+**2. Input Parameters** (Optional - can be added manually)
 ```
-- OnInit() setup
+- User-configurable inputs
+- Exposed in EA properties panel
+- Override global defaults
+```
+
+**3. Event Handler Functions** (Managed by Event Handler Sidebar)
+```
+- ✅ OnInit() - Required
+- ✅ OnDeinit() - Required
+- 📊 OnTick() - If enabled
+- ⏱️ OnTimer() - If enabled
+- 💼 OnTrade() - If enabled
+```
+
+**4. Initialization Logic** (Inside OnInit)
+```
 - Indicator initialization
-- Initial calculations
+- Setup code from dragged blocks
+- EventSetTimer() if using OnTimer
 ```
 
-**3. Main Logic**
+**5. Main Trading Logic** (Inside OnTick or other handlers)
 ```
-- OnTick() function
 - Entry signal detection
 - Position management
+- Trade execution
 ```
 
-**4. Utility Functions**
+**6. Utility Functions** (Bottom of file)
 ```
 - Helper functions
 - Calculations
@@ -629,22 +1114,96 @@ Each dropped code block displays:
 - Trade closing logic
 ```
 
-#### Example Order
+#### Example Order (With Auto-Generated Global Variables)
 ```
 Workspace Blocks (top to bottom):
-1. Input Parameters Declaration
-2. Global Variables
-3. OnInit() Function
-4. Moving Average Indicator Setup
-5. OnTick() Main Loop
-6. Buy Signal Detection
-7. Sell Signal Detection
-8. Calculate Lot Size
-9. Open Buy Trade
-10. Open Sell Trade
-11. Trailing Stop Function
-12. Close Positions Function
+
+═══════ GLOBAL VARIABLES SECTION ═══════
+1. 🔹 Global: MA Period (g_ma_period = 20)
+2. 🔹 Global: MA Shift (g_ma_shift = 0)
+3. 🔹 Global: RSI Period (g_rsi_period = 14)
+4. 🔹 Global: RSI Overbought (g_rsi_overbought = 70.0)
+5. 🔹 Global: RSI Oversold (g_rsi_oversold = 30.0)
+6. 🔹 Global: Risk Percent (g_risk_percent = 1.0)
+7. 🔹 Global: Trailing Stop (g_trailing_stop_pips = 20.0)
+8. 🔹 Global: MA Handle (g_ma_handle = INVALID_HANDLE)
+9. 🔹 Global: RSI Handle (g_rsi_handle = INVALID_HANDLE)
+══════════════════════════════════════════
+
+═══════ EVENT HANDLERS ═══════
+10. ✅ OnInit() - Required
+11. ✅ OnDeinit() - Required
+12. 📊 OnTick() - Enabled
+══════════════════════════════════════════
+
+═══════ MAIN CODE BLOCKS ═══════
+13. 📈 Moving Average Indicator Setup
+14. 📊 RSI Indicator Setup
+15. 🔍 MA Crossover Signal Detection
+16. 🔍 RSI Overbought/Oversold Detection
+17. 💰 Calculate Lot Size
+18. 📥 Open Buy Trade
+19. 📤 Open Sell Trade
+20. 🛡️ Trailing Stop Function
+21. ❌ Close All Positions Function
+══════════════════════════════════════════
 ```
+
+#### Workflow Example: Building an EA with Global Variables
+
+**Step 1: Add Moving Average Indicator**
+- Drag "Moving Average" from Indicators tab
+- System creates:
+  - 🔹 Mini block: `g_ma_period = 20`
+  - 🔹 Mini block: `g_ma_shift = 0`
+  - 📈 Main block: MA indicator setup code
+- Global variables auto-positioned at top
+
+**Step 2: Add RSI Indicator**
+- Drag "RSI" from Indicators tab
+- System creates:
+  - 🔹 Mini block: `g_rsi_period = 14`
+  - 🔹 Mini block: `g_rsi_overbought = 70.0`
+  - 🔹 Mini block: `g_rsi_oversold = 30.0`
+  - 📊 Main block: RSI indicator setup code
+- New globals added to global section (sorted alphabetically)
+
+**Step 3: Add Risk Management**
+- Drag "Calculate Lot Size" from Utilities
+- System creates:
+  - 🔹 Mini block: `g_risk_percent = 1.0`
+  - 💰 Main block: Lot size calculation function
+- Global variable added to globals section
+
+**Step 4: Customize Global Values (Manual Input)**
+- **Click input field** in `g_ma_period` mini block (shows [20])
+- **Type new value**: 50 (validation shows ✓ for valid)
+- **Press Enter** to save (value turns bold: **50** ✓)
+- **Click input field** in `g_rsi_period` mini block (shows [14])
+- **Type new value**: 21
+- **Press Tab** to save and move to next field
+- **Click input field** in `g_rsi_overbought` (shows [70.0])
+- **Type new value**: 75.0
+- **Use up/down arrows** or spinner to fine-tune to 75.5
+- All changes auto-save and immediately reflect in code preview
+
+**Alternative Input Methods**:
+- 🖱️ **Mouse**: Click value, type, click outside
+- ⌨️ **Keyboard**: Tab between fields, type values, Enter to save
+- 🎚️ **Slider**: Toggle slider view for visual adjustment
+- ⬆️⬇️ **Spinners**: Click arrows to increment/decrement
+
+**Step 5: Organize Blocks**
+- Drag main blocks to desired order
+- Global variables remain at top (locked section)
+- Or enable "Free positioning" to move globals manually
+
+**Step 6: Preview & Export**
+- Click "Preview" to see assembled code
+- Global variables appear at top of file
+- Event handlers follow
+- Main functions at bottom
+- Export as .txt for MetaEditor
 
 ### Visual Organization
 
@@ -917,7 +1476,492 @@ bool ExecuteBuyEntry(double riskPercent, double stopLossPips) {
 
 ---
 
-## 11. Code Preview
+## 11. Documentations Tab
+
+### What It Does
+The Documentations tab provides a space for creating, organizing, and managing custom written documentation in text form. Unlike code snippet tabs, this tab is designed for pure text content such as strategy explanations, parameter guides, setup instructions, trading notes, and any other written documentation you need alongside your EA development.
+
+### Purpose
+- 📝 Document your trading strategies and logic
+- 📋 Create setup and configuration guides
+- 💡 Store parameter explanations and reasoning
+- 📊 Maintain trading journal entries
+- ⚠️ Record troubleshooting tips and solutions
+- 📚 Build knowledge base for your EA
+
+### Documentation Block Features
+
+#### Visual Appearance
+Documentation blocks are distinct from code blocks:
+- 📄 White/cream background (not colored like code blocks)
+- 📝 Text icon instead of code icon
+- 📏 Larger text area for comfortable reading/writing
+- 🔤 Rich text formatting support (headings, lists, bold, italic)
+- 🏷️ Title and category labels
+- 🔖 Optional tags for organization
+
+#### Block Structure
+```
+┌─────────────────────────────────────┐
+│ 📄 Strategy Overview           [✕]  │ ← Title + Delete button
+├─────────────────────────────────────┤
+│ Category: Setup Guide               │
+│ Tags: beginner, configuration       │
+├─────────────────────────────────────┤
+│                                     │
+│ This EA uses a moving average       │
+│ crossover strategy with RSI         │
+│ confirmation...                     │
+│                                     │
+│ [Edit] [View Full]                  │
+└─────────────────────────────────────┘
+```
+
+### Creating Documentation
+
+#### How to Add Documentation
+
+1. **Navigate to Documentations Tab**
+   - Click "Documentations" tab in library (right side)
+   - Default tab appears alongside Utilities, Indicators, Pre-made Functions
+
+2. **Click "+ Add Documentation"**
+   - Large button at top of Documentations tab
+   - Opens documentation editor modal
+
+3. **Fill in Documentation Details**:
+   ```
+   ┌─────────────────────────────────────┐
+   │ Create Documentation                │
+   ├─────────────────────────────────────┤
+   │ Title: [_____________________]      │
+   │                                     │
+   │ Category: [Strategy ▼]              │
+   │ - Strategy Explanation              │
+   │ - Parameter Guide                   │
+   │ - Setup Instructions                │
+   │ - Troubleshooting                   │
+   │ - Trading Journal                   │
+   │ - General Notes                     │
+   │                                     │
+   │ Tags: [beginners, ma-strategy]      │
+   │                                     │
+   │ Content:                            │
+   │ ┌─────────────────────────────────┐ │
+   │ │                                 │ │
+   │ │ # Moving Average Strategy       │ │
+   │ │                                 │ │
+   │ │ ## Overview                     │ │
+   │ │ This strategy uses...           │ │
+   │ │                                 │ │
+   │ │ ## Parameters                   │ │
+   │ │ - MA Period: 20 (faster MA)     │ │
+   │ │ - MA Period: 50 (slower MA)     │ │
+   │ │                                 │ │
+   │ └─────────────────────────────────┘ │
+   │                                     │
+   │ [Cancel]  [Save Documentation]      │
+   └─────────────────────────────────────┘
+   ```
+
+4. **Save and View**
+   - Documentation block appears in Documentations tab
+   - Can be expanded to view full content
+   - Can be edited or deleted
+
+### Documentation Categories
+
+#### 1. Strategy Explanations
+**Purpose**: Describe the trading logic and approach
+
+**Example Content**:
+```
+# Trend Following Strategy
+
+## Core Concept
+This EA identifies and follows established trends using
+a combination of moving averages and momentum indicators.
+
+## Entry Rules
+- 20 MA crosses above 50 MA (bullish)
+- RSI > 50 (confirming strength)
+- Volume > average (confirming momentum)
+
+## Exit Rules
+- Trailing stop at 20 pips
+- Fixed take profit at 2:1 risk/reward
+- Close on opposite signal
+
+## Best Timeframes
+- H1 for swing trades
+- M15 for day trading
+```
+
+#### 2. Parameter Guides
+**Purpose**: Explain what each parameter does and how to optimize
+
+**Example Content**:
+```
+# Parameter Configuration Guide
+
+## MA_Period (Default: 20)
+- **What it does**: Controls the moving average calculation period
+- **Lower values (10-15)**: More sensitive, faster signals
+- **Higher values (30-50)**: More stable, fewer false signals
+- **Recommended**: 20 for EURUSD H1, 14 for GBPUSD M15
+
+## Risk_Percent (Default: 1.0)
+- **What it does**: Percentage of account to risk per trade
+- **Conservative**: 0.5% - 1.0%
+- **Moderate**: 1.5% - 2.0%
+- **Aggressive**: 2.5% - 5.0%
+- **Warning**: Never exceed 5% per trade
+
+## StopLoss_Pips (Default: 30)
+- **What it does**: Distance to stop loss in pips
+- **Tight stops (10-20)**: For scalping, higher loss rate
+- **Medium stops (30-50)**: Balanced approach
+- **Wide stops (60+)**: For swing trading, lower frequency
+```
+
+#### 3. Setup Instructions
+**Purpose**: Step-by-step guide for installing and configuring the EA
+
+**Example Content**:
+```
+# EA Setup Instructions
+
+## Installation
+1. Save EA file to: MT5/MQL5/Experts/
+2. Restart MetaTrader 5
+3. EA appears in Navigator under "Expert Advisors"
+
+## Configuration
+1. Drag EA onto desired chart (EURUSD H1 recommended)
+2. Settings window opens automatically
+3. Configure these key parameters:
+   - Risk_Percent: 1.0 (start conservative)
+   - MA_Fast: 20
+   - MA_Slow: 50
+   - StopLoss_Pips: 30
+4. Click OK to enable
+
+## Verification
+✓ Check "AutoTrading" button is enabled (top toolbar)
+✓ Smiley face in top-right corner (EA running)
+✓ Check "Experts" tab for initialization message
+✓ Monitor "Trade" tab for first signal
+
+## First Trade Checklist
+□ Demo account only for first month
+□ Risk_Percent set to 0.5% or lower
+□ Monitor for 1 week before leaving unattended
+□ Verify stop loss and take profit are set correctly
+```
+
+#### 4. Troubleshooting Notes
+**Purpose**: Common issues and solutions
+
+**Example Content**:
+```
+# Troubleshooting Guide
+
+## EA Not Opening Trades
+
+### Check 1: AutoTrading Enabled?
+- Click "AutoTrading" button on toolbar (should be green)
+- Go to Tools > Options > Expert Advisors
+- Check "Allow automated trading"
+
+### Check 2: Position Limits
+- Check "Max_Positions" parameter (default: 3)
+- Close existing positions if limit reached
+- Verify margin is sufficient
+
+### Check 3: Time Filter
+- Check if "Trade_Start_Hour" and "Trade_End_Hour" active
+- Current time must be within trading window
+- Consider timezone differences
+
+## EA Losing Money
+
+### Common Causes:
+1. **Too tight stop loss**: Increase StopLoss_Pips
+2. **Over-trading**: Reduce MA sensitivity (increase period)
+3. **Wrong timeframe**: Strategy designed for H1
+4. **High spread pairs**: Use major pairs (EURUSD, GBPUSD)
+
+### Immediate Actions:
+- Reduce Risk_Percent to 0.5%
+- Switch to demo account
+- Review last 20 trades for patterns
+- Consider different symbol or timeframe
+```
+
+#### 5. Trading Journal
+**Purpose**: Record observations, results, and optimizations
+
+**Example Content**:
+```
+# Trading Journal - November 2025
+
+## Week 1 (Nov 1-7)
+- **Pairs tested**: EURUSD, GBPUSD
+- **Timeframe**: H1
+- **Results**: 12 trades, 7 wins, 5 losses (58% win rate)
+- **Profit**: +3.2%
+- **Observations**: 
+  - GBPUSD too volatile with 30 pip SL
+  - EURUSD working well during London session
+  - Friday trades underperforming
+
+## Optimization Changes (Nov 8)
+- Increased StopLoss_Pips to 40 for GBPUSD
+- Added time filter: no trading after 16:00 GMT Friday
+- Reduced MA_Fast from 20 to 15 for faster entries
+
+## Week 2 (Nov 8-14)
+- **Results**: 15 trades, 10 wins, 5 losses (66% win rate)
+- **Profit**: +4.8%
+- **Notes**: Improvements confirmed, keeping changes
+```
+
+#### 6. General Notes
+**Purpose**: Any other written information needed
+
+**Example Content**:
+- Todo lists for EA enhancements
+- Ideas for new features
+- Market condition observations
+- Broker-specific notes
+- Backtesting results summary
+
+### Managing Documentation
+
+#### Viewing Documentation
+- **Collapsed View**: Shows title, category, and first 2 lines
+- **Expanded View**: Click to view full content
+- **Full Screen**: Click "View Full" for modal with entire text
+- **Print**: Option to print documentation
+- **Export**: Save as .txt or .md file
+
+#### Editing Documentation
+1. Click **✏️ Edit** button on documentation block
+2. Editor modal opens with current content
+3. Modify title, category, tags, or content
+4. Click **"Update"** to save changes
+5. History maintained (optional versioning)
+
+#### Organizing Documentation
+- **Search**: Search box at top of Documentations tab
+- **Filter by Category**: Dropdown to show only specific category
+- **Filter by Tags**: Click tag to show all docs with that tag
+- **Sort**: By date created, title, or category
+- **Pin Important**: Pin docs to top of list
+
+#### Deleting Documentation
+1. Click **✕** button on documentation block
+2. Confirmation: "Delete this documentation?"
+3. Click **"Delete"** to confirm
+4. Documentation removed (not recoverable unless exported)
+
+### Documentation in Workspace
+
+#### Documentation vs Code Blocks
+Documentation blocks **cannot** be dragged to workspace:
+- ❌ Not part of the EA code
+- ❌ Not included in export
+- ✅ Reference material only
+- ✅ Stays in library for consultation
+
+#### Using Documentation While Building
+**Split Screen Workflow**:
+1. Pin important documentation to top
+2. Expand documentation to read while working
+3. Reference parameters while configuring global variables
+4. Follow setup guide step-by-step
+5. Check troubleshooting if issues arise
+
+**Example Workflow**:
+```
+Left Side (Workspace):          Right Side (Library):
+┌─────────────────────┐        ┌─────────────────────┐
+│ 🔹 g_ma_period = 20 │        │ 📄 Parameter Guide  │
+│ 🔹 g_risk_pct = 1.0 │        │ (Expanded)          │
+│                     │        │                     │
+│ ✅ OnInit           │        │ MA_Period: 20       │
+│ ✅ OnDeinit         │        │ Default works well  │
+│ 📊 OnTick           │        │ for H1...           │
+│                     │        │                     │
+│ 📈 MA Indicator     │        │ Risk_Percent: 1.0   │
+│ 💰 Calculate Lots   │        │ Start conservative  │
+└─────────────────────┘        └─────────────────────┘
+```
+
+### Documentation Templates
+
+#### Quick Templates
+Pre-made templates for common documentation types:
+
+**Strategy Template**:
+```
+# [Strategy Name]
+
+## Overview
+[Brief description of strategy]
+
+## Entry Conditions
+- Condition 1
+- Condition 2
+- Condition 3
+
+## Exit Conditions
+- Exit rule 1
+- Exit rule 2
+
+## Risk Management
+- Stop loss: [X] pips
+- Take profit: [Y] pips
+- Risk per trade: [Z]%
+
+## Best Markets
+- Currency pairs: 
+- Timeframes:
+- Sessions:
+```
+
+**Parameter Template**:
+```
+# [Parameter Name]
+
+## Default Value
+[X]
+
+## What It Does
+[Explanation]
+
+## Range
+- Minimum: [min]
+- Maximum: [max]
+- Recommended: [value]
+
+## Impact
+- Lower values: [effect]
+- Higher values: [effect]
+
+## Optimization Tips
+[Advice]
+```
+
+**Setup Template**:
+```
+# Setup Guide
+
+## Prerequisites
+- [ ] Item 1
+- [ ] Item 2
+
+## Installation Steps
+1. Step 1
+2. Step 2
+3. Step 3
+
+## Configuration
+Parameter | Value | Notes
+----------|-------|------
+Param1    | X     | Why
+Param2    | Y     | Why
+
+## Verification
+- [ ] Check 1
+- [ ] Check 2
+```
+
+### Markdown Support
+
+#### Formatting Options
+Documentation supports Markdown syntax:
+
+- **Headings**: `#`, `##`, `###`
+- **Bold**: `**text**`
+- **Italic**: `*text*`
+- **Lists**: `- item` or `1. item`
+- **Checkboxes**: `- [ ] task` or `- [x] done`
+- **Code**: `` `inline` `` or ` ```block``` `
+- **Links**: `[text](url)`
+- **Tables**: Pipe syntax
+- **Blockquotes**: `> quote`
+- **Horizontal Rule**: `---`
+
+#### Preview Mode
+- Toggle between **Edit** and **Preview** mode
+- Preview shows formatted Markdown
+- Edit shows raw Markdown syntax
+- Split view option for side-by-side
+
+### Export and Backup
+
+#### Export Documentation
+1. Select documentation block
+2. Click **⬇️ Export** button
+3. Choose format:
+   - `.txt` - Plain text
+   - `.md` - Markdown format
+   - `.pdf` - Formatted PDF (requires plugin)
+4. Save to local file system
+
+#### Bulk Export
+- Export all documentation at once
+- Creates `.zip` file with all docs
+- Preserves folder structure by category
+- Includes metadata (date, tags, category)
+
+#### Import Documentation
+- Click **"Import Docs"** button
+- Select `.txt` or `.md` files
+- Auto-detects category from filename
+- Batch import multiple files
+
+### Best Practices
+
+#### Documentation Organization
+✅ **Do**:
+- Create docs as you build the EA
+- Use descriptive titles (not "Doc 1", "Doc 2")
+- Add relevant tags for searchability
+- Keep parameter guides updated when changing values
+- Document "why" not just "what"
+- Use templates for consistency
+
+❌ **Don't**:
+- Create one massive document (split into topics)
+- Forget to update docs when code changes
+- Use overly technical jargon without explanation
+- Skip documentation for "obvious" things
+- Leave todos incomplete indefinitely
+
+#### Documentation Categories Guide
+- **Strategy**: High-level approach and logic
+- **Parameters**: Detailed variable explanations
+- **Setup**: Step-by-step installation
+- **Troubleshooting**: Problem-solution pairs
+- **Journal**: Time-based observations
+- **Notes**: Everything else
+
+#### Naming Conventions
+Good titles:
+- ✅ "MA Crossover Strategy Overview"
+- ✅ "Risk Management Parameters Guide"
+- ✅ "Initial Setup for MT5"
+
+Bad titles:
+- ❌ "Strategy"
+- ❌ "Notes"
+- ❌ "Document 1"
+
+---
+
+## 12. Code Preview
 
 ### What It Does
 View the complete assembled MQL5 code before saving, allowing you to verify structure, check for errors, and understand the final output.
