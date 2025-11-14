@@ -79,3 +79,50 @@ export interface Documentation {
   updatedAt: string;
   isPinned: boolean;
 }
+
+// Types for Trading Journal (PRP-15)
+export type TradeType = 'BUY' | 'SELL';
+export type Platform = 'MT5' | 'MT4' | 'cTrader' | 'Other';
+export type SecurityType = 'Forex' | 'Stocks' | 'Futures' | 'Crypto' | 'Other';
+export type ViewMode = 'day' | 'week' | 'month' | 'year';
+
+export interface Trade {
+  id: string;
+  type: TradeType;
+  volume: number;
+  symbol: string;
+  dateTime: string; // ISO 8601 format
+  profitLoss: number;
+  broker: string;
+  platform: Platform;
+  securityType: SecurityType;
+  comments: string;
+  createdAt: string;
+}
+
+export interface DailyStats {
+  date: string; // YYYY-MM-DD
+  totalVolume: number;
+  tradeCount: number;
+  winCount: number;
+  lossCount: number;
+  winRate: number; // percentage
+  totalProfitLoss: number;
+  comments: string;
+}
+
+export interface FilterOptions {
+  symbol?: string;
+  type?: TradeType | 'all';
+  securityType?: SecurityType | 'all';
+  broker?: string;
+  platform?: Platform | 'all';
+  startDate?: string;
+  endDate?: string;
+}
+
+export interface CSVImportResult {
+  trades: Trade[];
+  duplicates: Trade[];
+  errors: string[];
+}

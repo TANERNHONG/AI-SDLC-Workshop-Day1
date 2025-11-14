@@ -5,20 +5,25 @@
 2. [Dashboard Layout](#2-dashboard-layout)
    - [Sidebar Navigation](#sidebar-navigation)
    - [Dashboard Sections](#dashboard-sections)
-3. [Code Snippet Library](#3-code-snippet-library)
-4. [Event Handler Tab](#4-event-handler-tab)
-5. [Drag-and-Drop Functionality](#5-drag-and-drop-functionality)
-6. [Library Tabs Management](#6-library-tabs-management)
-7. [Adding Custom Code Snippets](#7-adding-custom-code-snippets)
-8. [Code Block Organization](#8-code-block-organization)
-9. [Utilities Tab](#9-utilities-tab)
-10. [Indicators Tab](#10-indicators-tab)
-11. [Pre-made Functions Tab](#11-pre-made-functions-tab)
-12. [Documentations Tab](#12-documentations-tab)
-13. [Code Preview](#13-code-preview)
-14. [Saving Expert Advisors](#14-saving-expert-advisors)
-15. [Best Practices](#15-best-practices)
-16. [Troubleshooting](#troubleshooting)
+3. [Trading Journal & Calendar](#3-trading-journal--calendar)
+   - [Adding Trades](#adding-trades)
+   - [CSV Import](#csv-import)
+   - [Calendar Views](#calendar-views)
+   - [Daily Statistics](#daily-statistics)
+4. [Code Snippet Library](#4-code-snippet-library)
+5. [Event Handler Tab](#5-event-handler-tab)
+6. [Drag-and-Drop Functionality](#6-drag-and-drop-functionality)
+7. [Library Tabs Management](#7-library-tabs-management)
+8. [Adding Custom Code Snippets](#8-adding-custom-code-snippets)
+9. [Code Block Organization](#9-code-block-organization)
+10. [Utilities Tab](#10-utilities-tab)
+11. [Indicators Tab](#11-indicators-tab)
+12. [Pre-made Functions Tab](#12-pre-made-functions-tab)
+13. [Documentations Tab](#13-documentations-tab)
+14. [Code Preview](#14-code-preview)
+15. [Saving Expert Advisors](#15-saving-expert-advisors)
+16. [Best Practices](#16-best-practices)
+17. [Troubleshooting](#troubleshooting)
 
 ---
 
@@ -73,10 +78,11 @@ The **left-side navigation sidebar** enables multi-page navigation and future fe
 
 **Navigation Pages:**
 1. **🏠 Dashboard** - Main EA builder interface (active)
-2. **⚙️ Settings** - Application preferences (future)
-3. **📋 Templates** - Saved EA templates (future)
-4. **📚 Documentation** - Help and guides (future)
-5. **📦 Export History** - Previously exported EAs (future)
+2. **📊 Trading Journal** - Trading calendar and performance tracking (planned)
+3. **⚙️ Settings** - Application preferences (future)
+4. **📋 Templates** - Saved EA templates (future)
+5. **📚 Documentation** - Help and guides (future)
+6. **📦 Export History** - Previously exported EAs (future)
 
 **Keyboard Shortcut:**
 - `Ctrl/Cmd + B` - Toggle sidebar collapse/expand
@@ -122,7 +128,7 @@ The **left-side navigation sidebar** enables multi-page navigation and future fe
   - ☐ OnTesterDeinit - Tester deinitialization handler
   - ☐ OnTesterPass - Tester pass handler
 
-## 4. Event Handler Tab
+## 5. Event Handler Tab
 
 ### What It Does
 The Event Handler tab is located in the Code Library on the right side of the dashboard, alongside Utilities, Indicators, Pre-made Functions, and Documentations tabs. It allows you to control which MQL5 event handler functions are included in your Expert Advisor.
@@ -199,7 +205,202 @@ The Event Handler tab is located in the Code Library on the right side of the da
 
 ---
 
-## 3. Code Snippet Library
+## 3. Trading Journal & Calendar
+
+### What It Does
+The Trading Journal is a comprehensive tool for tracking and analyzing your trading performance over time. Access it by clicking **📊 Trading Journal** in the sidebar navigation (Page 2).
+
+### Overview
+- Visual trading calendar with color-coded performance days
+- Manual trade entry and CSV import capabilities
+- Multiple calendar view modes (Day, Week, Month, Yearly)
+- Daily statistics and performance metrics
+- Trade filtering, search, and export functionality
+- Integration with EA backtesting results
+
+---
+
+### Adding Trades
+
+#### Manual Trade Entry
+
+1. **Click the + Button** in the top-right corner of the Trading Journal page
+2. **Fill in the Trade Entry Form** with the following information:
+
+| Field | Description | Example |
+|-------|-------------|---------|
+| **Type** | Buy or Sell | Buy |
+| **Volume** | Trade size in lots | 0.10 |
+| **Symbol** | Trading pair/instrument | EURUSD |
+| **Date / Time** | Trade execution timestamp | 2025-11-13 14:30:00 |
+| **Profit / Loss** | Net P/L in account currency | +45.50 |
+| **Broker** | Broker name | IC Markets |
+| **Platform** | Trading platform used | MetaTrader 5 |
+| **Security Type** | Asset class | Forex |
+| **Comments** | Trade notes and strategy | MA crossover entry, exited at TP |
+
+3. **Click Save** to add the trade to your journal
+4. **Trade appears** on the calendar on the corresponding date
+
+#### Quick Tips
+- ✅ Use consistent formatting for symbols (e.g., always EURUSD, not EUR/USD)
+- ✅ Add detailed comments for later analysis
+- ✅ Include strategy name in comments for filtering
+- ⚠️ Negative P/L values should include minus sign (-25.00)
+
+---
+
+### CSV Import
+
+#### Import Multiple Trades at Once
+
+1. **Prepare Your CSV File** with the following column headers:
+   ```
+   Type,Volume,Symbol,DateTime,ProfitLoss,Broker,Platform,SecurityType,Comments
+   ```
+
+2. **Example CSV Format:**
+   ```csv
+   Type,Volume,Symbol,DateTime,ProfitLoss,Broker,Platform,SecurityType,Comments
+   Buy,0.10,EURUSD,2025-11-13 09:30:00,45.50,IC Markets,MetaTrader 5,Forex,MA crossover entry
+   Sell,0.05,GBPUSD,2025-11-13 11:15:00,-12.30,IC Markets,MetaTrader 5,Forex,Failed breakout
+   Buy,0.20,USDJPY,2025-11-13 14:45:00,78.20,IC Markets,MetaTrader 5,Forex,Trend continuation
+   ```
+
+3. **Click Import CSV** button in the Trading Journal toolbar
+4. **Select your CSV file** from your computer
+5. **Review the import preview** showing how many trades will be imported
+6. **Click Confirm Import**
+7. **Trades populate** the calendar automatically by date
+
+#### CSV Import Tips
+- ✅ Export trades directly from MetaTrader 5 or broker platform
+- ✅ Ensure DateTime format matches: YYYY-MM-DD HH:MM:SS
+- ✅ Use commas as delimiters, no extra spaces
+- ✅ Test with a small sample file first (5-10 trades)
+- ⚠️ Duplicate trades (same DateTime, Symbol, Volume) will be flagged
+
+---
+
+### Calendar Views
+
+The trading calendar supports **4 view modes** to analyze performance at different time scales:
+
+#### 1. Day View
+- **Hourly breakdown** of all trades on a single day
+- Timeline showing exact trade execution times
+- Cumulative P/L graph throughout the day
+- Trade-by-trade list with details
+- **Use Case**: Analyze intraday trading patterns, identify best trading hours
+
+#### 2. Week View
+- **7-day calendar grid** (Monday-Sunday)
+- Each day shows:
+  - Color coding (green = profitable, red = loss, gray = no trades)
+  - Net P/L for the day
+  - Number of trades
+- Week totals in footer
+- **Use Case**: Review weekly performance, identify best trading days
+
+#### 3. Month View (Default)
+- **Full calendar month** with 28-31 days displayed
+- Each day cell shows:
+  - **Background color**: Green (profit), Red (loss), Gray (no trades)
+  - **Volume**: Total lots traded
+  - **# of Trades**: Count of positions
+  - **Win Rate**: % of winning trades
+  - **P/L**: Net profit/loss
+  - **Comments icon** (📝) if day has general notes
+- Month totals and averages in sidebar
+- **Use Case**: Monthly performance review, consistency analysis
+
+#### 4. Yearly View
+- **12-month overview** with mini calendars
+- Each month shows:
+  - Color intensity based on monthly P/L (darker green = higher profit)
+  - Monthly net P/L
+  - Total trades count
+  - Best/worst trading day
+- Annual statistics in header
+- **Use Case**: Long-term trend analysis, seasonal patterns
+
+---
+
+### Daily Statistics
+
+Each day on the calendar displays the following key metrics:
+
+#### Volume
+- **Total lots traded** on that day
+- Example: `2.5 lots` (sum of all trade volumes)
+- Helps identify high-activity vs low-activity days
+
+#### Number of Trades
+- **Count of positions** opened on that day
+- Example: `12 trades`
+- Useful for overtrading analysis
+
+#### Win Rate
+- **Percentage of winning trades** on that day
+- Formula: `(Winning Trades / Total Trades) × 100`
+- Example: `75%` (9 winners out of 12 trades)
+- Color coded: Green >60%, Yellow 40-60%, Red <40%
+
+#### Profit / Loss
+- **Net P/L in account currency** for that day
+- Example: `+$245.50` or `-$87.30`
+- Determines day background color (green/red)
+- Includes all commissions and swaps if imported from MT5
+
+#### General Comments
+- **Day-level notes** (not tied to specific trade)
+- Example: "Market volatile due to NFP news"
+- Click 📝 icon to add/edit comments
+- Useful for noting market conditions, emotional state, lessons learned
+
+---
+
+### Additional Features
+
+#### Trade Filtering & Search
+- Filter by: Date range, Symbol, Broker, P/L (profitable/loss), Trade type (Buy/Sell)
+- Search comments for strategy names or keywords
+- Quick filters: "Last 7 days", "This month", "Profitable only"
+
+#### Export & Reporting
+- Export journal as CSV (for Excel analysis)
+- Generate PDF report with monthly summaries
+- Share calendar view as image for social media/coaching
+
+#### Performance Analytics
+- Win rate trends over time
+- Profit factor (gross profit / gross loss)
+- Average win vs average loss
+- Best/worst trading days
+- Symbol performance breakdown
+- Time-of-day heatmap
+
+#### Integration with EA Builder
+- Import backtest results from exported EAs
+- Compare live trading vs backtested performance
+- Tag trades as "EA" or "Manual" for strategy comparison
+
+---
+
+### Best Practices
+
+✅ **Daily Journaling**: Add comments immediately after trading session
+✅ **Consistency**: Use same symbol notation across all entries
+✅ **Detail Comments**: Include strategy, market conditions, emotions, mistakes
+✅ **Weekly Reviews**: Analyze win rate and identify patterns every weekend
+✅ **CSV Backups**: Export journal monthly as backup
+
+⚠️ **Avoid**: Skipping trade entry (incomplete journal reduces insight value)
+⚠️ **Avoid**: Vague comments like "good trade" (be specific: "Followed plan, waited for confirmation")
+
+---
+
+## 4. Code Snippet Library
 
 ### Workspace (Left Side)
 
@@ -248,7 +449,7 @@ The Event Handler tab is located in the Code Library on the right side of the da
 
 ---
 
-## 5. Drag-and-Drop Functionality
+## 6. Drag-and-Drop Functionality
 
 ### What It Does
 Provides a comprehensive collection of pre-built MQL5 code snippets organized into logical categories for easy access and reusability.
@@ -292,7 +493,7 @@ Each code block displays:
 
 ---
 
-## 4. Drag-and-Drop Functionality
+## 6b. Drag-and-Drop Functionality (Duplicate Section - To Be Merged)
 
 ### What It Does
 Intuitive drag-and-drop system for assembling your Expert Advisor by moving code snippets from the library to the workspace.
@@ -369,7 +570,7 @@ Intuitive drag-and-drop system for assembling your Expert Advisor by moving code
 
 ---
 
-## 5. Library Tabs Management
+## 7. Library Tabs Management
 
 ### What It Does
 Organize your code snippets into custom categories using a tabbed interface with the ability to create, rename, and manage tabs.
@@ -502,7 +703,7 @@ The application comes with three pre-configured tabs:
 
 ---
 
-## 6. Adding Custom Code Snippets
+## 8. Adding Custom Code Snippets
 
 ### What It Does
 Create and save your own reusable MQL5 code snippets that integrate seamlessly with the pre-built library.
@@ -692,7 +893,7 @@ void CloseAllPositions(string symbol) {
 
 ---
 
-## 7. Code Block Organization
+## 9. Code Block Organization
 
 ### What It Does
 Efficiently manage and organize code blocks in your workspace to create a logical, well-structured Expert Advisor. When code snippets are added, the system automatically creates associated global variable blocks that can be independently positioned.
@@ -1222,7 +1423,7 @@ Workspace Blocks (top to bottom):
 
 ---
 
-## 8. Utilities Tab
+## 10. Utilities Tab
 
 ### What It Does
 Provides essential helper functions and utilities for building robust Expert Advisors.
@@ -1301,7 +1502,7 @@ double CalculateLotSize(double riskPercent, double stopLossPips) {
 
 ---
 
-## 9. Indicators Tab
+## 11. Indicators Tab
 
 ### What It Does
 Contains pre-built technical indicator functions and signal detection logic for your Expert Advisor.
@@ -1386,7 +1587,7 @@ int DetectMACrossover(int fastPeriod, int slowPeriod) {
 
 ---
 
-## 10. Pre-made Functions Tab
+## 12. Pre-made Functions Tab
 
 ### What It Does
 Provides complete, ready-to-use trading logic blocks that combine multiple components into cohesive functions.
@@ -1476,7 +1677,7 @@ bool ExecuteBuyEntry(double riskPercent, double stopLossPips) {
 
 ---
 
-## 11. Documentations Tab
+## 13. Documentations Tab
 
 ### What It Does
 The Documentations tab provides a space for creating, organizing, and managing custom written documentation in text form. Unlike code snippet tabs, this tab is designed for pure text content such as strategy explanations, parameter guides, setup instructions, trading notes, and any other written documentation you need alongside your EA development.
@@ -1961,7 +2162,7 @@ Bad titles:
 
 ---
 
-## 12. Code Preview
+## 14. Code Preview
 
 ### What It Does
 View the complete assembled MQL5 code before saving, allowing you to verify structure, check for errors, and understand the final output.
@@ -2162,7 +2363,7 @@ Shows at bottom of preview:
 
 ---
 
-## 12. Saving Expert Advisors
+## 15. Saving Expert Advisors
 
 ### What It Does
 Export your assembled Expert Advisor code as a .txt file that can be opened in MetaEditor and compiled into a functioning EA.
@@ -2349,7 +2550,7 @@ Export your assembled Expert Advisor code as a .txt file that can be opened in M
 
 ---
 
-## 13. Best Practices
+## 16. Best Practices
 
 ### Getting Started
 
@@ -2546,7 +2747,7 @@ Naming Convention:
 
 ---
 
-## Troubleshooting
+## 17. Troubleshooting
 
 ### Drag-and-Drop Not Working
 

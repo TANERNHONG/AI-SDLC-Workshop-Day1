@@ -771,4 +771,4 @@ describe('generateEventHandlers', () => {
 **Feature Status**: ✅ Specification Complete  
 **Priority**: P0 (Critical - Foundation Feature)  
 **Estimated Effort**: 2-3 days  
-**Dependencies**: Dashboard Layout (PRP-01), Code Assembly Engine (PRP-10)
+**Dependencies**: Dashboard Layout (PRP-04 - Planned), Code Assembly Engine (PRP-12 - Planned)

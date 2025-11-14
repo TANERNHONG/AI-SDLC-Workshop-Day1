@@ -8,20 +8,22 @@ This directory contains detailed Product Requirement Prompts split by feature fo
 
 1. **[01-sidebar-navigation.md](01-sidebar-navigation.md)** - Sidebar Navigation System
    - Collapsible left sidebar (64px collapsed, 240px expanded)
-   - Multi-page navigation architecture (Dashboard, Settings, Templates, Documentation, Export History)
+   - Multi-page navigation architecture (Dashboard, Trading Journal, Settings, Templates, Documentation, Export History)
    - Icon-only (collapsed) and full menu (expanded) modes
    - Keyboard shortcut support (Ctrl/Cmd + B)
    - State persistence in localStorage
    - Future-ready for feature expansion
 
-2. **[02-dashboard-layout.md](02-dashboard-layout.md)** - Dashboard Layout & Structure
-   - Three-section view: sidebar (left), workspace (center), library (right)
-   - Bottom bar for preview and save functions
-   - Responsive layout design
-   - Visual feedback zones
-   - Integration with sidebar navigation
+1b. **Trading Journal with Trading Calendar** (Planned - Sidebar Page 2)
+   - Comprehensive trading journal tool accessible from sidebar
+   - Trading calendar with 4 view modes (Day, Week, Month, Yearly)
+   - CSV import for bulk trade data
+   - Manual trade entry with + button (9 fields: Type, Volume, Symbol, Date/Time, P/L, Broker, Platform, Security Type, Comments)
+   - Color-coded calendar days (green = profitable, red = loss)
+   - Daily statistics display (Volume, # of trades, Win rate, P/L, Comments)
+   - Trade history tracking and analysis
 
-3. **[03-event-handler-tab.md](03-event-handler-tab.md)** - Event Handler Tab
+2. **[02-event-handler-tab.md](02-event-handler-tab.md)** - Event Handler Tab
    - Tab in the Code Library (right side) for managing event handlers
    - Toggle MQL5 event handler functions on/off
    - Required handlers: OnInit, OnDeinit (always included)
@@ -29,57 +31,9 @@ This directory contains detailed Product Requirement Prompts split by feature fo
    - Visual indicators for enabled/disabled handlers
    - Best practices guidance for handler selection
 
-3. **[03-drag-drop-system.md](03-drag-drop-system.md)** - Drag-and-Drop System
-   - Drag snippets from library to workspace
-   - Visual feedback during drag operations
-   - Drop zone highlighting and validation
-   - Block reordering in workspace
-
-4. **[04-code-snippet-library.md](04-code-snippet-library.md)** - Code Snippet Library
-   - Pre-built MQL5 code snippets
-   - Solid border draggable blocks
-   - Snippet categorization and display
-   - Description and parameter documentation
-
-### Library Management
-
-5. **[05-library-tabs.md](05-library-tabs.md)** - Library Tabs Management
-   - Default tabs: Utilities, Indicators, Pre-made Functions, **Event Handlers**, **Documentations**
-   - Create new tabs with + button
-   - Tab switching and navigation
-   - Rename and delete custom tabs
-
-6. **[06-custom-snippets.md](06-custom-snippets.md)** - Custom Code Snippets
-   - Add custom snippets with dotted border interface
-   - Snippet creation modal with validation
-   - Edit and delete custom snippets
-   - Move snippets between tabs
-
-7. **[07-utilities-tab.md](07-utilities-tab.md)** - Utilities Tab Content
-   - Position sizing functions
-   - Risk management utilities
-   - Time filters and session checks
-   - Account and price utilities
-
-8. **[08-indicators-tab.md](08-indicators-tab.md)** - Indicators Tab Content
-   - Trend indicators (MA, MACD, ADX)
-   - Momentum indicators (RSI, Stochastic)
-   - Volatility indicators (Bollinger, ATR)
-   - Signal detection logic
-
-8b. **[08b-documentations-tab.md](08b-documentations-tab.md)** - Documentations Tab Content
-   - Custom written documentation in text form
-   - Strategy explanations and parameter guides
-   - Setup instructions and troubleshooting notes
-   - Trading journal entries
-   - Markdown formatting support
-   - Categories, tags, and search functionality
-   - Export/import documentation files
-   - Reference material (non-code)
-
 ### Workspace Features
 
-9. **[09-workspace-management.md](09-workspace-management.md)** - Workspace Block Management
+3. **[03-workspace-management-globals.md](03-workspace-management-globals.md)** - Workspace Block Management with Global Variables
    - Block organization and ordering
    - Expand/collapse code blocks
    - Configure block parameters
@@ -88,29 +42,95 @@ This directory contains detailed Product Requirement Prompts split by feature fo
    - **Mini global variable blocks creation**
    - **Global variable section auto-grouping**
    - **Independent repositioning of global variables**
+   - **Manual value input fields with real-time validation**
+   - **Keyboard navigation and bulk editing support**
 
-10. **[10-code-assembly.md](10-code-assembly.md)** - Code Assembly Engine
+### Features Planned (Not Yet Implemented)
+
+4. **Dashboard Layout & Structure** (Planned)
+   - Three-section view: sidebar (left), workspace (center), library (right)
+   - Bottom bar for preview and save functions
+   - Responsive layout design
+   - Visual feedback zones
+   - Integration with sidebar navigation
+
+5. **Drag-and-Drop System** (Planned)
+   - Drag snippets from library to workspace
+   - Visual feedback during drag operations
+   - Drop zone highlighting and validation
+   - Block reordering in workspace
+
+6. **Code Snippet Library** (Planned)
+   - Pre-built MQL5 code snippets
+   - Solid border draggable blocks
+   - Snippet categorization and display
+   - Description and parameter documentation
+
+7. **Library Tabs Management** (Planned)
+   - Default tabs: Utilities, Indicators, Pre-made Functions, Event Handlers, Documentations
+   - Create new tabs with + button
+   - Tab switching and navigation
+   - Rename and delete custom tabs
+
+8. **Custom Code Snippets** (Planned)
+   - Add custom snippets with dotted border interface
+   - Snippet creation modal with validation
+   - Edit and delete custom snippets
+   - Move snippets between tabs
+
+9. **Utilities Tab Content** (Planned)
+   - Position sizing functions
+   - Risk management utilities
+   - Time filters and session checks
+   - Account and price utilities
+
+10. **Indicators Tab Content** (Planned)
+    - Trend indicators (MA, MACD, ADX)
+    - Momentum indicators (RSI, Stochastic)
+    - Volatility indicators (Bollinger, ATR)
+    - Signal detection logic
+
+11. **Documentations Tab Content** (Planned)
+    - Custom written documentation in text form
+    - Strategy explanations and parameter guides
+    - Setup instructions and troubleshooting notes
+    - Trading journal entries
+    - Markdown formatting support
+    - Categories, tags, and search functionality
+    - Export/import documentation files
+    - Reference material (non-code)
+
+12. **Code Assembly Engine** (Planned)
     - Combine blocks into complete EA structure
     - Proper MQL5 file structure with toggleable event handlers
-    - **Global variables section generation (auto-positioned at top)**
+    - Global variables section generation (auto-positioned at top)
     - Variable and function ordering
     - Dependency resolution
     - Integration with Event Handler Tab
-    - **Link global variable blocks to main code blocks**
+    - Link global variable blocks to main code blocks
 
-11. **[11-code-preview.md](11-code-preview.md)** - Code Preview System
+13. **Code Preview System** (Planned)
     - Preview modal with syntax highlighting
     - Statistics panel (lines, functions, blocks, enabled handlers)
     - Copy to clipboard functionality
     - Basic syntax validation
 
-### Export Features
-
-12. **[12-save-export.md](12-save-export.md)** - Save & Export System
+14. **Save & Export System** (Planned)
     - Export as .txt file for MetaEditor
     - Automatic filename with timestamp
     - Workspace configuration save/load
     - Version management support
+
+15. **Trading Journal & Calendar** (Planned - High Priority)
+    - Sidebar page 2: Comprehensive trading journal tool
+    - Trading calendar with 4 view modes (Day/Week/Month/Yearly)
+    - CSV import for bulk trade history
+    - Manual trade entry form (9 fields: Type, Volume, Symbol, Date/Time, P/L, Broker, Platform, Security Type, Comments)
+    - Color-coded calendar visualization (green = profitable day, red = loss day)
+    - Daily statistics overlay (Volume, # trades, Win rate %, P/L, Comments)
+    - Trade filtering, search, and analytics
+    - Export journal data as CSV/PDF
+    - Integration with EA testing results
 
 ## 🎯 How to Use These PRPs
 
@@ -173,40 +193,45 @@ Please help me implement this following the project patterns."
 Some features depend on others being implemented first:
 
 ```
-Dashboard Layout (01) → All other features (foundation)
-Event Handler Sidebar (02) → Code Assembly (10)
-Drag-Drop System (03) → Workspace Management (09)
-Code Snippet Library (04) → Library Tabs (05), Custom Snippets (06)
-Library Tabs (05) → Utilities (07), Indicators (08), Custom Snippets (06)
-Workspace Management (09) → Code Assembly (10), Code Preview (11)
-Event Handler Sidebar (02) + Code Assembly (10) → Code Preview (11), Save/Export (12)
+Sidebar Navigation (01) → Trading Journal (15), Settings, Templates, Documentation, Export History
+Dashboard Layout (04) → All other features (foundation)
+Event Handler Tab (02) → Code Assembly (12)
+Drag-Drop System (05) → Workspace Management (03)
+Code Snippet Library (06) → Library Tabs (07), Custom Snippets (08)
+Library Tabs (07) → Utilities (09), Indicators (10), Custom Snippets (08)
+Workspace Management (03) → Code Assembly (12), Code Preview (13)
+Event Handler Tab (02) + Code Assembly (12) → Code Preview (13), Save/Export (14)
+Trading Journal (15) → Independent feature (can implement standalone after Sidebar Navigation)
 ```
 
 ## 📊 Implementation Priority
 
 Recommended implementation order:
 
-1. **Phase 1 - Foundation**
-   - 01: Dashboard Layout & Structure (3-column layout)
-   - 02: Event Handler Sidebar
-   - 04: Code Snippet Library
+1. **Phase 1 - Foundation** (Completed)
+   - ✅ 01: Sidebar Navigation System
+   - ✅ 02: Event Handler Tab
+   - ✅ 03: Workspace Block Management with Global Variables
 
-2. **Phase 2 - Core Interaction**
-   - 03: Drag-and-Drop System
-   - 09: Workspace Block Management
+2. **Phase 2 - Layout & Trading Tools** (Planned)
+   - 04: Dashboard Layout & Structure (3-column layout)
+   - 05: Drag-and-Drop System
+   - 15: Trading Journal & Calendar (High Priority - Sidebar Page 2)
 
-3. **Phase 3 - Library Management**
-   - 05: Library Tabs Management
-   - 06: Custom Code Snippets
+3. **Phase 3 - Library System** (Planned)
+   - 06: Code Snippet Library
+   - 07: Library Tabs Management
+   - 08: Custom Code Snippets
 
-4. **Phase 4 - Content Population**
-   - 07: Utilities Tab Content
-   - 08: Indicators Tab Content
+4. **Phase 4 - Content Population** (Planned)
+   - 09: Utilities Tab Content
+   - 10: Indicators Tab Content
+   - 11: Documentations Tab Content
 
-5. **Phase 5 - Code Generation**
-   - 10: Code Assembly Engine (with event handler integration)
-   - 11: Code Preview System (showing enabled handlers)
-   - 12: Save & Export System
+5. **Phase 5 - Code Generation** (Planned)
+   - 12: Code Assembly Engine (with event handler integration)
+   - 13: Code Preview System (showing enabled handlers)
+   - 14: Save & Export System
 
 ## 🛠️ Technical Stack Reference
 
@@ -317,9 +342,9 @@ When adding new PRPs:
 ---
 
 **Last Updated**: November 13, 2025
-**Total PRPs**: 13
-**Total Features Documented**: 13 core MQL5 Expert Advisor Builder features
-**Application Type**: Drag-and-Drop Code Assembly Dashboard for MetaTrader 5 with Documentation Management
+**Total PRPs**: 3 (Implemented) + 12 (Planned) = 15 Features
+**PRPs Completed**: 3/15 (20% complete)
+**Application Type**: Drag-and-Drop Code Assembly Dashboard for MetaTrader 5 with Trading Journal & Documentation Management
 
 ## 🆕 Recent Updates
 
@@ -344,7 +369,7 @@ When adding new PRPs:
 - Smart deletion warnings when globals are in use
 - Visual indicators (🔹 icon, light blue styling, state-based colors)
 
-**Documentations Tab (PRP #8b)**
+**Documentations Tab (PRP #11 - Planned)**
 - New default tab: "Documentations" for custom written text documentation
 - Create strategy explanations, parameter guides, setup instructions
 - Markdown formatting support with preview mode
@@ -355,7 +380,7 @@ When adding new PRPs:
 - Split-screen workflow to reference docs while building EA
 
 **Updated Features**
-- Library Tabs (PRP #05) now includes Documentations as 4th default tab
-- Workspace Management (PRP #09) now includes global variable block management with styled input fields
-- Code Assembly Engine (PRP #10) includes global variable section generation
+- Library Tabs (PRP #07) now includes Documentations as 5th default tab (planned)
+- Workspace Management (PRP #03) now includes global variable block management with styled input fields
+- Code Assembly Engine (PRP #12) includes global variable section generation (planned)
 - Updated feature dependencies and implementation priority

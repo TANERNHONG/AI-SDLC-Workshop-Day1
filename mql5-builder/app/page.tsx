@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/navigation';
 import { Plus, Eye, Download, Trash2, FileCode2, X } from 'lucide-react';
 import { CodeSnippet, WorkspaceBlock, LibraryTab, GlobalVariable, EventHandler, Documentation } from '@/lib/types';
 import { defaultSnippets, defaultTabs } from '@/lib/snippets';
@@ -16,6 +17,8 @@ import { DocumentationCard, DocumentationModal } from '@/components/Documentatio
 
 // Dashboard Component
 function Dashboard() {
+  const router = useRouter();
+  
   // Core State
   const [tabs, setTabs] = useState<LibraryTab[]>(defaultTabs);
   const [activeTab, setActiveTab] = useState<string>('utilities');
@@ -611,6 +614,7 @@ function Dashboard() {
 
 // Main App Component with Sidebar
 export default function Home() {
+  const router = useRouter();
   const [currentPage, setCurrentPage] = useState('dashboard');
   const [sidebarExpanded, setSidebarExpanded] = useState(false);
 
@@ -629,6 +633,12 @@ export default function Home() {
   }, []);
 
   const handleNavigate = (pageId: string) => {
+    // Route to Trading Journal using Next.js router
+    if (pageId === 'trading-journal') {
+      router.push('/trading-journal');
+      return;
+    }
+    // For other pages, use local state
     setCurrentPage(pageId);
   };
 

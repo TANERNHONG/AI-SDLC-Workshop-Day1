@@ -1,4 +1,4 @@
-# PRP-09: Workspace Management with Automatic Global Variable Generation
+# PRP-03: Workspace Management with Automatic Global Variable Generation
 
 ## Feature Overview
 
@@ -1003,4 +1003,4 @@ test('Preview shows global variables at top of code', async ({ page }) => {
 **Feature Status**: ✅ Specification Complete  
 **Priority**: P0 (Critical - Core Workspace Feature)  
 **Estimated Effort**: 4-5 days  
-**Dependencies**: Dashboard Layout (PRP-01), Drag-Drop System (PRP-03), Code Assembly (PRP-10)
+**Dependencies**: Dashboard Layout (PRP-04 - Planned), Drag-Drop System (PRP-05 - Planned), Code Assembly (PRP-12 - Planned)

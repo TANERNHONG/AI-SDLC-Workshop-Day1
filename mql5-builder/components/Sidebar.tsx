@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Menu, ChevronLeft, Home, Settings, FileText, BookOpen, Package } from 'lucide-react';
+import { useRouter, usePathname } from 'next/navigation';
+import { Menu, ChevronLeft, Home, Settings, FileText, BookOpen, Package, BarChart3 } from 'lucide-react';
 
 interface SidebarProps {
-  currentPage: string;
-  onNavigate: (pageId: string) => void;
+  currentPage?: string;
+  onNavigate?: (pageId: string) => void;
 }
 
 interface NavigationItem {
@@ -24,6 +25,14 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
     icon: <Home className="w-5 h-5" />,
     href: '/',
     available: true,
+  },
+  {
+    id: 'trading-journal',
+    label: 'Trading Journal',
+    icon: <BarChart3 className="w-5 h-5" />,
+    href: '/trading-journal',
+    available: true,
+    badge: 'NEW',
   },
   {
     id: 'settings',
@@ -56,7 +65,23 @@ const NAVIGATION_ITEMS: NavigationItem[] = [
 ];
 
 export default function Sidebar({ currentPage, onNavigate }: SidebarProps) {
+  const router = useRouter();
+  const pathname = usePathname();
   const [isExpanded, setIsExpanded] = useState(false);
+
+  // Determine current page from pathname if not provided
+  const getCurrentPage = () => {
+    if (currentPage) return currentPage;
+    if (pathname === '/') return 'dashboard';
+    if (pathname === '/trading-journal') return 'trading-journal';
+    if (pathname === '/settings') return 'settings';
+    if (pathname === '/templates') return 'templates';
+    if (pathname === '/documentation') return 'documentation';
+    if (pathname === '/export-history') return 'export-history';
+    return 'dashboard';
+  };
+
+  const activePage = getCurrentPage();
 
   // Load sidebar state from localStorage
   useEffect(() => {
@@ -117,11 +142,18 @@ export default function Sidebar({ currentPage, onNavigate }: SidebarProps) {
         {NAVIGATION_ITEMS.map((item) => (
           <button
             key={item.id}
-            onClick={() => item.available && onNavigate(item.id)}
+            onClick={() => {
+              if (!item.available) return;
+              if (onNavigate) {
+                onNavigate(item.id);
+              } else {
+                router.push(item.href);
+              }
+            }}
             disabled={!item.available}
             data-nav={item.id}
             className={`w-full flex items-center gap-3 px-4 py-3 transition-all relative group ${
-              currentPage === item.id
+              activePage === item.id
                 ? 'bg-blue-600 text-white'
                 : item.available
                 ? 'hover:bg-gray-800 text-gray-300 hover:text-white'
@@ -130,7 +162,7 @@ export default function Sidebar({ currentPage, onNavigate }: SidebarProps) {
             title={isExpanded ? undefined : item.label}
           >
             {/* Active indicator */}
-            {currentPage === item.id && (
+            {activePage === item.id && (
               <div className="absolute left-0 top-0 bottom-0 w-1 bg-white" />
             )}
 
